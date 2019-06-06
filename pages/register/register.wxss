@@ -1,0 +1,86 @@
+/* login.wxss */
+.btn{
+    width: 75%;
+  line-height: 2.2rem;
+  border-radius: 100rem;
+  background-color: #1d8aff;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+
+}
+.title{
+  width: 80%;
+  height: 280rpx;
+  margin: 0 auto;
+  box-sizing:border-box;
+  padding-top:80rpx;
+  
+
+}
+.t1{
+font-size:46rpx;
+  font-weight:bold;
+}
+.t2{
+  font-size:30rpx;
+}
+input {
+  width: 80%;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top:0.5rem;
+  height: 2.4rem;
+}
+.get-code {
+background-color:#1d8aff;
+border-radius:5px;
+top:10%;
+right:0;
+width:28%;
+padding:5px 18px;
+z-index:999;
+transform:translateX(135%);
+text-align:center;
+
+
+}
+/************************** 顶部拍摄头像 ******************************/
+
+.apr-cards {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1rem 2rem 0;
+	text-align: center;
+}
+
+.apr-cards-photo {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 1rem 0 0;
+}
+
+.card-info {
+	font-size: 15px;
+	color: #888;
+	text-align: center;
+}
+
+.weui-uploader__input-box {
+	/* width: 6rem;
+  height: 8rem; */
+	margin: 0;
+}
+
+.card-img {
+	width: 6rem;
+	height: 8rem;
+	border: 1px solid #ddd;
+	border-radius: 0.5rem;
+}
+
+.card-img2 {
+	width: 8rem;
+	height: 8rem;
+	border: none;
+}

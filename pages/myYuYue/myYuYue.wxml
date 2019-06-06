@@ -1,0 +1,33 @@
+<!--pages/myYuYue/myYuYue.wxml-->
+<view class="container-box">
+    <view class='top'>
+      <view class='title'>
+      广告审批广告审批广告审批
+      </view>
+      <view class='middle'>
+        <view>
+          <image src='../../static/images/icon05.png'></image>
+        </view>
+        <view class='time'>
+        2018-06-11 14：00-16：00
+        </view>
+      </view>
+    </view>
+    <view class="img-box">
+        <image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
+    </view>
+    <view class='bottom'>扫描上方二维码快速查看</view>
+    <!-- <form bindsubmit="formSubmit">
+        <view class="input-row">
+            <label>网址</label>
+            <input name='url' value='' type="text" maxlength="255" placeholder="{{placeholder}}"/>
+        </view>
+       
+        <button formType="submit" class="mybtn" type="primary">生成二维码</button>
+    </form> -->
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas  hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+</view>
+

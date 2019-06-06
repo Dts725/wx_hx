@@ -1,0 +1,228 @@
+<view class='warp'>
+   <view class='warp-header'>
+        <image class='w100'  mode='widthFix' src='../../static/images/regulation-header.png'></image>
+        <view class='warp-header-text'>
+           <view class='warp-input'>
+             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                 {{array[index] ? array[index] : '请选择申办类型'}}
+                 </view>
+              </picker>
+           </view>
+        </view>
+   </view>
+
+  <view bindtap='application' class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 设置户外广告设施行政许可申请书
+    </text>
+
+    <view class="flex-center-column w100 content body fz14 co-99">
+      <image style='height : 48px; width : 48px;' src='../../static/images/icon-tianxie.png'></image>
+      <text>我要填报</text>
+    </view>
+  </view>
+
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 申请单位的营业执照
+    </text>
+  </view>
+  <view class='w100 pr'>
+
+    <view bindtap='uploadFn1' data-tap='1' class="flex-center-column w100 content body fz14 co-99">
+      <text wx-if="{{!img1}}">拍照上传</text>
+      <image wx-if="{{!img1}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+      <image wx-if="{{img1}}" mode='aspectFit' src='{{img1}}'></image>
+    </view>
+    <view wx-if="{{img1}}" class="flex-center w100 module fz14 co-99 pf">
+      <image bindtap='uploadFn1' data-tap='1' data-src='{{img1}}' class='img' src='../../static/images/bid/add.png'></image>
+      <image bindtap='delete' data-tap='1' data-src='{{img1}}' class='img' src='../../static/images/zbicon011.png'></image>
+      <image bindtap='view' data-tap='1' data-src='{{img1}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+    </view>
+
+  </view>
+
+  
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+      <text class='co-red'>*</text> 与经营户外广告业务相关文件
+    </text>
+
+    <view class='w100 pr'>
+
+      <view bindtap='uploadFn1' data-tap="2" class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img2}}">拍照上传</text>
+        <image wx-if="{{!img2}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img2}}" mode='aspectFit' src='{{img2}}'></image>
+      </view>
+
+      <view wx-if="{{img2}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='2' data-src='{{img2}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='2' data-src='{{img2}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='2' data-src='{{img2}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 产权证明
+    </text>
+    <view class='w100 pr'>
+      <view bindtap='uploadFn1' data-tap='3' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img3}}">拍照上传</text>
+        <image wx-if="{{!img3}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img3}}" mode='aspectFit' src='{{img3}}'></image>
+      </view>
+
+      <view wx-if="{{img3}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='3' data-src='{{img3}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='3' data-src='{{img3}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='3' data-src='{{img3}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 户外广告设施拟设位置平面图及原貌实景彩色照片
+    </text>
+    <view class='w100 pr'>
+
+      <view bindtap='uploadFn1' data-tap='4' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img4}}">拍照上传</text>
+        <image wx-if="{{!img4}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img4}}" mode='aspectFit' src='{{img4}}'></image>
+      </view>
+      <view wx-if="{{img4}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='4' data-src='{{img4}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='4' data-src='{{img4}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='4' data-src='{{img4}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 计算机绘制的彩色效果图A4纸型昼夜景各1张
+    </text>
+
+    <view class='w100 pr'>
+      <view bindtap='uploadFn1' data-tap='5' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img5}}">拍照上传</text>
+        <image wx-if="{{!img5}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img5}}" mode='aspectFit' src='{{img5}}'></image>
+      </view>
+      <view wx-if="{{img5}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='5' data-src='{{img5}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='5' data-src='{{img5}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='5' data-src='{{img5}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+       <text class='co-red'>*</text> 专业设计部门提供的结构设计图、施工说明书和施工单位的安全实施保证书
+    </text>
+
+    <view class='w100 pr'>
+
+      <view bindtap='uploadFn1' data-tap="6" class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img6}}">拍照上传</text>
+        <image wx-if="{{!img6}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img6}}" mode='aspectFit' src='{{img6}}'></image>
+      </view>
+      <view wx-if="{{img6}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='6' data-src='{{img6}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='6' data-src='{{img6}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='6' data-src='{{img6}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+
+    </view>
+
+  </view>
+
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+      <text class='co-red'></text>相邻人同意设置的书面协议
+    </text>
+
+    <view class='w100 pr'>
+      <view bindtap='uploadFn1' data-tap='7' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img7}}">拍照上传</text>
+        <image wx-if="{{!img7}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img7}}" mode='aspectFit' src='{{img7}}'></image>
+      </view>
+      <view wx-if="{{img7}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='7' data-src='{{img7}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='7' data-src='{{img7}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='7' data-src='{{img7}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='flex-center-start-column'>
+    <text class='tips fz15 fw700'>
+      <text class='co-red'></text>原准予行政许可决定书和原效果图复印件
+    </text>
+
+    <view class='w100 pr'>
+      <view bindtap='uploadFn1' data-tap='8' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img8}}">拍照上传</text>
+        <image wx-if="{{!img8}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img8}}" mode='aspectFit' src='{{img8}}'></image>
+      </view>
+
+      <view wx-if="{{img8}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='8' data-src='{{img8}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='8' data-src='{{img8}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='8' data-src='{{img8}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='flex-center-start-column'>
+    <view class='tips fz15 fw700 flex-center-between w100'>
+      <text><text class='co-red'>*</text> 承诺书</text>
+      <text bindtap='download' class='co-red'>下载承诺书模板</text>
+    </view>
+    <view class='w100 pr'>
+      <view bindtap='uploadFn1' data-tap='9' class="flex-center-column w100 content body fz14 co-99">
+        <text wx-if="{{!img9}}">拍照上传</text>
+        <image wx-if="{{!img9}}" style='height : 24px; width : 24px;' src='../../static/images/icon-tianjia.png'></image>
+        <image wx-if="{{img9}}" mode='aspectFit' src='{{img9}}'></image>
+      </view>
+
+      <view wx-if="{{img9}}" class="flex-center w100 module fz14 co-99 pf">
+        <image bindtap='uploadFn1' data-tap='9' data-src='{{img9}}' class='img' src='../../static/images/bid/add.png'></image>
+        <image bindtap='delete' data-tap='9' data-src='{{img9}}' class='img' src='../../static/images/zbicon011.png'></image>
+        <image bindtap='view' data-tap='9' data-src='{{img9}}' class='img' src='../../static/images/shenbanicon01.png'></image>
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+
+  
+  <button bindtap='submit' class='btn co-ff fz14'>提交申请</button>
+
+  <!-- <view wx:if="{{!disabled}}" class='flex-center-warp bottom fz14 white'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='submit'>提交</view>
+    </view> -->
+</view>

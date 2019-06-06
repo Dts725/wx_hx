@@ -1,0 +1,54 @@
+/* pages/problemOnline /problemOnline .wxss */
+
+.tips {
+  background-color: #f00;
+  line-height: 2em;
+}
+.img {
+  width: 2.5em;
+  height: 2.5em;
+}
+.service-item {
+
+ min-height: 1em;
+ padding: 0.5em;
+
+}
+.glod{
+ min-height: 1em;
+ padding: 0.5em;
+}
+.content-glod {
+  max-width: 75%
+
+}
+.content-service {
+  max-width: 75%
+}
+.warp {
+  padding: 1em 0.5em;
+}
+.inputs {
+  height: 3em;
+  border-radius: 100rem; 
+}
+.place {
+  line-height: 4em;
+  text-indent: 1em;
+}
+.submit {
+  
+   padding: 0.9em 2em;
+   border-radius: 5rem;
+
+}
+
+.bottom {
+  border-top: 1px solid #cecece;
+  padding: 0.2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}

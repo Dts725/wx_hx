@@ -1,0 +1,121 @@
+<view class='body'>
+  <view class='problem-header'>
+        <image class='w100'  mode='widthFix' src='../../static/images/regulation-header.png'></image>
+        <view class='problem-header-text'>
+          <view>综合服务平台常见问题</view>
+          <view class='small'>Q&A，最实用的服务平台审批难点解答</view>
+        </view>
+   </view>
+  <scroll-view scroll-y  id='problemScroll'>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>户外广告牌匾内容的要求?</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>商业牌匾内容应健康，除企业注册名称或简称、图标外无其他广告内容，不得含有用于宣传的网址、电话等信息。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>牌匾的规格要求？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>招牌实行一店一招，不得多层设置，统一建筑物上的店铺招牌设置高度应一致。注：道路断面小于30米，商业牌匾高度不得大于1.2米；道路断面大于等于30米，商业牌匾高度不得大于1.5米。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>牌匾内容与营业执照名称不一致怎么办？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>牌匾内容与营业执照名称不一致的，需要同时提供牌匾名称所属授权单位的品牌名称使用授权证明，例如加盟店需提供加盟协议书。牌匾内容中包含LOGO的，需要提供商标注册的相关证明文件，如商标注册证、商标注册申请受理通知书。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>产权证明是否只提供租房合同？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>自有产权的需提供房屋产权证、房地产权证、房屋买卖合同其一复印件。非自有产权的需提供房屋产权证和房屋租赁合同复印件。涉及转租的，申请单位需提供房屋产权人准予转租证明。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>原貌图的要求？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>原貌图即设置位置的原貌，原貌图中须同时提供该门店相连4-6家商户实景照片。若该门店无相邻商户，请在原貌图中体现出门店所在建筑的墙体边缘。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>效果图只提供牌匾设计图可以吗？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>不可以只提供牌匾的设计图。效果图要在原貌图基础上设计制作，色调和谐、不突兀，禁红底绿字、黄色背板。图片清晰整洁，能够直观的看出该门店牌匾规格与相邻商户牌匾规格的对比，应与相邻牌匾保持齐平。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>牌匾设置期限怎么写？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>默认设置期限两年有效期，到期可申请延期。如租赁日期或商标注册使用日期等其他日期短于设置期限，以最短的日期为设置结束日期。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>户外广告办理依据是什么?</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>国务院《城市市容和环境卫生管理条例》第十一条。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>什么情况需要提供商标注册或授权证明？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>牌匾内容与营业执照名称或批准名称不一致的，需要同时提供授权单位授权证明。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>牌匾设置期限怎么填写？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>默认两年有效期限，到期申请延期；如租赁日期或商标注册使用日期等其他日期短于设置期限，以最短日期为准。</view>
+    </view>
+  </view>
+  <view class='lists fz14 white'>
+    <view class='flex-center-start fz15 lisQ fw700'>
+      <view class='quests flex-center'>Q</view>
+      <view class='content'><text>电子显示牌设置要求是什么？</text></view>
+    </view>
+    <view class='flex-center-start lisA'>
+      <view class='answers-s flex-center'>A</view>
+      <view class='content co-99'>主干道严禁设置电子显示牌，开发区主干道路包括：第一大街、第二大街、第三大街、泰达大街、第五大街、第七大街、第九大街、第十二大街、第十三大街、黄海路、南海路、北海路。在可设置电子显示牌的路段、电子屏应设置镶嵌在门楣上建筑上方，两侧不得超过装饰柱，高度不超过0.4米，不得影响市容景观和群众生活。</view>
+    </view>
+  </view>
+  </scroll-view>
+</view>

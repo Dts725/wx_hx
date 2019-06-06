@@ -1,0 +1,12 @@
+/* pages/shezhi/shezhi.wxss */
+
+.weui-cell {
+padding:40rpx 15rpx 40rpx 40rpx!important;
+font-size:34rpx;
+}
+.xiugai{
+  margin-bottom: 20rpx;
+}
+.weui-cell__bd{
+  color: black;
+}

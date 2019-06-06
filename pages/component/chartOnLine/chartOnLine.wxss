@@ -1,0 +1,141 @@
+/* pages/problemOnline /problemOnline .wxss */
+.fz14 {
+  font-size: 14px;
+}
+.tips {
+  background-color: #f00;
+  line-height: 2em;
+}
+.img {
+  width: 2.5em;
+  height: 2.5em;
+}
+.service-item {
+
+ min-height: 1em;
+ padding: 0.5em;
+
+}
+.co-de {
+  color: #dedede;
+}
+.t-center {
+  text-align: center;
+}
+.glod{
+ min-height: 1em;
+ padding: 0.5em;
+}
+.content-glod {
+  max-width: 75%
+
+}
+.content-service {
+  max-width: 75%
+}
+
+.warp {
+  padding: 0 0.5em;
+}
+.inputs {
+  height: 2.5em;
+  border-radius: 100rem; 
+  padding-left:1em;
+
+}
+.place {
+  line-height: 100%;
+}
+.submit {
+  
+   padding: 0.5em 1.5em;
+   border-radius: 5rem;
+   margin-right:5px;
+
+}
+
+.bottom {
+  border-top: 1px solid #cecece;
+  padding: 0.2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+
+}
+.flex-center-starts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+ 
+}
+.mt-3rem {
+  margin-top: 1.5rem;
+}
+.flex-center-start-column {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.padl-1rem {
+  padding-left: 0.5rem;
+}
+.flex-center-start-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.h80 {
+  height: 80%;
+}
+.flex-center-start-column-reserve {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: flex-start;
+}
+.padr-1rem {
+  padding-right: 0.5rem;
+}
+.co-ce{
+  color: #cecece;
+}
+.bg-e1 {
+  background-color: #e15244;
+}
+.co-ff {
+  color: #fff;
+}
+
+.border-rad {
+  border-radius: 5px;
+}
+.flex-center-between {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+.w75 {
+  width: 75%;
+}
+.body {
+  background-color: #f2f2f2;
+}
+
+.scrolls {
+  padding-bottom:3em; 
+}

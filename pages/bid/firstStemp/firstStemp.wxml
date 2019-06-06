@@ -1,0 +1,93 @@
+<view class='fz14 body'>
+  <view class='tips  w100'style='background-color:#ffefed;color:#e15244; '>请正确填写以下表单信息</view>
+  <view class='label white'>
+    <text class="fw700">基本信息</text>
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class="item">单位名称</text>
+      <input cursor-spacing='40' bindinput	='getFrName' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' value='{{data.fr_name}}' placeholder='与营业执照名称一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class='item'>联系人</text>
+      <input cursor-spacing='40' value='{{data.fr_lxr}}' bindinput	='getFrxr' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入联系人姓名'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class='item'>联系方式</text>
+      <input cursor-spacing='40' bindinput	='fr_lxdh' value='{{data.fr_lxdh}}' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入联系电话'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class='item'>法人代表</text>
+      <input cursor-spacing='40' bindinput	='fr_frdb' value='{{data.fr_frdb}}' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='与营业执照名称一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt pr">
+      <text class='co-f0'>*</text>
+      <text class='item'>证件类型</text>
+      <input cursor-spacing='40'  style='margin-left:3em;' placeholder-style="color:#dedede" type='number' value='{{value}}' placeholder='请选择证件类型'></input>
+
+      <picker bindchange="bindPickerChange" class='pf picker-warp' value="{{index}}" mode = selector range-key='name' range="{{idType}}">
+        <view class="picker">{{item.name}} </view>
+      </picker>
+
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class='item'>法人证件号码</text>
+      <input cursor-spacing='40' bindinput	='fr_zjnum' value='{{data.fr_zjnum}}' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入证件号码'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='co-f0'>*</text>
+      <text class='item'>联系地址</text>
+      <input cursor-spacing='40' bindinput	='fr_address' value='{{data.fr_address}}' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入联系地址'></input>
+    </view>
+        <view class='flex-center-warp bottom fz14'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='submit'>下一步</view>
+    </view>
+  </view>
+  <!-- <view class='label white oth-info'>
+    <text class="fw700">其他信息 </text>
+    <text class="co-ce fz12"> 一下均为选填信息</text>
+    <view class="flex-center-start ipt">
+
+      <text class="item">邮政编码</text>
+      <input cursor-spacing='40' bindinput	='fr_zone' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入邮政编码'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+
+      <text class='item'>收件人</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='zhang'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>收件地址</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入收件地址'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>收件人手机号</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" type='number' placeholder='请输入收件人手机号'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+
+      <text class='item'>收件人邮政编码</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请输入收件人邮政编码'></input>
+    </view>
+    <view class='flex-center-warp bottom fz14'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='next'>下一步</view>
+    </view>
+  </view> -->
+
+
+</view>

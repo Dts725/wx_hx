@@ -1,0 +1,68 @@
+/* pages/component/HandlingStatus/HandlingStatus.wxss */
+.mt-1rem {
+  margin-top: 0.5rem;
+}
+
+
+/* padding */
+
+.padl-1rem {
+  padding-left: 0.5rem;
+}
+.padl-2rem {
+  padding-left: 1rem;
+}
+
+.padr-1rem {
+  padding-right: 0.5rem;
+}
+.padr-2rem {
+  padding-right: 1rem;
+}
+
+.padt-1rem {
+  padding-top: 1rem;
+}
+
+.padb-1rem {
+  padding-bottom: 1rem;
+}
+
+.padl-1rem {
+  padding-left: 0.5rem;
+}
+.done {
+  padding: 1rem 1rem 1rem 1rem;
+}
+.white {
+  background-color: #fff;
+}
+.fw700 {
+  font-weight: 700;
+}
+.padb-1rem {
+  padding-bottom: 1rem;
+}
+.flex-center-start-column {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.fz14 {
+  font-size: 14px;
+}
+.co-44 {
+  color : #444;
+}
+.co-ce {
+  color: #cecece;
+}
+
+.bord_top_e2 {
+  border-top-style:solid;
+  border-top-width: 1px;
+  border-top-color: #e2e2e2; 
+}

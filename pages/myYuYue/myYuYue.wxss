@@ -1,0 +1,77 @@
+/* pages/main/index.wxss */
+.container-box{height: 100vh}
+.img-box{text-align:center;}
+.img-box image{width:530rpx;height: 530rpx;background-color: #f9f9f9}
+.input-row{
+    margin: 30rpx auto;
+    border-bottom: 1rpx solid #e5e5e5;
+    border-top: 1rpx solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    padding: 0 32rpx; 
+    background-color: #fff;
+    font-size: 34rpx;
+    color: #000
+}
+
+.input-row input{margin-left: 100rpx;flex: 1}
+.mybtn{width:686rpx;margin: 60rpx auto }
+.mask{position: fixed;top: 0;left: 0;z-index: 3; width: 100%;height: 100%;opacity: 0;}
+.canvas-box{position: fixed;top:999999rpx;left: 0}
+.bottom{
+  width:370rpx;
+margin:0 auto;
+font-size:32rpx;
+color:#ccc;
+margin-top:-40rpx;
+
+}
+.top{
+  text-align:center;
+margin-top:120rpx;
+
+}
+.title{
+  color:black;
+font-weight:bold;
+font-size:44rpx;
+margin-bottom:15rpx;
+
+}
+.shijian{
+  display:flex;
+margin:0 auto;
+width:380rpx;
+
+}
+.middle{
+display:flex;
+width:470rpx;
+font-size:30rpx;
+margin:0 auto;
+text-align:center;
+color:#ccc;
+
+}
+.middle image{
+  width:30rpx;
+height:30rpx;
+margin-top:10rpx;
+
+
+}
+.middle .time{
+  color:#ccc;
+margin-left:20rpx;
+font-size:30rpx;
+
+
+}
+.bottom{
+color:#ccc;
+text-align:center;
+margin-top:-50rpx;
+font-size:32rpx;
+
+}

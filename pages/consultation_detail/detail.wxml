@@ -1,0 +1,36 @@
+<!--pages/consultation_detail/detail.wxml-->
+<!-- <text>pages/consultation_detail/detail.wxml</text> -->
+<view class="consultation-detail">
+  <view class="detail-header yh-row-traverse">
+    <text>关于我要开饭店所需事项审批及材料清单</text>
+    <image class="bg-image" src="../../static/images/banjian.png"></image>
+  </view>
+  <view class="d-panel">
+    <view class="d-panel-header yh-row-traverse">
+      <image class="icon" src='../../static/images/reservation-01.png' mode='widthFix'></image>
+      <text>关于我要开饭店所需审批事项</text>
+    </view>
+    <view class="d-panel-body">
+      <view class="d-panel-body-li">1、事项1</view>
+      <view class="d-panel-body-li">2、事项2</view>
+      <view class="d-panel-body-li">3、事项3</view>
+      <view class="d-panel-body-li">4、事项4</view>
+      <view class="d-panel-body-li">5、事项5</view>
+      <view class="d-panel-body-li">6、事项6</view>
+      <view class="d-panel-body-li">7、事项7</view>
+    </view>
+  </view>
+  <view class="d-panel">
+    <view class="d-panel-header yh-row-traverse">
+      <image class="icon" src='../../static/images/reservation-01.png' mode='widthFix'></image>
+      <text>关于我要开饭店所需材料</text>
+    </view>
+    <view class="d-panel-body">
+      <view class="d-panel-body-li">1、材料1</view>
+      <view class="d-panel-body-li">2、材料2</view>
+      <view class="d-panel-body-li">3、材料3</view>
+      <view class="d-panel-body-li">4、材料4</view>
+      <view class="d-panel-body-li">5、材料5</view>
+    </view>
+  </view>
+</view>

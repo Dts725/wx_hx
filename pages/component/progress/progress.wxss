@@ -1,0 +1,72 @@
+/* pages/component/progress/progress.wxss */
+/* pages/progress/progress.wxss */
+
+.item {
+  line-height: 1.5rem;
+}
+
+.img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.line {
+  width: 2px;
+  height: 5rem;
+  margin-right: 0.5rem;
+  background-color: red;
+}
+
+.progress {
+
+ width: 120px;
+ height: 120px;
+ top: 45%;
+ left: 50%;
+ transform: translate(-50% ,-50%);
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+.flex-center-column {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center-start-column {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.fw700 {
+  font-weight: 700;
+
+}
+.co-e2{
+  color: #e2e2e2;
+}
+.co-ce {
+  color: #cecece;
+}
+.fz14{
+  font-size: 14px;
+}
+.w100 {
+  width: 100%;
+}
+.padb {
+  padding-top: 2rem;
+  padding-left: 15%;
+}
+
+
+

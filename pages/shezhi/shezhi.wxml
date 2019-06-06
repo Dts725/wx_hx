@@ -1,0 +1,16 @@
+<!--pages/myData/myData.wxml-->
+<view class='bg'>
+
+        <view class="weui-cells weui-cells_after-title xiugai">
+            <navigator url="../password/password" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">密码修改</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">关于我们</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+</view> 

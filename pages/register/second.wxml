@@ -1,0 +1,19 @@
+<!--pages/register/second.wxml-->
+<view style='border-top:1px solid #dddbdb;'>
+  <view class='top'>
+
+    <image src='../../static/images/touxiang.png'></image>
+    <view  class='renzheng'>头像认证</view>
+    <view class='shenhe'>认证头像要清晰，否则无法通过审核</view>
+  </view>
+  <view class='wrap'>
+    <view class='c1'>
+    {{username}}
+    </view>
+    <view class='c1'>{{userCard}}</view>
+     <view class='c1'>{{userPhone}}</view>
+  </view>
+  <button bindtap='loginSubmit' class='btn co-ff'>确认绑定</button>
+  <view class='back' bindtap='Back'>返回</view>
+</view>
+

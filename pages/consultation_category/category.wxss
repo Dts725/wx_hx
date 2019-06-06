@@ -1,0 +1,38 @@
+/* pages/consultation_category/category.wxss */
+
+.category {
+  box-sizing: border-box;
+  padding: 5vw;
+}
+
+.category-header {
+  font-size: 7vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.category-body {
+  margin: 3vw 0 10vw 0;
+}
+
+.yh-row-traverse {
+  margin: 2vw 0;
+}
+
+.category-body-label {
+  width: 15vw;
+}
+
+.category-body-con {
+  width: 84vw;
+  background-color: #f1f1f1;
+  border-radius: 2vw;
+  box-sizing: border-box;
+  padding: 2vw;
+}
+
+.category-footer .submit {
+  background-color: #2F92F8;
+  color: #fff;
+  border-radius: 50vw;
+}

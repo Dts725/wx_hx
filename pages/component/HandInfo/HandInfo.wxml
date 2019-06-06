@@ -1,0 +1,118 @@
+<!--pages/component/HandInfo/HandInfo.wxml-->
+<!-- 信息展示 -->
+<view class='w100 white mt-1rem padb3'>
+  <view class='flex-center w100 fz15 fw700'>
+    <text bindtap='_bjInfo' class='w50 t-center padt-1rem padb-1rem padr-1rem padl-1rem {{bjClass}}'>办件信息</text>
+    <text bindtap='_bjProgress'  class='w50 t-center padt-1rem padb-1rem padr-1rem padl-1rem {{progressClass}}'>进度查询</text>
+  </view>
+
+  <view wx:if='{{flag}}' class='bg'>
+      <view wx:for='{{array}}' class='total'>
+         <view class='top1'>
+          <view class='shuzi'>{{index+1}}</view>
+          <view class='biaoti1'>{{item.title}}</view>
+         </view>
+         <view class='bottom1'>
+          <view class='shizhong'>
+              <image  src='../../../static/images/zbicon01.png'></image>
+          </view>
+          <view class='shijian'>
+               提交时间 :
+          </view>
+         
+          <view class='shijian1'>{{item.time}}</view>
+            <view class='tubiao'>
+            
+            <image src='../../../static/images/sbicon04.png'></image>
+            <image src='../../../static/images/zbicon011.png'></image>
+            </view>
+         </view>
+      </view>
+      <view style='display:flex; padding-bottom:30rpx;padding-top:20px;background:white;'>
+        <button class='back'>返回</button>
+        <button class='tijiao'>提交</button>
+      </view> 
+  </view>
+  <!-- <progress wx-if="{{!flag}}" progressData='{{bjInfoProgress}}' bind:myFlag="myflag"></progress> -->
+  <view  wx-if="{{!flag}}" style='margin-top:50rpx;'>
+  <!-- <view class='pr'>
+    <image src='../../static/zizhu/title-chaxun.png' class='w100' mode="widthFix"></image>
+    <view class='biaoti'>{{title}}</view>
+  </view> -->
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image class='img' src='../../../static/zizhu/liucheng01.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>网上预审</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item item1'>办理人:{{person}}</text>
+      <text class='co-ce fz14 item item1'>意见：{{yijian}}</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image src='../../../static/zizhu/liucheng01.png' class='img'></image>
+      <!-- <image wx-if="{{process>=1}}" class='img' src='../image/progress/icon01.png'></image>
+      <image wx-if="{{process<1}}" class='img' src='../image/progress/icon02.png'></image> -->
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>受理</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+     <text class='co-ce fz14 item item1'>办理人:{{person}}</text>
+      <text class='co-ce fz14 item item1'>意见：{{yijian}}</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <!-- <image wx-if="{{process>=2}}" class='img' src='../image/progress/icon01.png'></image>
+      <image wx-if="{{process<2}}" class='img' src='../image/progress/icon02.png'></image> -->
+      <image src='../../../static/zizhu/liucheng01.png' class='img'></image>
+      <view class='line line1'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>初审</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <!-- <text>办理人</text> -->
+      <text class='co-ce fz14 item item1'>办理人:{{person}}</text>
+      <text class='co-ce fz14 item item1'>意见：{{yijian}}</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <!-- <image wx-if="{{process>=3}}" class='img' src='../image/progress/icon01.png'></image>
+      <image wx-if="{{process<3}}" class='img' src='../image/progress/icon02.png'></image> -->
+       <image src='../../../static/zizhu/liucheng02.png' class='img'></image>
+      <view class='line line1'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>批准</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+     <text class='co-ce fz14 item item1'>办理人:{{person}}</text>
+      <text class='co-ce fz14 item item1'>意见：{{yijian}}</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-start'>
+      <!-- <image wx-if="{{process>=4}}" class='img' src='../image/progress/icon01.png'></image>
+      <image wx-if="{{!process<4}}" class='img' src='../image/progress/icon02.png'></image> -->
+       <image src='../../../static/zizhu/liucheng02.png' class='img'></image>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>办结</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item item1'>办理人:{{person}}</text>
+      <text class='co-ce fz14 item item1'>意见：{{yijian}}</text>
+    </view>
+  </view>
+
+</view>
+
+</view>

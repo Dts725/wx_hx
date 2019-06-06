@@ -1,0 +1,106 @@
+/* pages/consultation/onsultation.wxss */
+
+.row {
+  width: 100%;
+  overflow: auto;
+}
+
+/* 顶部的搜索框 */
+
+.record-inpuit {
+  background-color: #bbb;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 3vw 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 94vw;
+  margin: 5vw auto;
+  border-radius: 55vw;
+}
+
+.record-inpuit input {
+  color: inherit;
+  width: 85vw;
+}
+
+.record-inpuit .icon {
+  color: inherit;
+  width: 6vw !important;
+  height: 6vw !important;
+}
+
+/* 计时器 */
+
+.record-tip {
+  margin: 5vw 0;
+  text-align: center;
+}
+
+/* 底部的按住说话按钮 */
+
+.record-foot {
+  position: absolute;
+  left: 0;
+  bottom: 5vh;
+  /* transform:translate(-50%,0); */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #777;
+}
+
+.record-foot-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.record-foot .image-box {
+  position: relative;
+  width: 21vw;
+  height: 21vw;
+  border-radius: 80vw;
+  display: block;
+  margin-bottom: 1vw;
+}
+
+.image-box image {
+  width: 21vw !important;
+  height: 21vw !important;
+  /* border-radius: 80vw;
+  display: block;
+  margin-bottom: 1vw; */
+}
+
+/* 当按住时的动画样式 */
+
+.animate-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100vw;
+  border: 2px solid #00BCD4;
+}
+
+.is_active {
+  animation: scale 1s ease-in infinite;
+}
+
+@-webkit-keyframes scale {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}

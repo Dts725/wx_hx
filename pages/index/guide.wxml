@@ -1,0 +1,89 @@
+<!--pages/index/guide.wxml-->
+<view class='index-guide'>
+   <view class='index-guide__header'>
+      <image src='../../static/images/guide.png' mode='widthFix'></image>
+      <view class='index-guide__header-text'><text>户外广告办事指南</text></view>
+   </view>
+   <view class='index-guide__content'>
+      <view class='index-guide__content-item'>
+          <view class='index-guide__content-item-title'>
+            <text class='index-guide__content-item-line'>办理条件</text>
+          </view>
+          <view class="index-guide__content-item-container">
+              <view class='index-guide__content-item-content'>
+                <view>1、具有设置户外广告的场地或载体；</view>
+                <view>2、符合户外广告设置标准；</view>
+                <view>3、户外广告设置对周边环境无不良影响。</view>
+              </view>
+              <view class='index-guide__number'>
+                  <text style='color:#E7EEF6'>1</text>
+                </view>
+          </view>
+      </view>
+      <view class='index-guide__content-item'>
+          <view class='index-guide__content-item-title'>
+            <text class='index-guide__content-item-line'>办事程序</text>
+          </view>
+          <view class="index-guide__content-item-container">
+              <view class='index-guide__content-item-content'>
+                <view>1、受理、现场勘察、审批。</view>
+              </view>
+              <view class='index-guide__number'>
+                  <text style='color:#E7EEF6'>2</text>
+                </view>
+          </view>
+      </view>
+      <view class='index-guide__content-item'>
+         <view class='index-guide__content-item-title'>
+           <text class='index-guide__content-item-line'>申报材料</text>
+         </view>
+         <view class="index-guide__content-item-container">
+            <view class='index-guide__content-item-content'>
+              <view>1、申请书；</view>
+              <view>2、身份证复印件；</view>
+              <view>3、户外广告彩色效果图；</view>
+              <view>4、广告经营许可或其他有关批准手续复印件；</view>
+              <view>5、“五小”行业需提供前置规划选址准手续复印件；</view>
+              <view>6、非业主的店面使用人，需提供业主同意设置的书面证明；</view>
+              <view>7、场地、设施使用权说明和广告合同；</view>
+              <view>8、大型户外广告设置需提供安全责任书、施工图；</view>
+              <view>9、设计平面图；</view>
+              <view>10、地理位置示意图。</view>
+            </view>
+             <view class='index-guide__number'>
+                <text style='color:#E7EEF6'>3</text>
+              </view>
+         </view>
+      </view>
+       <view class='index-guide__content-item'>
+         <view class='index-guide__content-item-title'>
+           <text class='index-guide__content-item-line'>承诺时限</text>
+         </view>
+         <view class="index-guide__content-item-container">
+            <view class='index-guide__content-item-content'>
+              <view>1、3个工作日。</view>
+            </view>
+             <view class='index-guide__number'>
+                <text style='color:#E7EEF6'>4</text>
+              </view>
+         </view>
+      </view>
+      <view class='index-guide__content-item'>
+         <view class='index-guide__content-item-title'>
+           <text class='index-guide__content-item-line'>收费依据</text>
+         </view>
+         <view class="index-guide__content-item-container">
+            <view class='index-guide__content-item-content'>
+              <view>1、《城市道路管理条例》</view>
+              <view>2、《天津市道理管理条例》</view>
+              <view>3、《城市道路占用、挖掘收费管理办法》</view>
+              <view>4、建设部、财政部、国家物价局建成（1993）410号文件</view>
+              <view>5、长价发（2007）54号文件</view>
+            </view>
+             <view class='index-guide__number'>
+                <text style='color:#E7EEF6'>5</text>
+              </view>
+         </view>
+      </view>
+   </view>
+</view>

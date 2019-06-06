@@ -1,0 +1,5 @@
+<!--pages/myData/change.wxml-->
+<view>
+  <input bindinput='formName' value='{{value}}' class='genggai'></input>
+  <button class='baocun'>保存</button>
+</view>

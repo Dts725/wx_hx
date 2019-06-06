@@ -1,0 +1,6 @@
+<view class='shadow-box  flex-start-warp'>
+  <view class='pr demo-img' style='height:120px;' wx:for='{{previewImageList}}' wx:key='{{index}}'>
+    <image  style='height:120px; width:100%;'  src='{{item.url}}' mode='scaleToFill'></image>
+    <image class='delete' bindtap='delete' data-id='{{item.id}}' data-index='{{index}}' style='width:25px; height:25px;' src='../../image/delete.png'></image>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+<!-- liveVideo.wxml -->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view style='height:100%'>
+  <view class="overall-page">
+    <view class="overall-title">
+      <label class="overall-title-name">{{foldContent[0].title}}</label>
+      <!-- <image class="small-icon-play" src='../../static/play.gif'></image> -->
+    </view>
+
+    <view class='container-wrap'>
+      <block wx:for="{{foldContent}}" wx:key="{{item.id}}">
+        <view class='item-li'>
+          <view class='item-title'>
+            <text>{{item.start_time}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- <live-player id="myliveVideo" src="{{rtmpScorce}}" mode="RTC" autoplay bindstatechange="statechange" binderror="error" bindtap="changeStatusBar" style="width: 100%; height: 225px;margin-top:10px;vertical-align:top;"> -->
+    <live-player id="myliveVideo" src="rtmp://58.200.131.2:1935/livetv/hunantv" mode="RTC" autoplay bindstatechange="statechange" binderror="error" bindtap="changeStatusBar" style="width: 100%; height: 225px;margin-top:10px;vertical-align:top;">
+      <cover-view class="controls" bindtap='changeStatusBar'>
+        <!-- <cover-view class="countDown" scroll-top="0">
+          <cover-view class='rimage' wx:if="{{count !=0}}">
+            <cover-image class='vimage' src="{{image}}"></cover-image>
+          </cover-view>
+          <cover-view class='block' wx:if="{{count !=0}}"></cover-view>
+          <cover-view class='down' wx:if="{{countNum!=0}}">
+            <cover-image class="img" src="../../static/liveVideo/countDown.png" />
+            <cover-view class="text">距直播开始还有</cover-view>
+            <cover-view class='time'>{{countTimes}}</cover-view>
+          </cover-view>
+        </cover-view> -->
+        <cover-view class="statusBar {{statusBarLive==0?'statusBarDisappear':''}}">
+          <cover-view class="play" bindtap="liveVideoPlay">
+            <cover-image class="small-icon" src="../../static/\liveVideo/{{isLivePlayed==true?'pause':'play'}}.png" />
+          </cover-view>
+          <cover-view class="play" bindtap="fullScreen">
+            <cover-image class="small-icon" src="../../static/\liveVideo/{{isFullScreen==true?'exitFullScreen':'fullScreen'}}.png" />
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </live-player>
+
+
+    <view class='container-wrap1' bindtap='info'>
+      <view class='item-li-ji'>
+        <text>{{text}}</text>
+        <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+      </view>
+      <!-- 手风琴 -->
+      <!-- <block wx:for="{{foldContent}}" wx:key="{{item.id}}">
+      <view class='item-li'>
+        <view class='item-content' bindtap='showHide' wx:if='{{foldContent[0].shows}}' data-changeid="{{item.id}}">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+        <view class='item-content1' bindtap='showHide' wx:if='{{!foldContent[0].shows}}' data-changeid="{{item.id}}">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+    </block> -->
+    </view>
+  </view>
+
+  <view class='dialog' wx:if="{{dialogShow}}">
+    <view class='dialog-close' bindtap='close'>×</view>
+    <view class='dialog-contain'>
+      <view class='dialog-title'>视频简介：</view>
+      <view class='dialog-html'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class='charts'>
+    <chart></chart>
+  </view>
+</view>

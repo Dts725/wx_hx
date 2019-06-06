@@ -1,0 +1,87 @@
+/* index.wxss */
+
+.body {
+  background-color: #f3f3f3;
+}
+
+.ready {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.img {
+  width: 42px;
+  height: 42px;
+}
+
+.margin-bottom {
+  margin-bottom: 0.5rem;
+}
+
+.flex-center-warp, .flex-center-evenly {
+  padding: 0 0 0.5rem 0;
+}
+
+.flex-center-column {
+  background-color: #fff;
+}
+
+.flex-center-column image {
+  height: 110rpx;
+  width: 220rpx;
+  display: block;
+}
+
+.flex-center-warp-circl image {
+  height: 100rpx !important;
+  width: 100rpx !important;
+  display: block;
+  border-radius: 100rpx;
+}
+
+.flex-center-column text {
+  font-size: 30rpx;
+}
+
+.impress {
+  margin: 0 2vw 4vw 2vw;
+}
+
+.fz12 {
+  font-size: 12px;
+}
+
+.btn image {
+  height: 110rpx;
+  width: 220rpx;
+  display: block;
+  /* width: 31.5%;
+  height: 55px; */
+}
+
+/* .btn-bottom image{
+  height: 42px;
+  width: 42px;
+} */
+
+.wechat {
+  width: 100%;
+  height: 55px;
+}
+
+.wechat>contact-button {
+  opacity: 0;
+}
+
+.prepare-item {
+  width: calc((100% - 8vw) / 3)
+}
+
+.online-banner {
+  width: calc(100% - 0.5rem);
+  margin: 4vw auto 0 auto;
+}
+
+.flex-center-evenly {
+  justify-content: space-around;
+}

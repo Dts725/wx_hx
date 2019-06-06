@@ -1,0 +1,181 @@
+/* pages/component/progress/progress.wxss */
+ 
+/* pages/progress/progress.wxss */
+ 
+
+ 
+.item {
+ 
+  line-height: 1.5rem;
+ 
+}
+
+
+ 
+.lis-1 {
+  line-height: 1rem;
+  background-color: #e15244;
+  width: 1rem;
+  height: 1rem;
+  padding: 1px;
+  
+   flex-shrink: 0;
+  border-radius: 2rem;
+  text-align: center;
+  
+}
+ 
+.img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+ 
+}
+ 
+.img-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+padding: 0 0.2rem;
+ 
+}
+ 
+
+ 
+.line {
+ 
+  width: 2px;
+ 
+  height: 3rem;
+ 
+  margin-right: 0.5rem;
+ 
+  background-color: #e15244;
+ 
+}
+ 
+
+ 
+.progress {
+ 
+
+ 
+ width: 120px;
+ 
+ height: 120px;
+ 
+ top: 45%;
+ 
+ left: 50%;
+ 
+ transform: translate(-50% ,-50%);
+ 
+}
+ 
+
+ 
+.flex-start {
+ 
+  display: flex;
+ 
+  justify-content: flex-start;
+ 
+  align-items: flex-start;
+ 
+}
+ 
+
+ 
+
+ 
+.flex-center-column {
+ 
+  display: flex;
+ 
+  flex-flow: column wrap;
+ 
+  justify-content: center;
+ 
+  align-items: center;
+ 
+}
+ 
+.flex-center-start-column {
+ 
+  display: flex;
+ 
+  flex-flow: column wrap;
+ 
+  justify-content: flex-start;
+ 
+  align-items: flex-start;
+ 
+  align-content: flex-start;
+ 
+}
+ 
+.fw700 {
+ 
+  font-weight: 700;
+ 
+
+ 
+}
+ 
+.co-e2{
+ 
+  color: #e2e2e2;
+ 
+}
+ 
+.co-ce {
+ 
+  color: #cecece;
+ 
+}
+ 
+.fz14{
+ 
+  font-size: 14px;
+ 
+}
+ 
+.w100 {
+ 
+  width: 100%;
+ 
+}
+ 
+.padb {
+ 
+  padding-top: 2rem;
+ 
+  padding-left: 15%;
+ 
+}
+ 
+
+ 
+.back{
+  width: 35%;
+  background-color: #cecece;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 10rem;
+
+}
+
+.next{
+  width: 35%;
+  background-color: #dd4734;
+
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 10rem;
+
+}
+.bottom {
+  padding: 2em 0;
+  margin-top: 0.5em;
+}
+
+ 

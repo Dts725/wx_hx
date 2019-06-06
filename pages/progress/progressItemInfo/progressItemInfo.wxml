@@ -1,0 +1,42 @@
+<view class='fz14 body h100 bord_top_e2 mt-1rem'>
+
+  <!-- <block>
+  <top  bjTopData='{{bjTopData}}'></top>
+  </block> -->
+
+  <block>
+  <info bjInfoData='{{dataInfo}}'  bind:myFlag="onMyFlag"></info>
+  </block>
+
+
+<view wx:for='{{dataInfo.list}}' wx:if="{{viewFlag}}" wx:key='index'>
+    <view class='mt-1rem white flex-center-between-column'>
+    <view class='flex-center-start fw700 bord_ce w90 padl-1rem padr-1rem padt-1rem padb-1rem'>
+      <text class='lis-1 co-ff fz14 mr-1rem'>{{index+1}}</text>
+      <text>{{item.cl_clmc}}</text>
+      </view>
+    <view class='flex-center-between w90 padl-1rem padr-1rem padt-1rem padb-1rem'>
+      <view class='flex-center-start'>
+        <image class='img mr-1rem' src='../../image/time_icon.png'></image>
+        <text class='co-ce'>提交时间:</text>{{item.cl_time}}</view>
+      <view class='flex-center-between' >
+        
+        <image bindtap='edit' data-id='{{item.id}}' class='img-icon' src='../../image/edit_04.png' data-index='{{index}}' wx:if='{{dataInfo.bjinfo.ywsx_state_int === "13"}}'></image>
+        <image bindtap='delete' data-id='{{item.id}}' class='img-icon' src='../../image/delete.png' data-index='{{index}}' wx:if='{{dataInfo.bjinfo.ywsx_state_int === "13" && index !== 0}}'></image>
+        <image bindtap='view' data-id='{{item.id}}' class='img-icon' data-index='{{index}}' src='../../image/view.png' wx:if='{{dataInfo.bjinfo.ywsx_state_int === "13" && index !== 0}}'></image>
+        <image bindtap='view' data-id='{{item.id}}' class='img-icon' data-index='{{index}}' src='../../image/view.png' wx:if='{{dataInfo.bjinfo.ywsx_state_int !== "13" }}'></image>
+       
+        </view>
+    </view>
+  </view>
+</view>
+
+
+
+   <view  wx:if='{{dataInfo.bjinfo.ywsx_state_int === "13" && viewFlag}}' class='flex-center-warp bottom fz14 white'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='submitEdit'>提交</view>
+    </view>
+
+</view>
+

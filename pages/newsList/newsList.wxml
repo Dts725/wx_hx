@@ -1,0 +1,44 @@
+<!--pages/newsList/newsList.wxml-->
+<view class='bg'>
+
+<!-- <view class="weui-panel__bd">
+                <navigator url="../myYuYue/myYuYue?id=1" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">标题一由各种物质组成的巨型球状天体，叫做星球</view>
+                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    </view>
+                      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="../../static/4.jpg" />
+                    </view>
+                </navigator>
+                 <navigator url="../myYuYue/myYuYue?id=2" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">标题一</view>
+                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    </view>
+                      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="../../static/4.jpg" />
+                    </view>
+                </navigator>
+            </view> -->
+            <view class="card" wx:for="{{setData}}" bindtap="detailEvent">
+
+              <!-- <view class="c-panel c-info-{{cardData.image?'':'padding'}}"> -->
+              <view class="c-panel c-info-{{cardData.image?'':'padding'}}">
+                <view class="c-row">
+                  <view class="c-body-left">
+                    <view class="c-panel-title">{{item.title}}</view>
+                    <view class="c-info-gray">
+                      <text>{{item.time}}</text>
+                      <!-- <text style="margin-left:1rem;">{{cardData.community_name? cardData.community_name : '华纳社区'}}                       </text> -->
+                    </view>
+                  </view>
+                  <view class='c-body-right'>
+                    <image class="c-img" src='../../static/4.jpg' mode="scaleToFill" lazy-load="true"></image>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+</view>

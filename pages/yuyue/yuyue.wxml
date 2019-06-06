@@ -1,0 +1,124 @@
+<!--pages/yuyue/yuyue.wxml-->
+<view style=' width: 100%;height: 100vh;background:white;box-sizing:border-box;padding-top:100rpx;'>
+<view>
+   <image src='../../static/images/wenhaoicon.png' class='wenhao'></image>
+</view>
+<view style='font-size:32rpx;'>
+            <!-- <view class="weui-cell weui-cell_input"  style='border-top:none;'>
+                <image src='../../static/user.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">预约人</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入预约人"/>
+                </view>
+            </view>
+             <view class="weui-cell weui-cell_input">
+                <image src='../../static/user.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">联系电话</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入联系电话"/>
+                </view>
+            </view> -->
+            <!-- <view class="weui-cells weui-cells_after-title"> -->
+              <view class="weui-cell">
+                  <view class="weui-cell__hd">
+                      <image src="../../static/images/icon01.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                  </view>
+                  <view class="weui-cell__bd">预约人</view>
+                  <view class="weui-cell__ft">{{username}}</view>
+              </view>
+              <view class="weui-cell">
+                  <view class="weui-cell__hd">
+                      <image src="../../static/images/icon02.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                  </view>
+                  <view class="weui-cell__bd">预约电话</view>
+                  <view class="weui-cell__ft">121212121212</view>
+              </view>
+          <!-- </view> -->
+              <view class="weui-cell weui-cell_input">
+                <image src='../../static/images/icon03.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">办理事项</view>
+                    
+
+
+                </view>
+                <view class="weui-cell__bd">
+                    <!-- <input class="weui-input" placeholder="请输入办理事项"/> -->
+                    	<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+						<view class="picker">{{array[index]}}</view>
+             <image src='../../static/xiala.png' class='xiala'></image>
+            <!-- <image src='../../static/xiala.png'></image> -->
+					</picker>
+                    <!-- <view class='select_box'>
+                        <view class='select' catchtap='selectTap'>
+                            <text class='select_text shixiang' wx:if='{{tag}}'>请输入办理事项</text>
+                            <text class='select_text' wx:elif='{{!tag}}'>{{selectData[index]}}</text>
+                            <image class='select_img {{show&&"select_img_rotate"}}' src='../../static/xiala.png'></image>         
+                        </view>
+                        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+                            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+                        </view>
+                    </view> -->
+                   
+                </view>
+            </view>
+              <!-- <view class="weui-cell weui-cell_input">
+                <image src='../../static/user.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">企业名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入企业名称"/>
+                </view>
+            </view> -->
+            <view class="weui-cell weui-cell_input">
+             <image src='../../static/images/icon04.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">预约日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date}}" bindchange="bindDateChange" start="{{date}}">
+                        <view class="weui-input">{{date}}</view>
+                         <image src='../../static/xiala.png' class='xiala'></image>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style='border-bottom:1px solid #ccc;'>
+             <image src='../../static/images/icon05.png'></image>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">预约时间</view>
+                </view>
+                <view class="weui-cell__bd riqi">
+                    <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array1}}">
+                      <view class="picker">{{array1[index1]}}</view>
+                      <image src='../../static/xiala.png' class='xiala'></image>
+                      <!-- <image src='../../static/xiala.png'></image> -->
+                    </picker>
+                     <!-- <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                        <view class="weui-input kaishi">{{time}}</view>
+                         <image src='../../static/xiala.png' class='xiala'></image>
+                    </picker> -->
+                    <!-- <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                        <view class="weui-input kaishi">{{time}}</view>
+                         <image src='../../static/xiala.png' class='xiala1'></image>
+                    </picker>
+                    <view class='zhi'> 至</view>
+                   
+                    <picker mode="time" value="{{time1}}" start="09:01" end="21:01" bindchange="bindTimeChange1">
+                        <view class="weui-input jieshu">{{time1}}</view>
+                         <image src='../../static/xiala.png' class='xiala'></image>
+                    </picker> -->
+                </view>
+            </view>
+            
+        </view>
+         <button class="weui-btn liji" type="default" bindtap='sub'>立即预约</button>
+
+
+
+      
+</view>

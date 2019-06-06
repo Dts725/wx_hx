@@ -1,0 +1,10 @@
+<view class='w100 white done'>
+  <view class='fw700 padb-1rem'>在办事项</view>
+  <view class='flex-center-start-column fz14'>
+    <text class='co-44'>{{bjTopData.ywsx_sxmc}}</text>
+    <text> <text class='co-ce'>办件编号 : </text>
+    <text class='co-44'>{{bjTopData.bj_bh}}</text></text>
+    <text> <text class='co-ce'>办件状态 : </text>
+    <text class='co-44'>{{bjTopData.ywsx_state}}</text></text>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<!--pages/record/record.wxml-->
+<view style='margin-top:30rpx;'>
+  <view class='w80' wx:for="{{data}}">
+    <view class='top'>
+      <view>
+      <image src='../../static/images/reservation-01.png'></image>
+      </view>
+      <view class='right'>
+        <view class='title'>
+        <!-- 办理事项办理事项办理事项办理事项办理事项 -->
+        {{item.title}}
+        </view>
+        <view class='time'>
+        <!-- 2019-04-03 13:00-19:00 -->
+         {{item.time}}
+        </view>
+      </view>
+    </view>
+    <view class='bottom'>
+      <view>
+          <image src='../../static/images/success.png'></image>
+      </view>
+      
+      <view class='zhuangtai'>
+          状态：<view class='zhuangtai_1'> {{item.type}}</view>
+      </view>
+    </view>
+  </view>
+</view>

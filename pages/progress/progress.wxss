@@ -1,0 +1,70 @@
+/* pages/progress/progress.wxss */
+
+.item {
+  line-height: 1.5em;
+}
+
+.img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5em;
+}
+
+.line {
+  width: 2px;
+  height: 140rpx;
+  margin-right: 0.5em;
+  background-color: #1b8afe;
+}
+.line1{
+  background-color: #cccccc;
+}
+.progress {
+
+ width: 120px;
+ height: 120px;
+ top: 45%;
+ left: 50%;
+ transform: translate(-50% ,-50%);
+}
+.pr{
+  text-align:center;
+margin-top:30rpx;
+margin-bottom:20rpx;
+
+
+}
+.pr image{
+  width:710rpx;
+height:140rpx;
+
+}
+.biaoti{
+  top:40rpx;
+position:absolute;
+color:white;
+text-align:center;
+width:100%;
+font-size:38rpx;
+
+}
+.fw700{
+  color:#333333;
+font-size:40rpx;
+font-family:黑体;
+
+
+}
+.item1{
+  font-size:32rpx;
+color:#989898;
+
+}
+.flex-start{
+  justify-content:left!important;
+margin-left:90rpx!important;
+
+}
+
+
+

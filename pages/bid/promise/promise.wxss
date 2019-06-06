@@ -1,0 +1,7 @@
+/* pages/bid/promise/promise.wxss */
+.content {
+  padding: 1rem 0.5rem;
+}
+.promise {
+  margin-top: 2rem;
+}

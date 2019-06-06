@@ -1,0 +1,31 @@
+<!--pages/consultation_category/category.wxml-->
+<!-- <text>pages/consultation_category/category.wxml</text> -->
+<view class="category">
+  <view class="category-header">我要开饭店</view>
+  <view class="category-body">
+    <view class="yh-row-traverse">
+      <text class="category-body-label">面积</text>
+      <picker class="category-body-con" mode="selector" range="{{area.list}}" range-key="name" value="{{area.selected}}"
+        bindchange="bindPickerChange">
+        <view class="picker">{{area.list[area.selected].name}}</view>
+      </picker>
+    </view>
+    <view class="yh-row-traverse">
+      <text class="category-body-label">地点</text>
+      <picker class="category-body-con" mode="selector" range="{{place.list}}" range-key="name"
+        value="{{place.selected}}" bindchange="bindPickerChange">
+        <view class="picker">{{place.list[place.selected].name}}</view>
+      </picker>
+    </view>
+    <view class="yh-row-traverse">
+      <text class="category-body-label">类型</text>
+      <picker class="category-body-con" mode="selector" range="{{type.list}}" range-key="name" value="{{type.selected}}"
+        bindchange="bindPickerChange">
+        <view class="picker">{{type.list[type.selected].name}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="category-footer">
+    <button class="submit" bindtap="onSubmit">提交</button>
+  </view>
+</view>

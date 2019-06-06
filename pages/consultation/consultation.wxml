@@ -1,0 +1,38 @@
+<!-- pages/consultation/onsultation.wxml -->
+<!-- <text>pages/consultation/onsultation.wxml</text>
+<button class="default" type="default" bindtap="openRecording">开始录音</button>
+<button class="default" type="default" bindtap="shutRecording">结束录音</button>
+<button class="default" type="default" bindtouchstart="touchstart" bindtouchend="touchend">
+  <image class='img' src='../../static/images/menu03-prepare.png' mode='widthFix'></image>
+  按住说话
+  <text wx:if="{{recordingTimeqwe>0}}">{{recordingTimeqwe}}s</text>
+</button>
+<view class="row">
+  <text selectable="true">{{showUrl}}</text>
+</view>
+<view class="row">
+  <text selectable="true">{{resultSrc}}</text>
+</view> -->
+
+<view class="record-inpuit">
+  <input type="text" confirm-type="search" value="{{record.resultText}}" bindinput="onInput" />
+  <!-- <icon type="search"></icon> -->
+  <image class="icon" src='../../static/zizhu/search.png' mode='widthFix' bindtap="onSearch"></image>
+</view>
+<view class="record-tip" wx:if="{{record.recordingTimeqwe>0}}">{{record.recordingTimeqwe}}s</view>
+<view class="scene-list">
+  <view class="yh-row" wx:for="{{scene.list}}">
+    <text>{{item.id}}</text>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+<view bindtap="gonext">下一页</view>
+<view class="record-foot">
+  <view class="record-foot-box" bindtouchstart="touchstart" bindtouchend="touchend">
+    <view class="image-box">
+      <image src='../../static/zizhu/mike.png' mode='widthFix'></image>
+      <view class="animate-box {{record.shutRecordingdis}}"></view>
+    </view>
+    <text>按住说话</text>
+  </view>
+</view>

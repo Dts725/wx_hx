@@ -1,0 +1,38 @@
+<view class='fz14 warp h80'>
+
+
+  <!-- <view class='t-center tips'>行政审批服务人员竭诚为您服务</view> -->
+  <scroll-view scroll-y class="scrolls h100" scroll-top="{{scrollTop}}">
+    <!-- <view class='t-center co-de'>系统登录成功</view> -->
+    <view wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+
+      <view class="flex-center-starts w100 mt-3rem" wx:if="{{item.self}}">
+        <image class='img' src='https://images.liqucn.com/img/h1/h994/img201802021024070_info300X300.jpg'></image>
+        <view class=" flex-center-start-column content-service  padl-1rem">
+          <view class='co-ce'>客服人员 : 桃子</view>
+          <view class='service-item body border-rad'>{{item.message}}</view>
+        </view>
+      </view>
+      <!-- 单挑对话记录 -->
+      <!-- https://pic.qqtn.com/up/2018-8/2018081413494319075.jpg -->
+      <view class="flex-center-start-reverse w100 mt-3rem" wx:else>
+        <image class='img' src='{{imgUrl}}'></image>
+        <view class="flex-center-start-column-reserve content-glod  padr-1rem">
+          <view class='co-ce'>喵~</view>
+          <view class='glod bg-e1 co-ff border-rad'>{{item.message}}</view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+
+  </scroll-view>
+
+  <view class='bottom flex-center-between'>
+    <input cursor-spacing='2' adjust-position="false" maxlength='-1' class='inputs w75 body' bindblur="_getValueFn" bindconfirm ="_getValueFn" value='{{inputTxt}}'  placeholder-class='place' placeholder='请输入...'></input>
+    <view bindtap='_send' class='submit co-ff bg-e1'>发送</view>
+  </view>
+</view>

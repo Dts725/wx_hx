@@ -1,0 +1,164 @@
+/* pages/yuyue/yuyue.wxss */
+.weui-cell_input image{
+  width:40rpx;
+  height:40rpx;
+}
+.weui-label {
+margin-left:20rpx;
+display:inline-block;
+
+}
+.weui-cell_input {
+height:98rpx;
+}
+
+.liji{
+  margin-top: 80rpx;
+  width:90vw;
+  border-radius:50rpx;
+  color:white!important;
+  background-color:#2f92f8!important;
+
+}
+page{
+  background: #f3f7f7;
+}
+.select_box{
+  /* background: #fff; */
+  /* width: 80%; */
+  /* margin: 30rpx auto; */
+  position: relative;
+}
+.select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 98rpx;
+  /* border:1px solid #efefef; */
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  /* padding: 0 20rpx; */
+}
+.select_text{
+  font-size: 30rpx;
+  flex: 1;
+  height:98rpx;
+line-height:98rpx;
+
+}
+.select_img{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition:transform 0.3s;
+}
+.select_img_rotate{
+  transform:rotate(180deg); 
+}
+.option_box{
+  position: absolute;
+  top: 98rpx;
+  width: 100%;
+  border:1px solid #efefef;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+  z-index: 3
+}
+.option{
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 10rpx;
+}
+.shixiang{
+  color:black;
+font-size:40rpx;
+opacity:0.5;
+
+}
+.weui-select{
+  border-right:none;
+padding-left:0;
+padding-right:0;
+text-align:center;
+color:black;
+
+}
+.weui-cell__hd image{
+  margin-right:20rpx!important;
+
+}
+.weui-cell__ft{
+  color: black;
+
+}
+.weui-input{
+  text-align:right;
+color:black;
+
+}
+.picker{
+  text-align:right;
+color: black;
+}
+.weui-cell__bd{
+color:#cccccc;
+
+}
+.weui-label{
+  color:#cccccc;
+}
+.weui-cell{
+  padding-right:60rpx;
+
+
+}
+.xiala{
+  position:absolute;
+  top:36rpx;
+  right:10rpx;
+  width:35rpx!important;
+  height:35rpx!important;
+
+}
+/* .riqi{
+  display:flex;
+
+} */
+/* .riqi picker{
+  width:180rpx;
+
+} */
+.zhi{
+  height:80rpx;
+line-height:80rpx;
+color: black;
+}
+.xiala1{
+  position:absolute;
+top:36rpx;
+right:290rpx;
+
+}
+/* .kaishi{
+text-align: left;
+} */
+.kaishi{
+text-align: right;
+}
+.jieshu{
+  text-align: center;
+}
+.wenhao{
+  width:60rpx;
+height:60rpx;
+position:absolute;
+top:0;
+right:30rpx;
+
+}

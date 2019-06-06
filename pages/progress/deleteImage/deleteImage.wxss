@@ -1,0 +1,22 @@
+/* pages/progress/deleteImage/deleteImage.wxss */
+.shadow-box {
+ /* padding: 0 2%; */
+}
+.delete {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+.demo-img {
+  padding: 2%;
+  overflow: hidden;
+  width: 29%;
+
+}
+.flex-start-warp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}

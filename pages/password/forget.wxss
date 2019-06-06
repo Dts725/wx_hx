@@ -1,0 +1,49 @@
+/* pages/password/password.wxss */
+.bg{
+border-top:1px solid #dddbdb;
+}
+.weui-cells_after-title {
+margin-top:50rpx;
+
+}
+.center{
+color: #d0d0d0;
+font-size: 38rpx;
+}
+.btn{
+  width: 90%;
+  border-radius: 100rem;
+  background-color: #1d8aff;
+  margin-top: 60rpx;
+  margin-bottom: 0.5rem;
+height:90rpx;
+line-height:90rpx;
+
+}
+
+.weui-input{
+font-size: 38rpx;
+border-bottom:3rpx solid #f2f2f2;
+margin:0 20rpx;
+padding: 0 20rpx;
+height:108rpx;
+}
+.last{
+border-bottom:none;
+}
+.bg{
+  box-sizing: border-box;
+}
+.yzm{
+  background:#1c8bff;
+width:200rpx;
+height:60rpx;
+color:white;
+font-size:30rpx;
+line-height:60rpx;
+position:absolute;
+right:30rpx;
+top:156rpx;
+padding-left: 0;
+padding-right: 0;
+}

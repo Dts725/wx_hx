@@ -1,0 +1,49 @@
+<!--pages/storesReserve/storesReserve.wxml-->
+<view class='fz14'>
+
+    <image class='w100 pfx' style='height:10%;' src='../image/secondBanner/banner01.jpg' mode="widthFix"></image>
+
+  <scroll-view id='storesReserveID' scroll-y style='margin-top:20%;'>
+
+    <view class='fz16 ml-1rem'>申请户外广告设施审批需要准备的材料：</view>
+    <view class='content'>
+    <view class='num'>1</view>
+    <view class='ml-3rem'>《设置户外广告设施行政许可申请书》；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>2</view>
+    <view class='ml-3rem'>广告发布经营许可证明；（由工商部门核发，仅设置牌匾的不需要该证）</view>
+    </view>
+    <view class='content'>
+    <view class='num'>3</view>
+    <view class='ml-3rem'>产权证明复印件，（涉及租赁关系的提交租赁合同）；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>4</view>
+    <view class='ml-3rem'>营业执照复印件或者工商部门批准的名称证明；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>5</view>
+    <view class='ml-3rem'>户外广告设施拟设置位置平面图、原貌实景彩色照片和计算机绘制的彩色效果图（昼夜景各两张）；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>6</view>
+    <view class='ml-3rem'>专业设计部门提供的结构设计图、施工说明书和施工单位的安全施工保证书；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>7</view>
+    <view class='ml-3rem'>涉及影响法定相邻关系的，提交相邻人同意设置的书面协议。</view>
+    </view>
+    <view class='content'>
+    <view class='num'>8</view>
+    <view class='ml-3rem'>涉及延期的，提交原准予行政许可决定书和原效果图复印件；</view>
+    </view>
+    <view class='content'>
+    <view class='num'>9</view>
+    <view class='ml-3rem'>承诺书。</view>
+    </view>
+
+
+    </scroll-view>
+
+</view>

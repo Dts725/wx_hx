@@ -1,0 +1,220 @@
+<view class='fz14 body {{disabled}}'>
+  <view class='tips w100'style='background-color:#ffefed;color:#e15244;'>请正确填写以下表单信息</view>
+
+  <view class='label white'>
+    <text class="fw700">基本信息</text>
+    <view class="flex-center-start ipt">
+      <text class="item">申请单位</text>
+      <input cursor-spacing='40' bindinput='base_sqdw' style='margin-left:3em;' value='{{data["base.base_sqdw"]}}' placeholder-style="color:#dedede" type='text' placeholder='与营业执照名称一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>联系人</text>
+      <input cursor-spacing='40' bindinput='base_lxr' style='margin-left:3em;' value='{{data["base.base_lxr"]}}' placeholder-style="color:#dedede" type='text' placeholder='请输入联系人姓名'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>地址</text>
+      <input cursor-spacing='40' bindinput='base_dz' style='margin-left:3em;' value='{{data["base.base_dz"]}}' placeholder-style="color:#dedede" type='text' placeholder='与营业执照名称一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>联系电话</text>
+      <input cursor-spacing='40' bindinput='base_sqdwlxdh' style='margin-left:3em;' value='{{data["base.base_sqdwlxdh"]}}' placeholder-style="color:#dedede" type='number' placeholder='请输入联系电话'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>施工单位</text>
+      <input cursor-spacing='40'  bindinput='base_sgdw' style='margin-left:3em;' value='{{data["base.base_sgdw"]}}' placeholder-style="color:#dedede" type='text' placeholder='与施工保证书一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>联系电话</text>
+      <input cursor-spacing='40' bindinput='base_sgdwlxdh' style='margin-left:3em;' value='{{data["base.base_sgdwlxdh"]}}' placeholder-style="color:#dedede" type='text' placeholder='请输入联系电话'></input>
+    </view>
+  </view>
+
+  <view class='label white'>
+    <text class="fw700">申请事项</text>
+    <view class="flex-center-start ipt">
+      <text class="item">广告性质</text>
+      <radio-group class="radio-group" style='margin-left:3em;' bindchange="base_ggxz">
+        <label class="radio" wx:for="{{adItems}}" wx:key='idx'>
+          <radio value="{{item.name}}" color='#f00' checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class="item">广告内容</text>
+      <input cursor-spacing='40' style='margin-left:3em;' bindinput='ggnr' placeholder-style="color:#dedede" type='text' value="{{ggnr}}" placeholder='请输入广告内容'></input>
+  
+    </view>
+
+    <view class="flex-center-start ipt pr">
+      <text class='item'>产权类型</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' value="{{propertyValue}}" placeholder='请输入产权类型'></input>
+      <picker
+       bindchange="base_cqlx" 
+       class='pf picker-warp' value="{{index}}"
+        mode=selector
+         range-key='name'
+         range='{{property}}'>
+        <view class='picker'>
+        {{item.name}}
+        </view>
+
+      </picker>
+    </view>
+
+    <view wx:if="{{flag}}" class="flex-center-start ipt pr">
+      <text class='item'>租赁开始日期</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" value='{{base_zlkssj}}' type='text' placeholder='请选择开始日期'></input>
+      <picker 
+      bindchange="base_zlkssj" 
+      start="2000-01-01"
+      end="2050-01-01" 
+      class='pf picker-warp'
+      value="{{date}}"
+      mode=date
+      >
+        <view class='picker'>
+        {{date}}
+        </view>
+      </picker>
+
+    </view>
+
+    <view wx:if="{{flag}}" class="flex-center-start ipt pr">
+      <text class='item'>租赁结束日期</text>
+      <input cursor-spacing='40'
+       style='margin-left:3em;'
+        placeholder-style="color:#dedede" 
+        type='number'
+
+        value='{{base_zljssj}}'
+        placeholder='请选择结束日期'></input>
+        <picker 
+        bindchange="base_zljssj" 
+        start="2000-01-01"
+        end="2050-01-01" 
+        class='pf picker-warp'
+        value="{{date}}"
+        mode=date
+      >
+        <view class='picker'>
+        {{date}}
+        </view>
+      </picker>
+    </view>
+
+    <view  class="flex-center-start ipt pr">
+      <text class='item'>设置开始日期</text>
+      <input cursor-spacing='40' style='margin-left:3em;' placeholder-style="color:#dedede" value='{{base_kssj}}' type='text' placeholder='请选择开始日期'></input>
+      <picker 
+      bindchange="base_kssj" 
+      start="2000-01-01"
+      end="2050-01-01" 
+      class='pf picker-warp'
+      value="{{date}}"
+      mode=date
+      >
+        <view class='picker'>
+        {{date}}
+        </view>
+      </picker>
+
+    </view>
+
+    <view  class="flex-center-start ipt pr">
+      <text class='item'>设置结束日期</text>
+      <input cursor-spacing='40'
+       style='margin-left:3em;'
+        placeholder-style="color:#dedede" 
+        type='number'
+
+        value='{{base_jssj}}'
+        placeholder='请选择结束日期'></input>
+        <picker 
+        bindchange="base_jssj" 
+        start="2000-01-01"
+        end="2050-01-01" 
+        class='pf picker-warp'
+        value="{{date}}"
+        mode=date
+      >
+        <view class='picker'>
+        {{date}}
+        </view>
+      </picker>
+    </view>
+
+    <view bindtap='uploadFile' class="flex-between-column lin-3rem mt-2rem">
+        <view class='flex-center-between w100'>
+          <text>位置示意图</text>
+          <!-- <text class='co-f0'>我要上传</text> -->
+          <text class='co-f0' bindtap='delete'>我要上传</text>
+        </view>
+        <view  class='flex-center-column file-upload pr'>
+          <text wx-if="{{!imgUrl}}">上传地图截图或手绘地图示意</text>
+          <image wx-if="{{!imgUrl}}" style='width:2em;height:2em;' src='../../image/icon_add.png'></image>
+           <image wx-if="{{imgUrl}}" mode='aspectFit' src='{{imgUrl}}'></image>
+           
+        </view>
+       
+    </view>
+  </view>
+  
+  <view class='label white'>
+    <view class='flex-center-between'>
+    <text class="fw700">广告</text>
+    <text class="fw700 co-skyblue"></text>
+    </view>
+    <view class="flex-center-start ipt">
+      <text class="item">设置地点</text>
+      <input cursor-spacing='40' bindinput='szdd' style='margin-left:3em;' value='{{data["szdd"]}}' placeholder-style="color:#dedede" type='text' placeholder='一般与租赁合同地址一致'></input>
+    </view>
+
+    <view class="flex-center-start ipt">
+      <text class='item'>设置规格</text>
+      <input cursor-spacing='40' bindinput='szgg' style='margin-left:3em;' value='{{data["szgg"]}}' placeholder-style="color:#dedede" type='text' placeholder='长*宽*高*,单位毫米'></input>
+    </view>
+
+    <view class="flex-center-start ipt pr">
+      <text class='item'>设置形式</text>
+      <input cursor-spacing='40' bindinput='ssxs' value='{{ssxsmc}}' style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='请选择设置形式'></input>
+        <picker bindchange="ssxs" class=' pf czjg' value="{{index}}" mode = selector range-key='name' range="{{ssxsgArray}}">
+   <view class="picker">{{item.name}}</view>
+        </picker>
+    </view>
+
+    <view class="flex-center-start ipt pr">
+      <text class='item'>材料结构</text>
+      <input cursor-spacing='40' bindinput='ssxs' value='{{czjgmc}}'  style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='材料结构'></input>
+      
+       <picker class=' pf czjg' bindchange="czjg" value="{{index}}" range-key='name' range="{{czjgArray}}">
+    <view class="picker">{{item.name}}</view>
+  </picker>
+    </view>
+
+    <view class="flex-center-start ipt pr">
+      <text class='item'>光源形式</text>
+      <input cursor-spacing='40' bindinput='ssxs' value='{{gyxsmc}}'  style='margin-left:3em;' placeholder-style="color:#dedede" type='text' placeholder='光源形式'></input>
+            <picker bindchange="gyxs" class='pf czjg'  value="{{index}}" range-key='name' range="{{gyxsArray}}">
+          <view class="picker">{{item.name}}</view>
+       </picker>
+
+    </view>
+
+    <view class="flex-center-start-column ipt">
+      <text>光源形式</text>
+      <text class='co-ce'>和营业执照注册内容一样,包含logo图标,中英文名称如果不一致需要提供相关证明文件,如合作协议,加盟协议等相关材料</text>
+     
+    </view>
+  </view>
+
+   <view wx:if="{{!disabled}}" class='flex-center-warp bottom fz14 white'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='submitEdit'>保存</view>
+    </view>
+</view>

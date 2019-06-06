@@ -1,0 +1,33 @@
+/* pages/regulationsManagement/regulationsManagement.wxss */
+.tips {
+  margin-left: 2em;
+  color: #333
+}
+.block {
+  padding: 1rem 0.5rem;
+}
+.cont {
+  margin-left: 0.5em;
+}
+.regulations-header{
+  width: calc(100% - 1rem);
+  margin: 4vw auto 0 auto;
+  position: relative;
+}
+.regulations-header-text{
+   position: absolute;
+   top: 0;
+   width: 100%;
+   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .regulations-header-text text{
+   color: #fff;
+   font-size: 4.5vw;
+   font-weight: bold
+}
+.w100{
+  height: 140rpx;
+}

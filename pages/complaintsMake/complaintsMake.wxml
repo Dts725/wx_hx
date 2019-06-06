@@ -1,0 +1,70 @@
+<!-- <view class='fz14 warp'>
+
+  <view class='flex-center-start-column'>
+  <text class='fz15 fw700 lin'>投诉建议</text>
+  <text>您可以将事项办理中遇到的任何问题留言给我们我们会尽快为您解决,并将您的建议作为我们未来工作的改进方向</text>
+  </view>
+
+  <view class='flex-center-start-column topic'>
+  <text class='fz15 fw700 lin'>投诉主题</text>
+  <input bindinput='topicFn'  class="w100 border-rad" placeholder-style='text-indent:1em;' placeholder-class='co-de' placeholder='请输入投诉主题'></input>
+  </view>
+
+  <view class='flex-center-start-column topic'>
+  <text  class='fz15 fw700 lin'>投诉或建议内容</text>
+  <textarea maxlength='500' bindinput="concentFn"  class="w100 border-rad" placeholder-style='text-indent:1em;' placeholder-class='co-de' placeholder='请输入投诉或建议内容'></textarea>
+  </view>
+
+
+   <view class="flex-between-column lin-3rem mt-2rem">
+        <view class='flex-center-between w100'>
+          <text>添加附件</text>
+          <text class='co-f0'>我要上传</text>
+        </view>
+        <view bindtap='uploadFn' class='flex-center-column file-upload'>
+          <text wx-if="{{!imgUrl}}" class='co-99'>上传图片</text>
+          <image wx-if="{{!imgUrl}}" style='width:2em;height:2em;' src='../image/icon_add.png'></image>
+          <image wx-if="{{imgUrl}}" mode='aspectFit' src='{{imgUrl}}'></image>
+        </view>
+  </view>
+
+  
+   <view class='flex-center-warp bottom fz14 white'>
+      <view class='back co-ff' bindtap='back'>返回</view>
+      <view class='next co-ff' bindtap='submint'>提交</view>
+    </view>
+</view> -->
+<view>
+
+  <view class='top'>
+    <view class='bi'>
+    <image src='../../static/pingjia/titleicon.png'></image>
+    </view>
+    <view class='shuru'>
+        <input placeholder='请输入办件标题' placeholder-class="center1"></input>
+    </view>
+    <view>
+      <image src='../../static/pingjia/pingjiaicon01.png' hidden="{{flag1}}" bindtap='first'></image>
+      <image src='../../static/pingjia/pingjiaicon01-1.png' hidden="{{!flag1}}" bindtap='first'></image>
+      <image src='../../static/pingjia/pingjiaicon02.png' bindtap='second'  hidden="{{flag2}}" class='smile'></image>
+         <image src='../../static/pingjia/pingjiaicon02-1.png' bindtap='second'  hidden="{{!flag2}}" class='smile'></image>
+      <image src='../../static/pingjia/pingjiaicon03.png'  hidden="{{flag3}}" bindtap='third'></image>
+       <image src='../../static/pingjia/pingjiaicon03-1.png'  hidden="{{!flag3}}" bindtap='third'></image>
+    </view> 
+  </view>
+  <view class='middle'>
+      <!-- <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="说说你对该办件的意见！" style="height: 3.3em" placeholder-class="center" />
+                    <view class="weui-textarea-counter">0/200</view>
+                </view>
+            </view>
+        </view> -->
+    <view class="textarea-wrp">
+      <textarea bindblur="bindTextAreaBlur" auto-height placeholder="说说你对该办件的意见！"  placeholder-class="center"/>
+    </view>
+  </view>
+  <button bindtap='loginSubmit' class='btn co-ff'>提交</button>
+
+</view>

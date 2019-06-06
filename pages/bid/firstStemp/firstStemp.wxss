@@ -1,0 +1,63 @@
+/* pages/bid/edit/edit.wxss */
+.tips {
+  background-color: red;
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+}
+.label {
+  padding: 1rem 0.5rem;
+
+}
+.ipt {
+  padding: 1rem 0.5rem 0.5rem 0.8rem; 
+  border-bottom:1px solid #dedede; 
+}
+.item {
+  width: 4em;
+  text-align:justify;
+    text-justify:distribute-all-lines;/*ie6-8*/
+    text-align-last:justify;/* ie9*/
+    -moz-text-align-last:justify;/*ff*/
+    -webkit-text-align-last:justify;/*chrome 20+*/
+}
+.oth-info {
+  margin-top: 0.5em;
+}
+
+/* 单选钮样式 */
+radio {
+  transform:scale(0.5);
+}
+.back{
+  width: 35%;
+  background-color: #cecece;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 10rem;
+
+}
+
+.next{
+  width: 35%;
+  background-color: #dd4734;
+
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 10rem;
+
+}
+.bottom {
+  margin-top: 2em;
+}
+
+.picker  {
+  width: 100%;
+  height: 2rem;
+  z-index: 999;
+}
+.picker-warp {
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 666;
+}

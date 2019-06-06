@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/newsList/newsList",
+    "pages/video/video",
+    "pages/progress/progressItem/progressItem",
+    "pages/mine/mine",
+    "pages/password/forget",
+    "pages/login",
+    "pages/password/password",
+    "pages/myData/change",
+    "pages/register/second",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/complaintsMake/complaintsMake",
+    "pages/yuyue/yuyue",
+    "pages/myYuYue/list",
+    "pages/myYuYue/myYuYue",
+    "pages/record/record",
+    "pages/shezhi/shezhi",
+    "pages/myData/myData",
+    "pages/newsList/newsListInfo",
+    "pages/bid/firstStemp/firstStemp",
+    "pages/bid/bid",
+    "pages/bid/deleteImageBid/deleteImageBid",
+    "pages/bid/edit/edit",
+    "pages/bid/promise/promise",
+    "pages/progress/progress",
+    "pages/logs/logs",
+    "pages/storesReserve/storesReserve",
+    "pages/pointsRead/pointsRead",
+    "pages/politicalRules/politicalRules",
+    "pages/problemCommon/problemCommon",
+    "pages/regulationsManagement/regulationsManagement",
+    "pages/implementation/implementation",
+    "pages/managementHealth/managementHealth",
+    "pages/dailg/dailg",
+    "pages/bid/signature/signature",
+    "pages/component/HandlingStatus/HandlingStatus",
+    "pages/progress/progressItemInfo/progressItemInfo",
+    "pages/component/HandInfo/HandInfo",
+    "pages/edit/uploadEdit",
+    "pages/progress/deleteImage/deleteImage",
+    "pages/index/guide",
+    "pages/consultation_category/category",
+    "pages/consultation_detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1d8aff",
+    "navigationBarTitleText": "综合服务平台",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#b0b0b0",
+    "selectedColor": "#1d8aff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/newsList/newsList",
+        "text": "新闻公告",
+        "iconPath": "static/images/bottom_icon01.png",
+        "selectedIconPath": "static/images/bottom_icon01_active.png"
+      },
+      {
+        "pagePath": "pages/yuyue/yuyue",
+        "text": "办事预约",
+        "iconPath": "static/images/bottom_icon02.png",
+        "selectedIconPath": "static/images/bottom_icon02_active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "网上自助",
+        "iconPath": "static/images/bottom_icon03.png",
+        "selectedIconPath": "static/images/bottom_icon03_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的信息",
+        "iconPath": "static/images/bottom_icon04.png",
+        "selectedIconPath": "static/images/bottom_icon04_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

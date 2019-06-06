@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "办件查询",
+  "usingComponents": {
+    "top": "/pages/component/HandlingStatus/HandlingStatus",
+    "info" : "/pages/component/HandInfo/HandInfo"
+  }
+}

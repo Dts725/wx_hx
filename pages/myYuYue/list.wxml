@@ -1,0 +1,76 @@
+<!--pages/myYuYue/list.wxml-->
+<!--pages/record/record.wxml-->
+<view style='margin-top:30rpx;'>
+  <view class='w80' wx:for="{{data}}" bindtap='eiweima' data-id="{{item.id}}">
+    <view class='top'>
+      <view>
+      <image src='../../static/images/reservation-01.png'></image>
+      </view>
+      <view class='right'>
+        <view class='title'>
+        <!-- 办理事项办理事项办理事项办理事项办理事项 -->
+        {{item.title}}
+        </view>
+      </view>
+    </view>
+    <view class='middle'>
+      <!-- <view> -->
+        <view class='middle_top'>
+            <view>
+              <image src='../../static/images/icon05.png'></image>
+            </view>
+            <view class='middle_right'>
+              <view>预约时间：</view>
+              <view>{{item.time}}</view>
+            </view>
+        </view>
+        <view class='middle_top'>
+          <view>
+              <image src='../../static/images/icon01.png'></image>
+            </view>
+            <view class='middle_right'>
+              <view class='yuyueren'>
+                预约人：
+              </view>
+            
+              <view>{{item.person}}</view>
+            </view>
+        </view>
+        <view class='middle_top middle_last'>
+          <view>
+            <image src='../../static/images/icon02.png'></image>
+            </view>
+            <view class='middle_right'>
+              <view>
+                预约电话：
+              </view>
+             
+              <view>{{item.phone}}</view>
+            </view>
+        </view>
+        <!-- <view class='middle_top middle_last'>
+            <view>
+               <image src='../../static/images/icon03.png'></image>
+            </view>
+            <view class='middle_right'>
+              <view>
+              预约名称：
+              </view>
+                <view>{{item.mingcheng}}</view>
+            </view>
+        </view> -->
+    </view>
+    <view class='bottom'>
+      <view>
+           <image src='../../static/images/success.png'></image>
+      </view>
+      
+      <view class='zhuangtai '>
+          状态：<view class="zhuangtai_1 {{item.type=='已过期'?'guoqi':''}}" > {{item.type}}</view>
+      </view>
+      <button wx:if="{{item.type=='预约成功'}}" class="{{item.type=='预约成功'?'quxiao':''}}" bindtap='submit' data-obj='{{item}}'>取消预约</button>
+      <button  wx:elif="{{item.type=='已过期'}}" class="{{item.type=='已过期'?'buhao':''}}" bindtap='submit' data-obj='{{item}}'>补号</button>
+    </view>
+  </view>
+</view>
+

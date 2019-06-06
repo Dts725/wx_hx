@@ -1,0 +1,32 @@
+/* login.wxss */
+.btn{
+    width: 75%;
+  line-height: 2.2rem;
+  border-radius: 100rem;
+  background-color: #1d8aff;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+
+}
+
+
+
+input {
+  width: 80%;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top:1rem;
+}
+.title{
+  width: 80%;
+  height: 280rpx;
+  margin: 0 auto;
+  box-sizing:border-box;
+padding-top:80rpx;
+font-size:46rpx;
+font-weight:bold;
+
+}
+.weui-cell{
+  /* padding: 0 30rpx; */
+
+}

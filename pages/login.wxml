@@ -1,0 +1,17 @@
+<!--login.wxml-->
+<view style='border-top:1px solid #dddbdb;'>
+  <!-- <image class='w100' src='./image/banner_login.jpg' mode='widthFix'></image> -->
+  <view class='title'>
+ 欢迎登录综合服务平台
+  
+  </view> 
+  <view class='flex-center-column fz14'>
+    <input placeholder-class="co-f2" bindinput='getMobile' placeholder='请输入手机号'></input>
+    <input placeholder-class="co-f2" type='password' bindinput='getPwd' placeholder='请输入密码'></input>
+    <button bindtap='loginSubmit' class='btn co-ff'>登录</button>
+    <view>
+      <text class='co-ce co-f0' style='margin-right:10rpx;'  bindtap='zhaohui'>忘记密码</text>
+      <text class='co-f0'  bindtap='register'>立即注册</text>
+    </view>
+  </view>
+</view>

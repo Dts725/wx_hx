@@ -1,0 +1,41 @@
+<view class='fz14 body w100   pr h-100vh'>
+  <view wx:if='{{dataInfo}}' class='top w100'>
+      
+      <image src='../../../static/zizhu/title-chaxun.png'></image>
+      <view class='biaoti'>在线查询在办件进度情况</view>
+  </view>
+    <!-- <view class='w100 flex-center-column' wx:if='{{volidFlag}}'>
+    <image class='w75' style='margin-top:6rem;' src='../../image/void_icon.png'></image>
+ 
+      <text class='co-ce' style='margin-top:2rem;'>暂无记录</text>
+  </view> -->
+  <view class='pf flex-center-start-column-center info w100'>
+    <view wx:for="{{dataInfo}}" wx:for-index="idx" wx:for-item='item' wx:key='idx' data-parmas='{{item}}' bindtap='routeProgressInfo' class='flex-center-between w100  item white'>
+      <view class='flex-center-start-column-center w100'>
+        <view class='flex-center-start padd-darsh'>
+          <image style='height:16px;width:16px;' src='../../../static/images/chaxunicon01.png'></image>
+          <text class='co-66 ml-1rem' decode='true' space='true'>办理编号&nbsp;&nbsp;:</text>
+          <text class='co-33 ml-1rem'>{{item.bj_bh}}</text>
+        </view>
+        <view class='flex-center-between padd-darsh'>
+          <view class='flex-center-start'>
+            <image style='height:16px;width:16px;' src='../../../static/images/chaxunicon02.png'></image>
+            <text class='co-66 ml-1rem' decode='true' space='true'>申请时间&nbsp;&nbsp;:</text>
+            <text class='co-33 ml-1rem'>{{item.bj_ctime}}</text>
+          </view>
+
+          <image style='height:24px; width:24px;' src='../../../static/images/chaxun.png'></image>
+        </view>
+        <view class='flex-center-start w100' style='padding:15rpx 0rpx 0rpx 0rpx;'>
+          <image style='height:16px;width:16px;' src='../../../static/images/chaxunicon03.png'></image>
+          <text class='co-66 ml-1rem' decode='true' space='true'>办件状态&nbsp;&nbsp;:</text>
+          <text class='co-33 ml-1rem'>{{item.ywsx_name}}</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>

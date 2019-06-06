@@ -1,0 +1,84 @@
+<view class='w100 padb'>
+  <!-- <view class='pr'>
+    <image src='../../image/progress/banner.png' class='w100' mode="widthFix"></image>
+    <image class='progress pf' src='../../image/progress/pro_{{process}}.png'></image>
+  </view> -->
+  <!-- <view wx:for='{{progressData}}' wx:key="{{item.size}}">
+    <view class='flex-start'>
+      <view class='flex-center-column'>
+        <image class='img' src='../../image/progress/icon01.png'></image>
+        <view wx:if='{{item.hj_bj_hjname !== "结束"}}' class='line'></view>
+      </view>
+      <view class='flex-center-start-column'>
+        <text class='fw700 item'>环节 : {{item.hj_bj_hjname}}</text>
+        <text class='co-ce fz14 item'>{{item.hj_etime}}</text>
+        <text class='co-ce fz14 item'>办理人 : {{item.hj_username}}</text>
+        <text class='co-ce fz14 item'>意见 : {{item.yj_info}}</text>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image class='img' src='../../image/progress/icon01.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>网上预审</text>
+      <text class='co-e2 fz14 item'>{{progressData.bj_ctime}}</text>
+      <text class='co-ce fz14 item'>预审</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image wx-if="{{process>=1}}" class='img' src='../../image/progress/icon01.png'></image>
+      <image wx-if="{{process<1}}" class='img' src='../../image/progress/icon02.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>受理</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item'>您的材料已受理完成</text>
+    </view>
+  </view> -->
+  <!-- 
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image wx-if="{{process>=2}}" class='img' src='../../image/progress/icon01.png'></image>
+      <image wx-if="{{process<2}}" class='img' src='../../image/progress/icon02.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>初审</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item'>您的申请已初审通过</text>
+    </view>
+  </view>
+
+  <view class='flex-start'>
+    <view class='flex-center-column'>
+      <image wx-if="{{process>=3}}" class='img' src='../../image/progress/icon01.png'></image>
+      <image wx-if="{{process<3}}" class='img' src='../../image/progress/icon02.png'></image>
+      <view class='line'></view>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>批准</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item'>您的申请已批准通过</text>
+    </view>
+  </view>
+
+  <view class='flex-start w100'>
+    <view class='flex-center-start'>
+      <image wx-if="{{process>=4}}" class='img' src='../../image/progress/icon01.png'></image>
+      <image wx-if="{{!process<4}}" class='img' src='../../image/progress/icon02.png'></image>
+    </view>
+    <view class='flex-center-start-column'>
+      <text class='fw700 item'>办结</text>
+      <text class='co-e2 fz14 item'>2018-10-15 20:00</text>
+      <text class='co-ce fz14 item'>您的申请已办结</text>
+    </view>
+  </view> -->
+
+</view>
