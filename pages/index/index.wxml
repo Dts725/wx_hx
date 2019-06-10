@@ -1,89 +1,37 @@
-<view class='body'>
+<view>
   <view class='online-banner'>
     <image class='w100' style='display:block;' mode='widthFix' src='../../static/images/index-banner.png'></image>
   </view>
-  <view class='white'>
-    <view class='fw700 padt-1rem margin-bottom padr-1rem padl-1rem'>
-      <text style='color:#333'>准备攻略</text>
-    </view>
-    <view class=' w100 flex-center-warp flex-center-warp-circl margin-bottom'>
-      <view bindtap='politicalRules' class='w25 prepare-item'>
-        <view class='flex-center-column'>
-          <image class='img' src='../../static/zizhu/gonglue1.png' mode='widthFix'></image>
-          <text>政策法规</text>
-        </view>
-      </view>
-      <view bindtap='guideReserve' class='w25 prepare-item'>
-        <view class='flex-center-column'>
-          <image class='img' src='../../static/zizhu/gonglue2.png' mode='widthFix'></image>
-          <text>办事指南</text>
-        </view>
-      </view>
-      <!-- <view bindtap='storesReserve' class='w25'>
-        <view class='flex-center-column'>
-          <image class='img' src='../image/icon02.png'></image>
-          <view class='fz14'>材料准备</view>
-        </view>
-      </view> -->
-      <!-- <view bindtap='pointsRead' class='w25'>
-        <view class='flex-center-column'>
-          <image class='img' src='../image/icon03.png'></image>
-          <view class='fz14'>要点解读</view>
-        </view>
-      </view> -->
+  <!-- <view>
+    <view class=' w100 flex-center-warp'>
       <view bindtap='intellectConsultation' class='w25 prepare-item'>
         <view class='flex-center-column'>
           <image class='img' src='../../static/zizhu/gonglue3.png' mode='widthFix'></image>
           <text>智能咨询</text>
         </view>
       </view>
-      <view bindtap='problemCommon' class='w25 prepare-item'>
-        <view class='flex-center-column'>
-          <image class='img' src='../../static/zizhu/gonglue4.png' mode='widthFix'></image>
-          <text>常见问题</text>
-        </view>
-      </view>
+
     </view>
-    <!-- <view bindtap='intellectConsultation' class='w25 prepare-item'>
-      智能咨询
-      <view class='flex-center-column'>
-        <image class='img' src='../../static/images/menu03-prepare.png' mode='widthFix'></image>
-      </view>
-    </view> -->
-  </view>
-  <view class='white btn mt-1rem'>
-    <view class='fw700 padt-1rem margin-bottom padr-1rem padl-1rem'>
-      <text style='color:#333'>办事追踪</text>
-    </view>
-    <view class=' w100 flex-center-evenly margin-bottom'>
-      <image mode='aspectFit' bindtap='routeBid' src='../../static/images/menu01-track.png'></image>
-      <image mode='aspectFit' bindtap='routeProgress' src='../../static/images/menu02-track.png'></image>
-      <image mode='aspectFit' class='pr' bindtap='questionOnline' src='../../static/images/menu03-track.png'>
-        <view wx-if='flag' class='wechat pf'>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-          <contact-button type="default-dark" size="20" session-from="tokens"></contact-button>
-        </view>
-      </image>
+
+  </view> -->
+  <view class='btn'>
+    <view class=' w100 flex-center-evenly'>
+      <image class='w45' mode='aspectFit' bindtap='routeBid' src='../../static/images/455.png'></image>
+      <image class='w45' mode='aspectFit' bindtap='routeProgress' src='../../static/images/imagesmenu01-track.png'></image>
+      <image class='w45' mode='aspectFit' bindtap='guideReserve' src='../../static/images/gonglue2.png'></image>
+      <image class='w45' mode='aspectFit' bindtap='serviceOrder' src='../../static/images/service_order.png'></image>
     </view>
   </view>
-  <view class='white btn-bottom mt-1rem margin-bottom'>
-    <view class='fw700 padt-1rem margin-bottom padr-1rem padl-1rem'>
-      <text style='color:#333'>服务反馈</text>
-    </view>
-    <view class='w25 prepare-item'>
-      <view class='flex-center-column impress' bindtap='complaintsMake'>
-        <image src='../../static/images/compress.png' mode='widthFix' style='margin-left:25rpx;'></image>
-      </view>
-    </view>
+
+  <!-- 进入个人中心页面 -->
+<view class='w100 flex-center footer '>
+<view class='w80 flex-end'>
+  <image class='bt-image' src='../../static/images/maine_center.png'></image>
+  <image class='user-img' src='{{userImg}}'></image>
+  <view class='flex-center center fz14' bindtap='mine' >
+    进入个人中心
   </view>
+</view>
+</view>
+
 </view>

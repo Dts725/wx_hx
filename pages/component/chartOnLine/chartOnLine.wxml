@@ -7,10 +7,10 @@
     <view wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
 
       <view class="flex-center-starts w100 mt-3rem" wx:if="{{item.self}}">
-        <image class='img' src='https://images.liqucn.com/img/h1/h994/img201802021024070_info300X300.jpg'></image>
+        <image class='img' src='{{item.message.img}}'></image>
         <view class=" flex-center-start-column content-service  padl-1rem">
-          <view class='co-ce'>客服人员 : 桃子</view>
-          <view class='service-item body border-rad'>{{item.message}}</view>
+          <view class='co-ce'>{{item.message.name}}</view>
+          <view class='service-item body border-rad'>{{item.message.content}}</view>
         </view>
       </view>
       <!-- 单挑对话记录 -->
@@ -18,7 +18,7 @@
       <view class="flex-center-start-reverse w100 mt-3rem" wx:else>
         <image class='img' src='{{imgUrl}}'></image>
         <view class="flex-center-start-column-reserve content-glod  padr-1rem">
-          <view class='co-ce'>喵~</view>
+          <view class='co-ce'>{{userName}}</view>
           <view class='glod bg-e1 co-ff border-rad'>{{item.message}}</view>
         </view>
       </view>
