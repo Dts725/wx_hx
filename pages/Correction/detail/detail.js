@@ -1,11 +1,45 @@
-// pages/Correction/detail/detail.js
+// pages/bid/indx/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    data: [{
+      name: "司法公正",
+      view: true,
+      child: [{
+        item: '娱乐场所设施许可',
+      },
+      {
+        item: '酒店设施',
 
+
+      }
+      ]
+    }
+    ]
+  },
+
+
+  viewInfoFn(e) {
+    let index = e.target.dataset.index;
+    let flag = true;
+    if (this.data.data[index].view) {
+      flag = false;
+    }
+    let item = 'data[' + index + '].view';
+    this.setData({
+      [item]: flag
+    })
+  },
+
+  // 页面跳转
+
+  routerFn() {
+    wx.navigateTo({
+      url: '../../bid/bid',
+    })
   },
 
   /**

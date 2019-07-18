@@ -274,7 +274,13 @@ Page({
 
   },
 
+//点击跳转办事指南
 
+  guidelineFn () {
+    wx.navigateTo({
+      url: '../index/guide',
+    })
+  },
   
 //预览图片
   view (e) {

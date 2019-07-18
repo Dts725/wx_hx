@@ -67,7 +67,12 @@ Page({
     }
 
   },
-
+  // 大厅服务
+  service(){
+    wx.navigateTo({
+      url: '../service/main-a',
+    })
+  },
   goToLogin() {
     wx.navigateTo({
       url: '../login',
@@ -170,7 +175,7 @@ Page({
         switch (type) {
           case 'shenban':
             wx.navigateTo({
-              url: '../bid/index/index',
+              url: '../Correction/Correction',
             })
             break;
           case 'yuyue':

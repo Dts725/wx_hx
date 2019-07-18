@@ -1,8 +1,9 @@
 {
   "pages": [
+        "pages/index/index",
     "pages/Correction/detail/detail",
     "pages/Correction/Correction",
-    "pages/index/index",
+
     "pages/myVideo/index",
     "pages/video/video",
     "pages/consultation_category/category",

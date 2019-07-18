@@ -173,14 +173,18 @@ page {
 
 /* 测试用的 入口按钮 */
 
-.test_btn view {
-  margin-left: 5vw;
+.test_btn {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .test_btn button {
-  display: inline;
-  width: 20vw;
+  display: inline-block;
+  width: 22vw;
   margin-left: 5vw;
+  margin: 1vw;
+  padding: 0 1vw;
+  font-size: 3.5vw;
 }
 
 .blue_btn_status {

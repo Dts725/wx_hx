@@ -1,5 +1,5 @@
 <view class='warp'>
-   <view class='warp-header'>
+   <!-- <view class='warp-header'>
         <image class='w100'  mode='widthFix' src='../../static/images/regulation-header.png'></image>
         <view class='warp-header-text'>
            <view class='warp-input'>
@@ -10,7 +10,14 @@
               </picker>
            </view>
         </view>
-   </view>
+   </view> -->
+
+  <view class='pr'>
+    <image class='w100'  mode='widthFix' src='../../static/images/regulation-header.png'></image>
+    <image bindtap='guidelineFn' class='turn-link pf'  mode='widthFix' src='../../static/images/bid/order_icon.png'></image>
+ 
+  </view>
+   
 
   <view bindtap='application' class='flex-center-start-column'>
     <text class='tips fz15 fw700'>

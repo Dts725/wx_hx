@@ -1,1 +1,38 @@
 /* pages/Correction/detail/detail.wxss */
+/* pages/bid/indx/index.wxss */
+
+view {
+  box-sizing: border-box;
+}
+
+.modle {
+  margin: 1rem 0;
+  padding: 0.4rem 0.5rem;
+  /* border-radius: 5px;
+  box-shadow: 0 0 5px -2px #333; */
+}
+
+.right-away {
+  color: #fff;
+  background-color: #1d8aff;
+  padding: 0.2rem 1rem;
+  border-radius: 5rem;
+}
+
+.dashed {
+  border-bottom: 1px dashed #ccc;
+}
+.solid {
+  border-top: 1px solid #ccc;
+}
+.item {
+  padding: 1rem 0;
+
+}
+.tips {
+  padding: 0.5rem 0;
+}
+.imgs {
+  height: 1rem;
+  width: 1rem;
+}

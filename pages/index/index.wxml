@@ -80,10 +80,11 @@
   <!-- <view class="canvas-box">
     <canvas hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="qrcanvas" />
   </view> -->
+  <view>测试用的入口按钮：</view>
   <view class="test_btn">
-    <view>测试用的入口按钮：</view>
     <button open-type="contact" bindcontact="handleContact">客服中心</button>
     <button bindtap="intellectConsultation">智能咨询</button>
     <button bindtap="lianxi">联系我们</button>
+    <button bindtap="service">大厅服务</button>
   </view>
 </view>

@@ -13,12 +13,12 @@
   </view>
 <!-- 部门 -->
   <view class='flex-center-start-wrap table-item' wx:if="{{tableFlag}}">
-    <view wx:for="i in 10" wx:key="index" class='w20'>主题</view>
+    <view wx:for="i in 10" wx:key="index" class='w20' bindtap='bindFn'>主题</view>
   </view>
 
 <!-- 主题 -->
   <view class='flex-center-start-wrap table-item' wx:else>
-    <view wx:for="i in 10" wx:key="index" class='w20'>部门</view>
+    <view wx:for="i in 10" wx:key="index" class='w20' bindtap='bindFn'>部门</view>
   </view>
 
 </view>

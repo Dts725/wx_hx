@@ -1,0 +1,36 @@
+<!--pages/service/main-a.wxml-->
+<view class='main-common main-a'>
+  <view class='main-header'>
+    <view class='main-photo'>
+      <image src='../../static/banner.jpg' mode="cover"></image>
+    </view>
+    <view class='main-nav'>
+      <view class='main-nav-container'>
+         <view class="main-nav-item {{index === currentNav?'main-nav-item-active':''}}" wx:key="index" wx:for="{{allTabs}}">
+           <text bindtap='switch' data-index="{{index}}">{{item.name}}</text>
+         </view>
+       </view>
+    </view>
+  </view>
+  <view class='main-content'>
+    <view class='main-content-tabs'>
+      <view class='main-content-tabs-item' wx:for="{{currentTabs.tabs}}" wx:key="index">
+        <image src='{{item.icon}}' mode='cover'></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <view class='main-content-intro'>
+      <view class='main-content-intro-des'>
+         <text>{{currentTabs.intro}}</text>
+      </view>
+      <view class='main-content-intro-detail'>
+         <view class='main-content-intro-detail-title'>服务内容</view>
+         <view class='main-content-intro-detail-content'>
+              <view  wx:for="{{currentTabs.detail}}" wx:key="index">
+                <text>{{item.des}}</text>
+              </view>
+         </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,2 +1,31 @@
-<!--pages/Correction/detail/detail.wxml-->
-<text>pages/Correction/detail/detail.wxml</text>
+<view class='w100  flex-center-column fz14'>
+  <view class='w90'>
+    <view class='w100 modle flex-center-column'  wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class='w100 flex-center-between tips' data-index='{{index}}' >
+        <text class='fz15 fw700'>{{item.name}}({{item.child.length}})</text>
+      
+        <!-- <image wx:if="{{item.view}}" class="imgs" src='../../../static/images/bid/up_row.png'></image>
+        <image wx:else class="imgs" src='../../../static/images/bid/down_row.png'></image> -->
+      </view>
+
+      <view class='w100' wx:for="{{item.child}}" wx:for-item="el" wx:for-index="id" wx:key="id"  bindtap='routerFn'>
+
+        <view wx:if="{{id === 0}}" class='w100 flex-center-between solid item dashed'>
+          <text class='co-99'>{{(index + 1) +"," +el.item}}</text>
+          <!-- <view class='right-away' bindtap='routerFn'>立即办理</view> -->
+        </view>
+
+        <view wx:if="{{id !== 0 && id !== item.child.length-1}}" class='w100 flex-center-between item dashed'>
+          <text class='co-99'>{{el.item}}</text>
+       
+        </view>
+
+        <view wx:if="{{id === item.child.length-1}}" class='w100 flex-center-between item dashed'>
+          <text class='co-99'>{{el.item}}</text>
+      
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

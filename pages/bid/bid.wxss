@@ -3,6 +3,12 @@
   padding: 1rem 0.5rem;
 
 }
+.turn-link {
+  width: 2rem;
+  height: 2rem;
+  top: 92%;
+  left: 90%;
+}
 .tips {
   padding: 1.5rem 0 0.5rem 0;
   color: #333

@@ -14,6 +14,12 @@ Page({
       tableFlag : !this.data.tableFlag
     })
   },
+
+  bindFn () {
+    wx.navigateTo({
+      url: './detail/detail',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
