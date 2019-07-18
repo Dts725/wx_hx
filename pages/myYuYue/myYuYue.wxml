@@ -1,6 +1,6 @@
 <!--pages/myYuYue/myYuYue.wxml-->
 <view class="container-box">
-    <view class='top'>
+    <!-- <view class='top'>
       <view class='title'>
       广告审批广告审批广告审批
       </view>
@@ -12,7 +12,7 @@
         2018-06-11 14：00-16：00
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="img-box">
         <image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
     </view>

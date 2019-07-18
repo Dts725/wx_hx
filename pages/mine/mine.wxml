@@ -3,7 +3,8 @@
     <view class='w100'>
       <view class='touxiang'>
         <!-- <open-data type="userAvatarUrl"></open-data> -->
-        <image src='../../static/images/touxiang1.png'></image>
+        <!-- <image src='../../static/images/touxiang1.png'></image> -->
+        <image src='{{userImg}}'></image>
       </view>
       <view class='name'>Hi,{{name}}</view>
     </view>
@@ -15,14 +16,14 @@
                 <view class="weui-cell__bd">我的资料</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
-                        <navigator url="../myYuYue/list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='yuyue'>
                 <view class="weui-cell__hd">
                     <image src="../../static/images/mine-02.png" style="margin-right: 20rpx;vertical-align: middle;width:50rpx; height: 50rpx;"></image>
                 </view>
                 <view class="weui-cell__bd">我的预约</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
-            <navigator url="../record/record" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='jilu'>
                 <view class="weui-cell__hd">
                     <image src="../../static/images/mine-03.png" style="margin-right: 20rpx;vertical-align: middle;width:50rpx; height: 50rpx;"></image>
                 </view>
@@ -34,6 +35,13 @@
                     <image src="../../static/images/mine-04.png" style="margin-right: 20rpx;vertical-align: middle;width:50rpx; height: 50rpx;"></image>
                 </view>
                 <view class="weui-cell__bd">我的直播</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="../myYuYue/myYuYue" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../static/images/mine-04.png" style="margin-right: 20rpx;vertical-align: middle;width:50rpx; height: 50rpx;"></image>
+                </view>
+                <view class="weui-cell__bd">我的二维码</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
            

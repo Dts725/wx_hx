@@ -1,0 +1,90 @@
+/* pages/newsList/newsListInfo.wxss */
+/* pages/news/detail.wxss */
+
+/** 公共样式 **/
+.scroll-box{
+  height: 100%;
+}
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.font-gray-s {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/** adl 表示active-detail**/
+
+.adl {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40rpx;
+  font-size: 1rem;
+}
+
+/* header  */
+
+.adl .adl-header {
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: center;
+  /* border-bottom:1px dashed #ddd; */
+  /* margin-bottom:0.5rem; */
+  padding-top:10rpx;
+  
+}
+
+/* header的标题  */
+
+.adl .adl-header .adl-header-title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: black;
+}
+
+/* header中的灰色小字部分  */
+
+.adl .adl-header .adl-header-info {
+ color:#9d9d9d;
+font-size:28rpx;
+
+}
+
+/* 内容区域  */
+
+.adl-detail {
+  margin-bottom: 5rem;
+  text-align:justify;
+  color: black;
+font-size:33rpx;
+
+}
+
+/* 中间大图  */
+
+.adl .adl-img {
+  width: 100%;
+}
+.adl-detail image{
+  width: 100%;
+  /* height: auto; */
+}
+
+.adl-detail-con{
+  color: black;
+}
+.adl-detail-con view{
+   color: black;
+  text-indent: 70rpx;
+  line-height:1.8;
+
+}

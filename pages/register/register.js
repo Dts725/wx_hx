@@ -9,11 +9,12 @@ Page({
   data: {
     registerInfo: {
       loginName: "",
-      xm: "",
-      idCard: "",
-      pwd: "",
-      mobile: '',
-      disable: false, // 是否允许输入，点击下一步 之后改为true
+      xm: "",//姓名
+      idCard: "",//身份证号
+      pwd: "",//密码
+      mobile: '',//手机号
+      showPhoto:'',////头像
+      // disable: false, // 是否允许输入，点击下一步 之后改为true
     },
     numberCode: '获取验证码',
     addClass: '',
@@ -67,7 +68,7 @@ Page({
   },
 
 
-  //获取单位名
+  //获取姓名
   getXmName(e) {
     this.data.registerInfo.xm = e.detail.value
 
@@ -107,16 +108,17 @@ Page({
       })
     }
   },
-  register(){
-wx.navigateTo({
-  url: 'second',
-})
-  },
-  //注册
-  register1() {
-    if (url.rules(this.data.registerInfo)) return
-    if (url.rulesIdCard(this.data.registerInfo.idCard)) return
-    if (url.rulesPhone(this.data.registerInfo.mobile)) return
+  // register(){
+  //   wx.navigateTo({
+  //     url: 'second?source=' + JSON.stringify(this.data.registerInfo),
+  //   })
+  // },
+  //下一步
+  register() {
+    if (this.data.registerInfo.xm=='') return
+    if (this.data.registerInfo.idCard == '') return
+    if (this.data.registerInfo.mobile == '') return
+    if (this.data.registerInfo.pwd == '') return
     if (this.data.codeFlag) {
       wx.showToast({
         title: '验证码输入错误请重新输入',
@@ -124,76 +126,11 @@ wx.navigateTo({
         duration: 2000
       })
       return
-    } 
-
-    wx.showLoading({
-      title: '注册中',
+    }
+    wx.navigateTo({
+      url: 'second?source=' + JSON.stringify(this.data.registerInfo) + '&flag=' + this.data.codeFlag,
     })
 
-    
-    
-    // this.data.registerInfo.token = app.globalData.token;
-    wx.request({
-      url: url.registerUrl,
-      data: this.data.registerInfo,
-      success: res => {
-        wx.hideLoading()
-
-        switch (res.data.res_data.state) {
-          case 0:
-            {
-              wx.showToast({
-                title: '注册成功',
-                icon: 'success',
-                duration: 2000
-              })
-              // this.setData({
-              //   disable: true,
-              // });
-              this.login()
-              break;
-            }
-          case 1:
-            {
-              wx.showToast({
-                title: 'token失效',
-                icon: 'none',
-                duration: 2000
-              })
-              break
-            }
-          case 2:
-            {
-              wx.showToast({
-                title: '已注册',
-                icon: 'none',
-                duration: 2000
-              })
-              break
-            }
-          case 3:
-            {
-              wx.showToast({
-                title: '手机号错误',
-                icon: 'none',
-                duration: 2000
-              })
-              break
-            }
-          default:
-            {
-              if (res.data.res_data.error.err_code === 'KFQ_1004') {
-                wx.showToast({
-                  title: '此用户名已存在',
-                  icon: 'none',
-                  duration: 2000
-                })
-              }
-              break
-            }
-        }
-      }
-    })
   },
 
   //更改获取验证码字样

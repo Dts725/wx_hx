@@ -11,14 +11,17 @@ Page({
     date:'2019-04-05',////预约日期
     time:'15:00-17:00',//预约时间
     time1: '15:00-17:00',//预约时间
+    phone:121212121212,
     show: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['1', '2', '3', '4', '5', '6'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
     index1: 0,//选择的下拉列表下标
     tag:true,
     array: ['事项一', '事项二', '事项三', '事项四'],
-    array1: ['8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00', '12:00-13:00', '13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00'],
+    array1: ['8:00-9:00', '9:00-10:00', '10:00-11:00', '11:00-12:00','13:00-14:00', '14:00-15:00', '15:00-16:00', '16:00-17:00'],
     index: 0,
+    multiIndex: [0, 0],
+    multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物']],
   },
   bindDateChange: function (e) {
     this.setData({
@@ -34,6 +37,75 @@ Page({
     this.setData({
       time1: e.detail.value
     })
+  },
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    switch (e.detail.column) {
+      case 0:
+        switch (data.multiIndex[0]) {
+          case 0:
+            data.multiArray[1] = ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'];
+            // data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
+            break;
+          case 1:
+            data.multiArray[1] = ['鱼', '两栖动物', '爬行动物'];
+            // data.multiArray[2] = ['鲫鱼', '带鱼'];
+            break;
+        }
+        data.multiIndex[1] = 0;
+        // data.multiIndex[2] = 0;
+        break;
+      // case 1:
+      //   switch (data.multiIndex[0]) {
+      //     case 0:
+      //       switch (data.multiIndex[1]) {
+      //         case 0:
+      //           data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
+      //           break;
+      //         case 1:
+      //           data.multiArray[2] = ['蛔虫'];
+      //           break;
+      //         case 2:
+      //           data.multiArray[2] = ['蚂蚁', '蚂蟥'];
+      //           break;
+      //         case 3:
+      //           data.multiArray[2] = ['河蚌', '蜗牛', '蛞蝓'];
+      //           break;
+      //         case 4:
+      //           data.multiArray[2] = ['昆虫', '甲壳动物', '蛛形动物', '多足动物'];
+      //           break;
+      //       }
+      //       break;
+      //     case 1:
+      //       switch (data.multiIndex[1]) {
+      //         case 0:
+      //           data.multiArray[2] = ['鲫鱼', '带鱼'];
+      //           break;
+      //         case 1:
+      //           data.multiArray[2] = ['青蛙', '娃娃鱼'];
+      //           break;
+      //         case 2:
+      //           data.multiArray[2] = ['蜥蜴', '龟', '壁虎'];
+      //           break;
+      //       }
+      //       break;
+      //   }
+        // data.multiIndex[2] = 0;
+        console.log(data.multiIndex);
+        break;
+    }
+    this.setData(data);
   },
   // 点击下拉显示框
   selectTap() {
@@ -64,9 +136,13 @@ Page({
   },
   //提交
   sub(){
-    // let obj = {};
-    // obj.id = this.data.index
-    // obj.name = this.data.username
+      let obj = {};
+      // obj.id = this.data.index
+      obj.name = this.data.username
+      obj.shixiang = this.data.multiArray[1][this.data.multiIndex[1]]
+      obj.phone = this.data.phone
+      obj.date = this.data.date
+      obj.time = this.data.array1[this.data.index1]
     // console.log(obj)
     
     // wx.request({

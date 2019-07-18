@@ -8,6 +8,7 @@ margin-bottom: 100rpx;
 .top image{
   width:190rpx;
 height:190rpx;
+border-radius:50%;
 
 }
 .renzheng{

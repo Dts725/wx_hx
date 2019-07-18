@@ -46,4 +46,5 @@ right:30rpx;
 top:156rpx;
 padding-left: 0;
 padding-right: 0;
+text-align: center;
 }

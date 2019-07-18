@@ -11,16 +11,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabs:["简介","互动","点播"],
+    tabId: 0,
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
     page: 1,
     current_page: 0,
     countInterval: {},
     interval: {},
-    url: 'https://apijcdj.shyunhua.com/',
-    danmuList: [{
-      text: '第 1s 出现的弹幕',
-      color: '#ff0000',
-      time: 1
-    }],
+    url: app.globalData.api,
     //视频直播源
     rtmpScorce: '',
     //视频列表
@@ -33,7 +33,6 @@ Page({
     countNum: 0, //倒计时
     count: 1, //倒计时
     countTimes: '', //倒计时显示
-    countTimer: '',
     image: '',
     iosTime: '',
     //手风琴
@@ -45,11 +44,102 @@ Page({
     art:'',
     text:'',
     dialogShow: false,
+    height:0,
+    sstatus: 1,// 1是滑动到顶部 3是滑动到底部
+    isRefresh: false,//是否显示刷新头
+    isLoadMore: false,//加载更多
+    clientY: 0,//Y方向手指按下的方向
   },
 
   /**
    * medthod
    */
+  //获取点播列表
+  getList(url) {
+    wx.request({
+      url: this.data.url + url,
+      success: (res) => {
+        if (res.data.code == 0) {
+          if (res.data.data.data.length <= 0 && this.data.page != 1) {
+            wx.showToast({
+              title: '已经到底了',
+              icon: 'none',
+              duration: 2000
+            });
+            this.setData({
+              page: this.data.page - 1,
+              current_page: this.data.page - 1,
+              isRefresh: false,//是否显示刷新头
+              isLoadMore: false,//加载更多
+            })
+            return false;
+          }
+          wx.hideLoading();
+          let newData = res.data.data.data;
+          let timeData = [];
+          newData.forEach(element => {
+            if (element.image || element.album) {
+              element.image = app.globalData.fileUrl + '/' + (element.image || element.album);
+            }
+            element.content = element.content.replace(/\<\/?.*?\>/g, '').replace(/\&nbsp\;/g, '');
+            if (element.create_time.length == 10) {
+              element.create_time = new Date(Number(element.create_time) * 1000).getTime()
+            } else if (element.create_time.length == 13) {
+              element.create_time = new Date(Number(element.create_time)).getTime()
+            } else if (element.create_time.length == 16) {
+              element.create_time = new Date(Number(element.create_time.slice(13))).getTime()
+            } else {
+              element.create_time = new Date(0).getTime()
+            }
+          })
+
+          if (this.data.page != this.data.current_page && this.data.page != 1) {
+            newData = this.data.cardDataVideo.concat(newData);
+          }
+
+          if (!this.data.sortTime) {
+            for (var i = 0; i < newData.length; i++) {
+              for (var j = i; j < newData.length; j++) {
+                if (newData[i].views_count < newData[j].views_count) {
+                  timeData = newData[j];
+                  newData[j] = newData[i];
+                  newData[i] = timeData;
+                }
+              }
+            }
+          } else {
+            for (var i = 0; i < newData.length; i++) {
+              for (var j = i; j < newData.length; j++) {
+                if (newData[i].create_time < newData[j].create_time) {
+                  timeData = newData[j];
+                  newData[j] = newData[i];
+                  newData[i] = timeData;
+                }
+              }
+            }
+          }
+          newData.forEach(item => {
+            item.create_time = dateformat.dateformat.format(new Date(item.create_time), 'yyyy-MM-dd')
+          })
+          if (this.data.isRefresh || this.data.isLoadMore){
+            wx.showToast({
+              title: '刷新成功',
+              icon: 'none',
+              duration: 2000
+            });
+          }
+          this.setData({
+            cardDataVideo: newData,
+            isRefresh: false,//是否显示刷新头
+            isLoadMore: false,//加载更多
+          })
+        }
+      },
+      fail: (res) => {
+        console.log('fail', res);
+      }
+    });
+  },
   //获取直播源
   getVideoSource(url) {
     let that = this
@@ -64,10 +154,9 @@ Page({
           WxParse.wxParse('article', 'html', article, that, 5);
 
           newData[0].title = res.data.data.live_announce[0] ? res.data.data.live_announce[0].title : '暂无直播';
-          time = time ? dateformat.dateformat.format(new Date(Number(time) * 1000), 'yyyy-MM-dd hh:mm:ss') : ''
-          newData[0].start_time = time ? '直播时间：' + time : '';
+          let time1 = time ? dateformat.dateformat.format(new Date(Number(time) * 1000), 'yyyy-MM-dd hh:mm:ss') : dateformat.dateformat.format(new Date(), 'yyyy-MM-dd')
+          newData[0].start_time = time ? '直播时间：' + time1 : '日期：' + time1 ;
           this.setData({
-            countTimer: time,
             foldContent: newData,
             image: image,
             rtmpScorce: '',
@@ -86,7 +175,6 @@ Page({
           time = dateformat.dateformat.format(new Date(Number(time) * 1000), 'yyyy-MM-dd hh:mm:ss')
           newData[0].start_time = '直播时间：' + time;
           this.setData({
-            countTimer: time,
             foldContent: newData,
             rtmpScorce: res.data.data.OnlineInfo.LiveStreamOnlineInfo[0].play_rtmp,
             count: 0,
@@ -102,13 +190,15 @@ Page({
     });
   },
 
-
   statechange(e) {
-    // console.log('live-player code:', e.detail.code)
+    console.log('live-player code:', e.detail.code)
     if (e.detail.code == 2004)
       this.setData({
         countNum: 0
       });
+    if (e.detail.code == 3005){
+      this.countDown()
+    }
   },
   error(e) {
     console.error('live-player error:', e.detail.errMsg)
@@ -157,7 +247,6 @@ Page({
       this.audioCtx.requestFullScreen({
         direction: 90
       }) //进入全屏
-      // this.audioCtx.showStatusBar() //ios专用
     }
 
     this.setData({
@@ -177,10 +266,15 @@ Page({
   },
   // 倒计时
   countDown() {
+    if (this.countInterval){
+      clearInterval(this.countInterval);
+    }
+    if (this.interval){
+      clearInterval(this.interval);
+    }
     this.countInterval = setInterval(() => {
-      // this.data.countNum = Math.ceil((new Date(this.data.countTimer).getTime() - new Date().getTime()) / 1000);
       this.data.countNum = Math.ceil(this.data.iosTime - (new Date().getTime() / 1000));
-      this.getVideoSource('admin/live/live_online_list');
+      this.getVideoSource('live/live_online_list');
       if (this.data.countNum <= 0) {
         this.setData({
           countNum: 0
@@ -190,7 +284,7 @@ Page({
         this.setData({
           countNum: 0
         });
-        clearTimeout(this.countInterval);
+        clearInterval(this.countInterval);
       }
     }, 1000)
     this.interval = setInterval(() => {
@@ -210,32 +304,19 @@ Page({
         clearInterval(this.interval);
       }
     }, 1000);
-    // dateformat.dateformat.format(new Date(Number(element.date_time) * 1000), 'yyyy-MM-dd hh:mm')
   },
-  // 手风琴
-  showHide(e) {
-    console.log(e)
-    var contentFor = this.data.foldContent;
-    for (var i = 0; i < contentFor.length; i++) {
-      if (e.currentTarget.dataset.changeid == contentFor[i].id) {
-        var printPrice = "foldContent[" + i + "].shows";
-        if (this.data.foldContent[i].shows) {
-          this.setData({
-            [printPrice]: false
-          });
-        } else {
-          this.setData({
-            [printPrice]: true
-          });
-        }
-      } else {
-        var printPrice1 = "foldContent[" + i + "].shows";
-        this.setData({
-          [printPrice1]: false
-        });
-      }
+  //选项卡
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id,
+      tabId: e.currentTarget.id,
+    });
+    if (e.currentTarget.id == 2){
+      this.getList('admin/live/video_on_demand?type=0&is_show=1')
     }
   },
+
   info(){
     // 显示遮罩层
     this.setData({
@@ -249,20 +330,90 @@ Page({
       dialogShow: false,
     })
   },
-
+  //视频列表详情
+  videoInfo(e){
+    wx.navigateTo({
+      url: './videoInfo?id=' + e.currentTarget.dataset.id
+    })
+  },
+  //收藏视频
+  collect(e){
+    console.log(e.currentTarget.dataset.id)
+    // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+  },
+  scrollTop(){
+    this.setData({
+      page: 1,
+      sstatus: 1
+    });
+    // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+  },
+  scrollBottom(){
+    console.log('下')
+    this.setData({
+      page: this.data.page + 1,
+      sstatus: 3
+    });
+    // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+  },
+  /**
+* 手指按下
+*/
+  start: function (e) {
+    var touchPoint = e.touches[0];
+    var clientY = touchPoint.clientY
+    this.setData({
+      clientY: clientY
+    })
+  },
+  /**
+  * 抬起手指
+  */
+  end: function (e) {
+    console.log(this.data.sstatus)
+    var context = this
+    var upPoint = e.changedTouches[0];
+    var endY = upPoint.clientY
+    var pointTopointY = endY - this.data.clientY
+    var status = this.data.sstatus
+    //上拉刷新
+    if (status == 1 && pointTopointY > 50) {
+      this.setData({
+        isRefresh: true
+      })
+      this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+    }
+    //上拉加载
+    if (status == 3 && pointTopointY < -50) {
+      this.setData({
+        isLoadMore: true
+      })
+      this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // 获取视频直播源
-    this.getVideoSource('admin/live/live_online_list');
+    this.getVideoSource('live/live_online_list');
+    //选项卡
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getVideoSource('admin/live/live_online_list');
+    this.getVideoSource('live/live_online_list');
     this.audioCtx = wx.createLivePlayerContext('myliveVideo')
     this.statusBarDisappear(); //状态栏倒计时三秒消失
   },
@@ -271,12 +422,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    setTimeout(()=>{
+      wx.getSystemInfo({
+        success: res => {
+          let clientHeight = res.windowHeight;
+          let domHeight = '';
+          const query = wx.createSelectorQuery();
+          query.select('.overall-page').boundingClientRect(resq => {
+            domHeight = resq.height
+            this.setData({
+              height: clientHeight - domHeight
+            });
+          }).exec()
+        }
+      });
+    },500)
+
     wx.setKeepScreenOn({
       keepScreenOn: true
     })
-    clearTimeout(this.countInterval);
+    clearInterval(this.countInterval);
     clearInterval(this.interval);
-    this.getVideoSource('admin/live/live_online_list');
+    this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
+    this.getVideoSource('live/live_online_list');
     this.audioCtx = wx.createLivePlayerContext('myliveVideo')
     this.statusBarDisappear(); //状态栏倒计时三秒消失
     this.countDown(); //倒计时
@@ -287,7 +455,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    clearTimeout(this.countInterval);
+    clearInterval(this.countInterval);
     this.audioCtx.stop();
     this.setData({
       rtmpScorce: 'rtmp://null'
@@ -299,15 +467,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    clearTimeout(this.countInterval);
+    clearInterval(this.countInterval);
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    // this.getVideoSource('admin/live/live_online_list');
-    this.getVideoSource('admin/live/live_online_list');
+    this.getVideoSource('live/live_online_list');
     wx.stopPullDownRefresh()
   },
 
@@ -315,7 +482,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    
   },
 
   /**

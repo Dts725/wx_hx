@@ -8,7 +8,8 @@ Page({
   data: {
     username:'张三',
     userIpone:'18321454210',
-    userCard:'371452198204213345'
+    userCard:'371452198204213345',
+    userImg:''
   },
 
   /**
@@ -20,8 +21,10 @@ Page({
     //     username: app.globalData.userInfo.nickName
     //   })
     // },500)
+    // this.setData({
+    //   userImg: app.globalData.userInfo.avatarUrl
+    // })
     
-    console.log(app.globalData)
   },
   tx(){
     wx.chooseImage({

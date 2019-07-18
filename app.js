@@ -18,9 +18,9 @@ App({
     wx.setStorageSync('logs', logs)
     wx.login({
       success: res => {
-        // console.log('1111111111', res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId 
         this.globalData.userInfo = res;
+        this.globalData.loginInfo = res ;
         // console.log('3333333333', this.globalData.userInfo)
       }
     })
@@ -30,7 +30,6 @@ App({
     // 获取用户信息 
     wx.getSetting({
       success: res => {
-        // console.log(res)
         // console.log('222222222')
 
         if (res.authSetting['scope.userInfo']) {
@@ -39,19 +38,41 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框 
           wx.getUserInfo({
             success: res => {
-              // console.log('4444444444444',res)
-
-
+            
               this.warrant()
               // 可以将 res 发送给后台解码出 unionId 
               this.globalData.userInfo = res.userInfo
-
-              // console.log(res.userInfo)
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回 
               // 所以此处加入 callback 以防止这种情况 
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+              
+              // 可以将 resp 发送给后台解码出 unionId,获得登录信息
+              this.globalData.userInfo = res.userInfo;
+              this.globalData.userInfoWX = res;
+              console.log(res, "00000000000000")
+              // wx.request({
+              //   url: this.globalData.api + 'getWxUserInfo',
+              //   method: 'GET',
+              //   data: {
+              //     code: this.globalData.loginInfo.code,
+              //     iv: this.globalData.userInfoWX.iv,
+              //     encryptedData: this.globalData.userInfoWX.encryptedData
+              //   },
+              //   success: function (res) {
+              //     if (res.statusCode == 200) {
+              //       _this.globalData.openid = res.data.data.openid;
+              //       _this.globalData.personInfo = res.data.data;
+              //     }
+              //   }
+              // });
+
+
+
+
+
+
             }
           })
         } else {
@@ -76,6 +97,7 @@ App({
       },
       success: res => {
         this.globalData.token = res.data.res_data.token;
+        console.log(res,'99999999999999999999999999')
         wx.setStorageSync(
           "token",
           res.data.res_data.token
@@ -88,11 +110,14 @@ App({
 
   globalData: {
     fileUrl: 'https://file.shyunhua.com',
-    userInfo: null,
-    loginInfo: null,
+    userInfo: null,//////微信用户信息
+    loginInfo: null,////登录信息
     token: "",
+    openid: null,
     getMaterials: "",
     fid: [],
+    url: 'https://huanaapi.shyunhua.com/',
+    personInfo: null, // 这里有用户id {if_register:xx, openid:xx, unionid:xx},
     api: 'https://hexi.shyunhua.com/', // 接口地址
     // api: 'https://apijcdj.shyunhua.com/', // 上传时需要加 'file/upload'
     fileUrl: 'https://file.shyunhua.com/'  // 显示或下载文件的地址

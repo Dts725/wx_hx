@@ -22,8 +22,10 @@
 <view class="record-tip" wx:if="{{record.recordingTimeqwe>0}}">{{record.recordingTimeqwe}}s</view>
 <view class="scene-list">
   <view class="yh-row" wx:for="{{scene.list}}">
-    <text>{{item.id}}</text>
-    <text>{{item.name}}</text>
+    <!-- <text>{{item.id}}</text>
+    <text>{{item.name}}</text> -->
+    <text wx:if="{{item.values.text}}">{{item.values.text}}</text>
+    <text wx:if="{{item.intent.answer.text}}">{{item.intent.answer.text}}</text>
   </view>
 </view>
 <view bindtap="gonext">下一页</view>

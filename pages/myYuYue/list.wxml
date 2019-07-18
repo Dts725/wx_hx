@@ -1,7 +1,7 @@
 <!--pages/myYuYue/list.wxml-->
 <!--pages/record/record.wxml-->
 <view style='margin-top:30rpx;'>
-  <view class='w80' wx:for="{{data}}" bindtap='eiweima' data-id="{{item.id}}">
+  <view class='w80' wx:for="{{data}}"  data-id="{{item.id}}">
     <view class='top'>
       <view>
       <image src='../../static/images/reservation-01.png'></image>
@@ -68,8 +68,10 @@
       <view class='zhuangtai '>
           状态：<view class="zhuangtai_1 {{item.type=='已过期'?'guoqi':''}}" > {{item.type}}</view>
       </view>
-      <button wx:if="{{item.type=='预约成功'}}" class="{{item.type=='预约成功'?'quxiao':''}}" bindtap='submit' data-obj='{{item}}'>取消预约</button>
-      <button  wx:elif="{{item.type=='已过期'}}" class="{{item.type=='已过期'?'buhao':''}}" bindtap='submit' data-obj='{{item}}'>补号</button>
+      <button wx:if="{{item.type=='预约成功'}}" class="{{item.type=='预约成功'?'quxiao':''}}" catchtap='submit1' data-obj='{{item}}'>取消预约</button>
+       <button wx:elif="{{item.type=='已出票'}}" class="quxiao" disabled>取消预约</button>
+      <button  wx:elif="{{item.type=='已过期'}}" class="{{item.type=='已过期'?'buhao':''}}" bindtap='submit2' data-obj='{{item}}'>补号</button>
+      <button  wx:else="{{item.type=='预约失效'}}" class="quxiao" disabled>预约已取消</button>
     </view>
   </view>
 </view>

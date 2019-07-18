@@ -1,0 +1,3 @@
+<!--pages/consultation/consultation_html_result.wxml-->
+<text>pages/consultation/consultation_html_result.wxml</text>
+<web-view src="url"></web-view>

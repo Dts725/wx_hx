@@ -1,7 +1,56 @@
 /* index.wxss */
 
+page {
+  height: 100%;
+}
+
 .body {
   background-color: #f3f3f3;
+  height: 100%;
+}
+
+.body_top {
+  background-color: #fff;
+  padding: 2vw 2vw 0 2vw;
+  margin-bottom: 4vw;
+}
+
+.online-banner {
+  /* width: calc(100% - 0.5rem);
+  margin: 4vw auto 0 auto; */
+}
+
+.d_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d_row_start {
+  justify-content: flex-start;
+}
+
+.d_col_con .d_row {
+  margin-bottom: 1vw;
+}
+
+.d_col_con .d_row:last-child {
+  margin: 0;
+}
+
+.d_col_con {
+  font-size: 14px;
+}
+
+.d_col_con button {
+  padding: 0 3.5vw;
+  font-size: 12px;
+  margin: 0 2vw 0 0;
+}
+
+.qrcode_img image {
+  width: 30vw;
+  height: 30vw;
 }
 
 .ready {
@@ -37,27 +86,51 @@
 .fz12 {
   font-size: 12px;
 }
-.btn {
-  margin-top: 2rem;
+
+.body_model {
+  background-color: #fff;
+  padding: 2vw 1vw;
+  margin-bottom: 4vw;
 }
 
-.btn image {
-  height: 185rpx;
+.body_model .d_row {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
 }
+
+.body_model image {
+  /* height: 185rpx; */
+  width: 30vw;
+  height: 15vw;
+  margin: 1vw;
+}
+
 .bt-image {
-  height: 210rpx;
+  height: 160rpx;
+  border-radius: 2vw;
+}
+
+.user-img-box {
+  position: absolute;
+  top: 14rpx;
+  left: -60rpx;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.user-img-box text {
+  margin-left: 2vw;
 }
 
 .user-img {
   height: 120rpx;
   width: 120rpx;
   border-radius: 100%;
-  position: absolute;
-  top: 14rpx;
-  left: 39rpx;
   box-shadow: 0 15rpx 20rpx -5px #000;
-
 }
+
 .wechat {
   width: 100%;
   height: 55px;
@@ -71,11 +144,6 @@
   width: calc((100% - 8vw) / 3);
 }
 
-.online-banner {
-  width: calc(100% - 0.5rem);
-  margin: 4vw auto 0 auto;
-}
-
 .flex-center-evenly {
   /* justify-content: space-around; */
   flex-wrap: wrap;
@@ -85,14 +153,58 @@
   background-color: #fff;
   color: #999;
   padding: 0.5em 1em;
-  border-radius:100rem; 
+  border-radius: 100rem;
   position: absolute;
   top: 40rpx;
-  right: 120rpx;
-  
+  right: 30rpx;
 }
 
 .footer {
-  position: absolute;
-  bottom: 50rpx;
+  position: relative;
+  /* bottom: 50rpx; */
+  background-color: #fff;
+  padding: 6vw 6vw 6vw 16vw;
+}
+
+.footer_bg {
+  position: relative;
+  width: 75vw;
+}
+
+/* 测试用的 入口按钮 */
+
+.test_btn view {
+  margin-left: 5vw;
+}
+
+.test_btn button {
+  display: inline;
+  width: 20vw;
+  margin-left: 5vw;
+}
+
+.blue_btn_status {
+  color: #fff;
+  background-color: #4984F8;
+  padding: 0.5vw 2vw;
+  border-radius: 1vw;
+  font-size: 2.5vw;
+  margin-left: 2vw;
+}
+
+/* btn公用按钮 */
+
+.btn_light_blue {
+  color: #4984F8;
+  background-color: #E8F1FE;
+}
+
+.btn_light_green {
+  color: #71C7BD;
+  background-color: #E8F6ED;
+}
+
+.btn_light_pink {
+  color: #E07464;
+  background-color: #FAF0EE;
 }

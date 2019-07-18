@@ -1,6 +1,6 @@
 <!-- liveVideo.wxml -->
 <import src="../../utils/wxParse/wxParse.wxml" />
-<view style='height:100%'>
+<view>
   <view class="overall-page">
     <view class="overall-title">
       <label class="overall-title-name">{{foldContent[0].title}}</label>
@@ -17,10 +17,9 @@
       </block>
     </view>
 
-    <!-- <live-player id="myliveVideo" src="{{rtmpScorce}}" mode="RTC" autoplay bindstatechange="statechange" binderror="error" bindtap="changeStatusBar" style="width: 100%; height: 225px;margin-top:10px;vertical-align:top;"> -->
-    <live-player id="myliveVideo" src="rtmp://58.200.131.2:1935/livetv/hunantv" mode="RTC" autoplay bindstatechange="statechange" binderror="error" bindtap="changeStatusBar" style="width: 100%; height: 225px;margin-top:10px;vertical-align:top;">
+    <live-player id="myliveVideo" src="{{rtmpScorce}}" mode="RTC" autoplay bindstatechange="statechange" binderror="error" bindtap="changeStatusBar" style="width: 100%; height: 225px;margin-top:10px;vertical-align:top;">
       <cover-view class="controls" bindtap='changeStatusBar'>
-        <!-- <cover-view class="countDown" scroll-top="0">
+        <cover-view class="countDown" scroll-top="0">
           <cover-view class='rimage' wx:if="{{count !=0}}">
             <cover-image class='vimage' src="{{image}}"></cover-image>
           </cover-view>
@@ -30,7 +29,7 @@
             <cover-view class="text">距直播开始还有</cover-view>
             <cover-view class='time'>{{countTimes}}</cover-view>
           </cover-view>
-        </cover-view> -->
+        </cover-view>
         <cover-view class="statusBar {{statusBarLive==0?'statusBarDisappear':''}}">
           <cover-view class="play" bindtap="liveVideoPlay">
             <cover-image class="small-icon" src="../../static/\liveVideo/{{isLivePlayed==true?'pause':'play'}}.png" />
@@ -41,38 +40,57 @@
         </cover-view>
       </cover-view>
     </live-player>
+  </view>
 
-
-    <view class='container-wrap1' bindtap='info'>
-      <view class='item-li-ji'>
-        <text>{{text}}</text>
-        <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
-      </view>
-      <!-- 手风琴 -->
-      <!-- <block wx:for="{{foldContent}}" wx:key="{{item.id}}">
-      <view class='item-li'>
-        <view class='item-content' bindtap='showHide' wx:if='{{foldContent[0].shows}}' data-changeid="{{item.id}}">
-          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  <view class="weui-tab" style="height: {{height}}px;">
+        <view class="weui-navbar">
+          <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
         </view>
-        <view class='item-content1' bindtap='showHide' wx:if='{{!foldContent[0].shows}}' data-changeid="{{item.id}}">
-          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <scroll-view class='video_list' scroll-y="true">
+            <view class='container-wrap1' bindtap='info'>
+              <view class='item-li-ji'>
+                <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+              </view>
+            </view>
+            </scroll-view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <view class='charts'>
+              <chart hData="{{height}}"></chart>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <scroll-view class='video_list' bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" scroll-y="true" bindtouchstart="start" bindtouchend="end">
+              <view wx:if="{{isRefresh}}" class="refresh_root">
+                <image src="../../static/timg.gif" class="refresh"></image>
+                <view><text>正在刷新...</text></view>
+              </view>
+              <view class='video_list_contain' wx:for="{{cardDataVideo}}" content='{{item}}' wx:key="{{item.id}}">
+                <image class='video_collect' src='../../static/tabbar_icon/bottom_icon03.png' lazy-load="true" mode="aspectFill" bindtap='collect' data-id='{{item.id}}' wx:if="{{item.id == 63}}"></image>
+                <image class='video_collect' src='../../static/tabbar_icon/bottom_icon04.png' lazy-load="true" mode="aspectFill" bindtap='collect' data-id='{{item.id}}' wx:else></image>
+                <view bindtap='videoInfo' data-id='{{item.id}}' style='width:100%;height:100%;'>
+                  <image class='video_image' src='{{item.image}}' lazy-load="true" mode="aspectFill"></image>
+                  <view class='video_contain'>
+                    <view class='video_title'>{{item.title}}</view>
+                    <view class='video_time'>{{item.create_time}}</view>
+                    <view class='video_content'>{{item.content}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='item-li-ji' wx:if="{{cardDataVideo.lenght == 0}}">暂无数据</view>
+              <view wx:if="{{isLoadMore}}" class="refresh_root">
+                <image src="../../static/timg.gif" class="refresh"></image>
+                 <view><text>拼命加载中...</text></view>
+              </view>
+            </scroll-view>
+          </view>
         </view>
-      </view>
-    </block> -->
-    </view>
-  </view>
-
-  <view class='dialog' wx:if="{{dialogShow}}">
-    <view class='dialog-close' bindtap='close'>×</view>
-    <view class='dialog-contain'>
-      <view class='dialog-title'>视频简介：</view>
-      <view class='dialog-html'>
-        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-      </view>
-    </view>
-  </view>
-
-  <view class='charts'>
-    <chart></chart>
-  </view>
+      </view> 
 </view>

@@ -5,7 +5,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    hData:{
+      type: String,
+    }
   },
 
   /**
@@ -42,15 +44,24 @@ Component({
     _scortInit() {
 
 
-      let url = 'wss://hexi.shyunhua.com:3234';
+      let url = 'wss://hexiapi.shyunhua.com:3234';
       // cononect ws
       wx.connectSocket({
         url: url
       })
 
       // 首次连接sort
-      wx.onSocketOpen(function(res) {
-        console.log(res)
+      wx.onSocketOpen((res) => {
+        let str = JSON.stringify({
+          "room_id": 5,
+          "content": this.data.tmpMessage,
+          "img": app.globalData.userInfo.avatarUrl,
+          "name": app.globalData.userInfo.nickName,
+          'user_id': 4,
+        });
+        wx.sendSocketMessage({
+          data: str
+        })
       })
 
     },
@@ -83,17 +94,16 @@ Component({
 
     // 发送数据
     _send(data) {
-
       if (!this.data.tmpMessage) return;
       // 维护数组
       this.data.dataList.push(this._initView(true, this.data.tmpMessage))
-
       let str = JSON.stringify({
         "room_id": 5,
         "content": this.data.tmpMessage,
         "img": app.globalData.userInfo.avatarUrl,
-        "name": app.globalData.userInfo.nickName
-      });
+        "name": app.globalData.userInfo.nickName,
+        'user_id': 4,
+      }); 
       wx.sendSocketMessage({
         data: str
       })
@@ -114,7 +124,6 @@ Component({
         if (res.data === "连接成功") return;
         let tmp = JSON.parse(res.data)
         if (tmp.content !== this.data.tmpMessage) {
-
           this.data.dataList.push(this._initView(false, tmp))
           this.setData({
             dataList: this.data.dataList,

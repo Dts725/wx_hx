@@ -1,0 +1,15 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view>
+    <view class="overall-page">
+        <video class='overall-video' src="{{infoDatas.video_src}}"></video>
+        <view class="overall-title">
+            <view class="overall-title-name">{{infoDatas.title}}</view>
+            <view class="overall-title-time">{{infoDatas.time}}</view>
+            <image class='video_collect' src='../../static/tabbar_icon/bottom_icon03.png' lazy-load="true" mode="aspectFill" bindtap='collect' wx:if="{{infoDatas.id == 93}}"></image>
+            <image class='video_collect' src='../../static/tabbar_icon/bottom_icon04.png' lazy-load="true" mode="aspectFill" bindtap='collect' wx:else></image>
+        </view>
+        <view class="content1">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+    </view>
+</view>

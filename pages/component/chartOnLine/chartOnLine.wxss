@@ -57,8 +57,9 @@
 .bottom {
   border-top: 1px solid #cecece;
   padding: 0.2em;
+  padding-bottom: 0.8rem;
   position: fixed;
-  bottom: 0;
+  bottom: 0.8rem;
   left: 0;
   width: 100%;
   background-color: #fff;
@@ -122,6 +123,10 @@
 
 .border-rad {
   border-radius: 5px;
+  word-wrap: break-word;
+  max-width: 100%;
+  text-align: left;
+  box-sizing: border-box;
 }
 .flex-center-between {
   display: flex;

@@ -1,5 +1,6 @@
 // pages/myYuYue/myYuYue.js
 var QR = require("../../utils/qrcode.js");
+var app=getApp()
 Page({
 
   /**
@@ -17,11 +18,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    console.log(app.globalData,99)
     // 页面初始化 options为页面跳转所带来的参数
     var size = this.setCanvasSize();//动态设置画布大小
-    // var initUrl = this.data.placeholder;
-    var initUrl = options.id;
+    // var initUrl = app.globalData.loginInfo.code;
+    var initUrl ='o58UM5EIJT081Gs59dwrZeRrm9_U';
     this.createQrCode(initUrl, "mycanvas", size.w, size.h);/////绘制二维码图片
   },
   //适配不同屏幕大小的canvas
@@ -44,7 +45,7 @@ Page({
     // console.log(url)
     //调用插件中的draw方法，绘制二维码图片
     QR.api.draw(url, canvasId, cavW, cavH);
-    setTimeout(() => { this.canvasToTempImage(); }, 1000);
+    setTimeout(() => { this.canvasToTempImage(); }, 100);
 
   },
   //获取临时缓存照片路径，存入data中

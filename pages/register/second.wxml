@@ -2,10 +2,12 @@
 <view style='border-top:1px solid #dddbdb;'>
   <view class='top'>
 
-    <image src='../../static/images/touxiang.png'></image>
+    <image src='../../static/images/touxiang.png' hidden='{{showPhoto}}' bindtap="chooseImage"></image>
+    <image class='card-img'  src='{{fileUrl}}/{{showPhoto}}' hidden='{{!showPhoto}}' ></image>
     <view  class='renzheng'>头像认证</view>
     <view class='shenhe'>认证头像要清晰，否则无法通过审核</view>
   </view>
+ 
   <view class='wrap'>
     <view class='c1'>
     {{username}}

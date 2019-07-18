@@ -1,6 +1,32 @@
-<view>
-  <view class='online-banner'>
-    <image class='w100' style='display:block;' mode='widthFix' src='../../static/images/index-banner.png'></image>
+<view class="body">
+  <view class="body_top">
+    <view class='online-banner'>
+      <image class='w100' style='display:block;' mode='widthFix' src='../../static/images/index-banner.png'></image>
+    </view>
+    <view class="dynamic_infos d_row">
+      <view class="d_col_con">
+        <view class="d_row d_row_start">
+          <button class="btn_light_blue" bindtap="dynamicInfosClick" data-type="yuyue">我的预约</button>
+          <view class="d_text">2019-07-10 09:15-11:00</view>
+        </view>
+        <view class="d_row d_row_start">
+          <button class="btn_light_green" bindtap="dynamicInfosClick" data-type="yuyue">我的排队</button>
+          <view class="d_text">票号：05， 前方6人</view>
+        </view>
+        <view class="d_row d_row_start">
+          <button class="btn_light_pink" bindtap="dynamicInfosClick" data-type="jindu">办件进度</button>
+          <view class="d_text d_row">
+            <text>卫生许可证审批</text>
+            <text class="blue_btn_status">办理中</text>
+          </view>
+        </view>
+      </view>
+      <view class="d_col_con qrcode_img" bindtap="toMyQrCode">
+        <!-- <image bindtap="previewImg" mode="scaleToFill" src="{{qrCodeUrl}}"></image> -->
+        <canvas style="width: 30vw;height: 30vw;background:#f1f1f1;" canvas-id="qrcanvas" />
+
+      </view>
+    </view>
   </view>
   <!-- <view>
     <view class=' w100 flex-center-warp'>
@@ -14,24 +40,50 @@
     </view>
 
   </view> -->
-  <view class='btn'>
-    <view class=' w100 flex-center-evenly'>
-      <image class='w45' mode='aspectFit' bindtap='routeBid' src='../../static/images/455.png'></image>
-      <image class='w45' mode='aspectFit' bindtap='routeProgress' src='../../static/images/imagesmenu01-track.png'></image>
-      <image class='w45' mode='aspectFit' bindtap='guideReserve' src='../../static/images/gonglue2.png'></image>
-      <image class='w45' mode='aspectFit' bindtap='serviceOrder' src='../../static/images/service_order.png'></image>
+
+
+
+
+  <view class='body_model'>
+    <view class=' w100 d_row'>
+      <image class='' mode='aspectFit' bindtap='routerTo' src='../../static/images/x_icon01.png' data-type="shenban">
+      </image>
+      <image class='' mode='aspectFit' bindtap='routerTo' src='../../static/images/x_icon02.png' data-type="yuyue">
+      </image>
+      <image class='' mode='aspectFit' bindtap='routerTo' src='../../static/images/x_icon03.png' data-type="chaxun">
+      </image>
+      <image class='' mode='aspectFit' bindtap='routerTo' src='../../static/images/x_icon04.png' data-type="zhinan">
+      </image>
+      <image class='' mode='aspectFit' bindtap='routerTo' src='../../static/images/x_icon05.png' data-type="zhibo">
+      </image>
+      <!-- <image class='' mode='aspectFit' bindtap='routeBid' src='../../static/images/x_icon01.png'></image>
+      <image class='' mode='aspectFit' bindtap='serviceOrder' src='../../static/images/x_icon02.png'></image>
+      <image class='' mode='aspectFit' bindtap='routeProgress' src='../../static/images/x_icon03.png'></image>
+      <image class='' mode='aspectFit' bindtap='guideReserve' src='../../static/images/x_icon04.png'></image>
+      <image class='' mode='aspectFit' bindtap='serviceOrder' src='../../static/images/x_icon05.png'></image> -->
     </view>
   </view>
 
   <!-- 进入个人中心页面 -->
-<view class='w100 flex-center footer '>
-<view class='w80 flex-end'>
-  <image class='bt-image' src='../../static/images/maine_center.png'></image>
-  <image class='user-img' src='{{userImg}}'></image>
-  <view class='flex-center center fz14' bindtap='mine' >
-    进入个人中心
+  <view class='w100 footer '>
+    <view class='flex-end footer_bg'>
+      <view class="user-img-box">
+        <image class='user-img' src='{{userImg}}'></image>
+        <text>昵称</text>
+      </view>
+      <image class='bt-image' src='../../static/images/regulation-header.png'></image>
+      <view class='flex-center center fz14' bindtap='mine'>
+        进入个人中心
+      </view>
+    </view>
   </view>
-</view>
-</view>
-
+  <!-- <view class="canvas-box">
+    <canvas hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="qrcanvas" />
+  </view> -->
+  <view class="test_btn">
+    <view>测试用的入口按钮：</view>
+    <button open-type="contact" bindcontact="handleContact">客服中心</button>
+    <button bindtap="intellectConsultation">智能咨询</button>
+    <button bindtap="lianxi">联系我们</button>
+  </view>
 </view>

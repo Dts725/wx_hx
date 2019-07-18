@@ -49,7 +49,7 @@ Page({
 
   routerFn () {
     wx.navigateTo({
-      url: '../bid',
+      url: '../../consultation_category/category',
     })
   },
 

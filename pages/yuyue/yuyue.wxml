@@ -35,7 +35,7 @@
                       <image src="../../static/images/icon02.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
                   </view>
                   <view class="weui-cell__bd">预约电话</view>
-                  <view class="weui-cell__ft">121212121212</view>
+                  <view class="weui-cell__ft">{{phone}}</view>
               </view>
           <!-- </view> -->
               <view class="weui-cell weui-cell_input">
@@ -48,11 +48,17 @@
                 </view>
                 <view class="weui-cell__bd">
                     <!-- <input class="weui-input" placeholder="请输入办理事项"/> -->
-                    	<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    	<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
 						<view class="picker">{{array[index]}}</view>
              <image src='../../static/xiala.png' class='xiala'></image>
-            <!-- <image src='../../static/xiala.png'></image> -->
-					</picker>
+					</picker> -->
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <!-- <view class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+    </view> -->
+    	<view class="picker">{{multiArray[1][multiIndex[1]]}}</view>
+       <image src='../../static/xiala.png' class='xiala'></image>
+  </picker>
                     <!-- <view class='select_box'>
                         <view class='select' catchtap='selectTap'>
                             <text class='select_text shixiang' wx:if='{{tag}}'>请输入办理事项</text>

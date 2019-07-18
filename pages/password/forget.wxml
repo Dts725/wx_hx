@@ -1,12 +1,13 @@
 <!--pages/password/forget.wxml-->
 <view   class='bg'>
       <view style='background:white;background:white;padding-top:10px;'>
-        <input class="weui-input" placeholder="请输入手机号" placeholder-class='center'/>
-        <input class="weui-input" placeholder="请输入验证码" placeholder-class='center'/>
-         <button class='yzm'>获取验证码</button>
-        <input class="weui-input" placeholder="请输入新密码"  placeholder-class='center'/>
+        <input class="weui-input" placeholder="请输入手机号" placeholder-class='center' bindinput='getphone'/>
+        <input class="weui-input" placeholder="请输入验证码" placeholder-class='center' bindinput='getyzm'/>
+         <!-- <button class='yzm' >获取验证码</button> -->
+          <view bindtap='getCodeFn' class='{{addClass}} yzm'>{{numberCode}}</view>
+        <input class="weui-input" placeholder="请输入新密码"  placeholder-class='center' bindinput='getmima'/>
        
-        <input class="weui-input last" placeholder="请确认新密码"  placeholder-class='center'/>
+        <input class="weui-input last" placeholder="请确认新密码"  placeholder-class='center' bindinput='getmima2'/>
       
        </view>
         <button bindtap='loginSubmit' class='btn co-ff'>确认修改</button>

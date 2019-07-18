@@ -1,7 +1,7 @@
 /* pages/main/index.wxss */
 .container-box{height: 100vh}
 .img-box{text-align:center;}
-.img-box image{width:530rpx;height: 530rpx;background-color: #f9f9f9}
+.img-box image{width:530rpx;height: 530rpx;background-color: #f9f9f9;margin-top:200rpx}
 .input-row{
     margin: 30rpx auto;
     border-bottom: 1rpx solid #e5e5e5;

@@ -16,12 +16,13 @@ Page({
   },
   register() {
     wx.navigateTo({
-      url: './password/forget',
+      
+      url: './register/register',
     })
   },
   zhaohui(){
     wx.navigateTo({
-      url: './register/register',
+      url: './password/forget',
     })
   },
   //获取授权
@@ -55,7 +56,8 @@ Page({
 
   //登录连接
   loginSubmit(){
-    if (url.rules(this.data.data)) return
+    if (this.data.data.mobile=='') return
+    if (this.data.data.pwd == '') return
     wx.request({
       url: url.loginUrl,
       data : this.data.data,

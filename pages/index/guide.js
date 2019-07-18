@@ -1,4 +1,5 @@
 // pages/index/guide.js
+const app = getApp()
 Page({
 
   /**

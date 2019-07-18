@@ -15,10 +15,15 @@ Page({
  
   },
   bindGetUserInfo(e) {
+    console.log(e)
    if(e) {
+     console.log('999999999999')
      wx.switchTab({
-       url: '../../pages/newsList/newsList'
+       url: '../../pages/index/index'
      })
+    // wx.navigateTo({
+    //   url: '../index/index',
+    // })
    }
   },
 

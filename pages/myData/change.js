@@ -22,7 +22,33 @@ Page({
       })
     }
   },
+  baocun(){
+    // wx.request({
+    //   url: '',
+    //   method:'post',
+    //   data:this.data.value,
+    //   success:res=>{
+    //     if(){
+    //       wx.showToast({
+    //         title:'修改成功',
+    //         icon: 'success',
+    //         duration: 2000
+    //       })
+            wx.navigateTo({
+              url: './myData',
+            })
+    //     }
+    //   }
+    // })
+  },
+  formName(e){
+    this.data.value == e.detail.value
+    // if (this.data.value==e.detail.value){
 
+    // }else{
+
+    // }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

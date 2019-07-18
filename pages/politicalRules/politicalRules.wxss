@@ -1,0 +1,91 @@
+.warp-rules {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 85%;
+  padding: 1rem 0.5rem;
+  background: linear-gradient(135deg, #c05f35, #de5143);
+  border-radius: 10px;
+}
+
+.warp-rules::after {
+  content: '';
+  width: 96%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  top: 0.2rem;
+  filter: blur(0.4rem);
+  opacity: 0.7;
+  z-index: -1;
+}
+.Implementation {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 85%;
+  padding: 1rem 0.5rem;
+  background: linear-gradient(135deg, #8a6ada, #6690eb);
+  border-radius: 10px;
+}
+
+.Implementation::after {
+  content: '';
+  width: 96%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  top: 0.2rem;
+  filter: blur(0.4rem);
+  opacity: 0.7;
+  z-index: -1;
+}
+.health {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: 85%;
+  padding: 1rem 0.5rem;
+  background: linear-gradient(135deg, #5591bc, #6eb69a);
+  border-radius: 10px;
+}
+
+.health::after {
+  content: '';
+  width: 96%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  top: 0.2rem;
+  filter: blur(0.4rem);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.con {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+}
+
+.img {
+  padding: 0.5rem 0rem;
+}
+.flex-center{
+  position: relative
+}
+.rule-content{
+  position: absolute;
+  top: 0;
+  width: 90%;
+  margin: auto;
+  height: calc(100% - 1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+.rule-content view{
+  color: #fff;
+  padding-left: 4vw;
+}

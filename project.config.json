@@ -13,8 +13,8 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.4",
-	"appid": "wxe3a380ce241bb702",
+	"libVersion": "2.7.3",
+	"appid": "wx168c3e5d0c3cdf42",
 	"projectname": "wechat_he_xi",
 	"debugOptions": {
 		"hidedInDevtools": []
