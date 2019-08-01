@@ -1,66 +1,48 @@
-// pages/concat/concat.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    markers: [{
+      // iconPath: "../../static/images/localtion.png",
+      id: 0,
+      latitude: 39.070220,
+      longitude: 117.249500,
+      width: 30,
+      height: 30,
+      // title:'天津市河西区行政许可服务中心',
+      callout:{
+        content: '点我导航',
+        fontSize: '30rpx',
+        display: 'ALWAYS',
+        color: '#ffffff',
+        bgColor: '#2780c0',
+        borderRadius: '60rpx', 
+        padding:6,
+      
+        textAlign:'center'
+        }
+    }],
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+ 
+  markertap(e) {
+    // console.log(44444)
+       wx.openLocation({//​使用微信内置地图查看位置。
+        latitude: 39.070220,//要去的纬度-地址
+        longitude: 117.249500,//要去的经度-地址
+        name: "天津市河西区行政许可服务中心",
+        address: '天津市河西区洞庭路20号'
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  qipao(){
+    wx.openLocation({//​使用微信内置地图查看位置。
+      latitude: 39.070220,//要去的纬度-地址
+      longitude: 117.249500,//要去的经度-地址
+      name: "天津市河西区行政许可服务中心",
+      address: '天津市河西区洞庭路20号'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  regionchange(){
+    console.log(333)
   }
+
+  
 })

@@ -1,56 +1,22 @@
-// pages/Correction/Correction.js
+// pages/service/image.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tableFlag : true,
-    id:'',
-    turnFlag : false,
-    entrClass: ["translation-01", "translation-02", "translation-03", "translation-04", "translation-05"],
-    addClass : [],
-    liveClass : []
-
+    isClick:false
   },
-//切换样式 
-  turn() {
-    console.log("切换样式")
+  start(){
     this.setData({
-      turnFlag: !this.data.turnFlag
-    })
-    if (this.data.turnFlag) {
-      this.setData({
-        "addClass": this.data.entrClass
-      })
-    } else {
-      this.setData({
-        "addClass": []
-      })
-    }
-  },
-
-//动态选择 主题部门
-
-  tableSelectFn () {
-    this.setData({
-      tableFlag : !this.data.tableFlag
-    })
-
-  },
-
-  bindFn () {
-    wx.navigateTo({
-      url: './detail/detail?id='+this.data.id,
+      isClick:!this.data.isClick
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      id: options.id
-    })
+
   },
 
   /**

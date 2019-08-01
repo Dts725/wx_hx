@@ -1,27 +1,43 @@
 <view class="body">
   <view class="body_top">
     <view class='online-banner'>
-      <image class='w100' style='display:block;' mode='widthFix' src='../../static/images/index-banner.png'></image>
+      <!-- <image class='w100' style='display:block;' mode='widthFix' src='../../static/images/index-banner.png'></image> -->
+      <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}"
+        duration="{{swiper.duration}}" indicator-color="{{swiper.indicatorColor}}"
+        indicator-active-color="{{swiper.indicatorActiveColor}}" circular="{{swiper.circular}}">
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <!-- <image src="{{item}}" class="slide-image" mode='widthFix' width="355" height="150" /> -->
+            <image src="{{item}}" class="slide-image" mode='widthFix' />
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
     <view class="dynamic_infos d_row">
       <view class="d_col_con">
         <view class="d_row d_row_start">
-          <button class="btn_light_blue" bindtap="dynamicInfosClick" data-type="yuyue">我的预约</button>
-          <view class="d_text">2019-07-10 09:15-11:00</view>
+          <button class="d_col_con_lf btn_light_blue" bindtap="dynamicInfosClick" data-type="yuyue">我的预约</button>
+          <view class="d_text">
+            <view class="d_text_con">{{dynamicInfos.appointment}}</view>
+          </view>
         </view>
         <view class="d_row d_row_start">
-          <button class="btn_light_green" bindtap="dynamicInfosClick" data-type="yuyue">我的排队</button>
-          <view class="d_text">票号：05， 前方6人</view>
+          <button class="d_col_con_lf btn_light_green" bindtap="dynamicInfosClick" data-type="yuyue">我的排队</button>
+          <view class="d_text">
+            <view class="d_text_con">{{dynamicInfos.lineUp}}</view>
+          </view>
         </view>
         <view class="d_row d_row_start">
-          <button class="btn_light_pink" bindtap="dynamicInfosClick" data-type="jindu">办件进度</button>
-          <view class="d_text d_row">
-            <text>卫生许可证审批</text>
-            <text class="blue_btn_status">办理中</text>
+          <button class="d_col_con_lf btn_light_pink" bindtap="dynamicInfosClick" data-type="jindu">办件进度</button>
+          <view class="d_text">
+            <view class="d_text_con">
+              <text>{{dynamicInfos.progress}}</text>
+              <text class="blue_btn_status">办理中</text>
+            </view>
           </view>
         </view>
       </view>
-      <view class="d_col_con qrcode_img" bindtap="toMyQrCode">
+      <view class="d_col_rt qrcode_img" bindtap="toMyQrCode">
         <!-- <image bindtap="previewImg" mode="scaleToFill" src="{{qrCodeUrl}}"></image> -->
         <canvas style="width: 30vw;height: 30vw;background:#f1f1f1;" canvas-id="qrcanvas" />
 
@@ -86,5 +102,6 @@
     <button bindtap="intellectConsultation">智能咨询</button>
     <button bindtap="lianxi">联系我们</button>
     <button bindtap="service">大厅服务</button>
+    
   </view>
 </view>

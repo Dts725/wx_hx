@@ -29,7 +29,11 @@ Page({
   onShow: function () {
 
   },
-
+  shenban(){
+    wx.navigateTo({
+      url: '../bid/bid',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

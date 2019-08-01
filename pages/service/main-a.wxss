@@ -95,3 +95,16 @@
   margin-top: 2vw;
   font-size: 3.2vw;
 }
+
+
+.myCanvas {
+   width:0;
+   height: 0;
+   overflow: hidden;
+}
+.image{
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 50%
+}

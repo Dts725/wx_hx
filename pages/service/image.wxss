@@ -1,0 +1,75 @@
+/* pages/service/image.wxss */
+.image-example{
+  width: 100%;
+  height: 100vh;
+}
+.image{
+      position: relative;
+      width: 100vw;
+      height: 280px;
+      overflow: hidden;
+      transition: 0.5s;
+}
+.span{
+    display: block;
+    width: 100vw;
+    height: 280px;
+    position: absolute;
+    transform: scale(1.5);
+    transition: 0.6s;
+    left: 0;
+    top: 0;
+    z-index: -999;
+    background-repeat: no-repeat;
+    background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20181225/da0e466c238449abb19e7a0cc2d84015.png');
+    background-size: cover 
+}
+.ul{
+  list-style: none;
+  font-size: 0;
+}
+.li{
+  width: 50vw;
+  height: 140px;
+  background-image: url('http://img95.699pic.com/photo/50055/5642.jpg_wh300.jpg');
+  background-repeat: no-repeat;
+  transition: 0.5s;
+
+}
+.lione {
+  background-position: 0% 0%;
+}
+.litwo{
+  background-position: -50vw 0%;
+  position: absolute;
+  left: 50vw;
+  top: 0;
+ 
+}
+.lithree{
+  background-position:  0% -140px;
+}
+.lifour{
+ background-position:  -50vw -140px;
+ position: absolute;
+ left: 50vw;
+ top: 140px;
+}
+.image-active .span{
+   transform: scale(1);
+}
+.image-active .lione{
+    background-position: 0% 140px;
+}
+.image-active .litwo{
+    background-position: -150vw 0%;
+   
+}
+.image-active .lithree{
+    background-position:  50vw -140px;
+}
+.image-active .lifour{
+   background-position:  -50vw -300px;
+  
+}
+  

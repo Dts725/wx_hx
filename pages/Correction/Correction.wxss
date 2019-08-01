@@ -32,3 +32,73 @@
   font-weight: 700;
   color: #1d8aff;
 }
+
+.item-img1 {
+  clip-path: polygon(0% 0, 20% 0%, 20% 100%, 0% 100%);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.item-img2 {
+  clip-path: polygon(19% 0, 40% 0, 40% 100%, 19% 100%);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.item-img3 {
+  clip-path: polygon(39% 0, 60% 0%, 60% 100%, 39% 100%);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.item-img4 {
+  clip-path: polygon(59% 0, 80% 0%, 80% 100%, 59% 100%);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.item-img5 {
+  clip-path: polygon(79% 0, 100% 0, 100% 100%, 79% 100%);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.translation-01 {
+  top: 0;
+  opacity: 1;
+  transition: all 500ms ease-in-out 0s;
+}
+
+.translation-02 {
+  top: 0;
+  opacity: 1;
+  transition: all 500ms ease-in-out 0.1s;
+}
+
+.translation-03 {
+  top: 0;
+  opacity: 1;
+  transition: all 500ms ease-in-out 0.2s;
+}
+
+.translation-04 {
+  top: 0;
+  opacity: 1;
+  transition: all 500ms ease-in-out 0.3s;
+}
+
+.translation-05 {
+  top: 0;
+  opacity: 1;
+  transition: all 500ms ease-in-out 0.4s;
+}

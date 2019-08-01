@@ -24,10 +24,22 @@ Page({
       setInter: "",//录音名称
       inputMediaSrc: '', // 录音上传后返回的wav文件名称
       showUrl: '',  // fileUrl
+      // inputText: '上海天气怎么样',  // 语音识别或者输入的内容
       inputText: '',  // 语音识别或者输入的内容
       resultText: '',  // 语音识别结果文本
       resultMedia: '', // 语音识别结果
+      // resultMedia: 'https://webfs.yun.kugou.com/201907211042/ef5c989dd7a8a0706679fe211f606539/G166/M08/02/1D/hpQEAF0wEruAQv1pADqzszHzI8s048.mp3', // 语音识别结果
     },
+    backMediaManager: '',  // 全局唯一背景音频管理器
+    // 常用的搜索项
+    commonlyBox: {
+      list: [
+        { id: 1, name: '我要开书店' },
+        { id: 2, name: '开超市' },
+        { id: 3, name: '开理发店' },
+        { id: 4, name: '开饭店' },
+      ]
+    }
   },
   /** 开始按住 */
   touchstart(e) {
@@ -51,42 +63,14 @@ Page({
         'record.recordingTimeqwe': 0
       })
     }, 1000);
-    // console.log('touchend:::', e, '  time:::', this.data.recordingTimeqwe);
   },
   /** 开始输入 */
   onInput(e) {
     this.setData({
       'record.inputText': e.detail.value
     });
-    // console.log('开始输入：：', e, d, f);
   },
-  /** 点击搜索按钮 */
-  onSearch() {
-    if (limitMoreClick.no_more() < 1) { return; }
-    console.log(this.data.record.inputText, app);
-    let _this = this;
-    // 图灵机器人
-    this.tuling(this.data.record.inputText);
-    // 讯飞机器人
-    // this.xunfei_aiui(this.data.record.inputText);
 
-
-    // wx.request({
-    //   url: app.globalData.api + _this.data.scene.url + (this.data.record.inputText ? '?name=' + this.data.record.inputText : ''),
-    //   method: 'get',
-    //   success: (res) => {
-    //     if (res.data.code == 0) {
-    //       this.setData({
-    //         'scene.list': res.data.data.data
-    //       });
-    //       console.log(this.data.scene.list);
-    //     }
-    //   },
-    //   fail: (res) => {
-    //     console.log('fail', res);
-    //   }
-    // });
-  },
   //录音计时器
   recordingTimer(max, callback) {
     var that = this;
@@ -148,14 +132,11 @@ Page({
     })
     recorderManager.stop();
     recorderManager.onStop((res) => {
-      console.log('。。停止录音。。', res.tempFilePath)
       const { tempFilePath } = res;
       //结束录音计时  
       clearInterval(that.data.record.setInter);
-      // // 讯飞机器人
-      // that.xunfei_aiui(tempFilePath);
-      // that.tuling(app.globalData.fileUrl + 'hexifile/bj_weather.wav');
-      return;
+      // console.log('。。停止录音。。', tempFilePath);
+      // that.recordingAndPlaying(tempFilePath);
       //上传录音
       wx.uploadFile({
         url: app.globalData.api + 'file/upload',//这是你自己后台的连接
@@ -172,72 +153,120 @@ Page({
           praisepoints: 0
         },
         success(ress) {
-          console.log('保存完成:::', ress, typeof (ress));
           let dat = (typeof (ress.data) == 'string' && ress.data.indexOf('{') > -1) ? JSON.parse(ress.data) : ress.data;
           that.setData({
             'record.inputMediaSrc': dat.data.store_result,
             'record.showUrl': app.globalData.fileUrl,
           });
-          // that.tuling(app.globalData.fileUrl + dat.data.store_result);
-          that.mp3ToWav(app.globalData.fileUrl + dat.data.store_result).then(res => {
-            if (res.data) {
-              that.setData({
-                'record.resultPlaySrc': app.globalData.fileUrl + res.data
-              });
-              // 播放音频
-              // that.recordingAndPlaying(app.globalData.fileUrl + res.data);
-
-              // that.tuling(app.globalData.fileUrl + res.data);
-              // that.tuling(app.globalData.fileUrl + 'hexifile/Free-Converter.com-5d2c31ab04d3d__!tmp_a6bfa0d7ebb30d1be287a8313e5986013b9dad63f8444aaa-53010125.wav');
-              // that.tuling(app.globalData.fileUrl + 'hexifile/bj_weather.wav');
-              // 讯飞机器人
-              // that.xunfei_aiui(app.globalData.fileUrl + res.data);
-              // that.xunfei_aiui(app.globalData.fileUrl + 'hexifile/bj_weather.wav');
-            }
+          // console.log('上传后返回的mp3地址：：', app.globalData.fileUrl + dat.data.store_result);
+          // that.recordingAndPlaying(app.globalData.fileUrl + dat.data.store_result);
+          // 语音聊天 - 接口封装版
+          that.audioChat('audio', dat.data.store_result).then(res => {
+            that.setData({
+              'scene.list': res.data.data || []
+            });
+            that.readResult(res.data.data);
+          }).catch(err => {
+            console.error('语音接口返回错误：', err);
           });
-          wx.showToast({
-            title: '保存完成',
-            icon: 'success',
-            duration: 2000
-          })
+          // wx.showToast({
+          //   title: '保存完成',
+          //   icon: 'success',
+          //   duration: 2000
+          // })
         },
         fail(ress) {
           console.log("。。录音保存失败。。");
         }
       });
-
-
-
-
-      // wx.uploadFile({
-      //   url: appURL + '/wx_SubjectInformation/wx_SubjectRecordKeeping.do',//这是你自己后台的连接
-      //   filePath: tempFilePath,
-      //   name:"file",//后台要绑定的名称
-      //   header: {
-      //     "Content-Type": "multipart/form-data"
-      //   },
-      //   //参数绑定
-      //   formData:{
-      //     recordingtime: that.data.recordingTimeqwe,
-      //     topicid: that.data.topicid,
-      //     userid:1,
-      //     praisepoints:0
-      //   },
-      //   success(ress){
-      //     console.log(res);
-      //     wx.showToast({
-      //       title: '保存完成',
-      //       icon:'success',
-      //       duration:2000
-      //     })
-      //   },
-      //   fail(ress){
-      //     console.log("。。录音保存失败。。");
-      //   }
-      // });
     })
   },
+  /** 点击搜索按钮 */
+  onSearch(text) {
+    text = text || this.data.record.inputText;
+    if (limitMoreClick.no_more() < 1) { return; }
+    let _this = this;
 
+    // this.xunfei_aiui(this.data.record.inputText);
+    // return;
+    // 语音聊天 - 接口封装版
+    this.audioChat('text', text).then(res => {
+      this.setData({
+        'scene.list': res.data.data || []
+      });
+      this.readResult(res.data.data);
+    });
+  },
+  /** 语音播报 */
+  readResult(res) {
+    let dat = {};
+    if (Array.isArray(res)) {
+      res.forEach(r => {
+        if (r.intent && r.intent.answer) {
+          dat = r.intent.answer;
+        }
+      });
+    }
+    if (!dat.text) {
+      wx.showToast({
+        title: '走神了，没听清楚！！！',
+        icon: 'none',
+        duration: 3000
+      })
+      return;
+    }
+    this.textToAudio(dat.text).then(re => {
+      this.setData({
+        'record.resultMedia': app.globalData.fileUrl + re.data.data
+      });
+      // 开始播放
+      this.recordingAndPlaying(this.data.record.resultMedia);
+    });
+  },
+  /** 常用的搜索项 */
+  commonlySearch(e) {
+    let text = e.target.dataset.name || '';
+    if (text) {
+      this.onSearch(text);
+    }
+  },
+  /**
+   * 后端封装的语音聊天接口
+   *
+   * @param {*} type  类型 audio / text
+   * @param {*} con   内容 文字或者mp3的服务器中的文件名
+   */
+  audioChat(type, con) {
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `${app.globalData.api}small/xunfei?DATA_TYPE=${type}&TEXT=${con}`,
+        method: 'get',
+        success: (res) => {
+          if (typeof (res.data) == 'string') {
+            reject(res);
+          } else {
+            resolve(res);
+          }
+        },
+        fail: (res) => {
+          console.log('fail', res);
+          reject(res);
+        }
+      });
+    });
+  },
+
+
+  /** 播放控制 */
+  readManager(e) {
+    let type = e.target.dataset.type;
+    // 朗读
+    if (type == 1) {
+      this.recordingAndPlaying();
+    } else if (type == 0) {  // 停止
+      this.data.backMediaManager.stop();
+    }
+  },
 
 
   // mp3转wav
@@ -263,23 +292,38 @@ Page({
 
   //播放背景音频
   recordingAndPlaying(url) {
-    wx.playBackgroundAudio({
-      //播放地址
-      dataUrl: url,
-      // 接口调用结束的回调函数（调用成功、失败都会执行
-      complete: function (e, d, f) {
-        console.log('接口调用结束的回调函数（调用成功、失败都会执行:::', e, d, f);
-      }
-    })
+    url = url || this.data.record.resultMedia;
+    if (url) {
+      this.data.backMediaManager.src = url;
+      this.data.backMediaManager.play();
+    }
   },
 
   // 语音识别
   audioToText(url) {
 
   },
-  // 语音合成
-  textToAudio(text) {
 
+
+  // 文字转语音 语音合成 封装的接口
+  textToAudio(text) {
+    if (!text) { return; }
+    let data = { TEXT: text };
+    return new Promise((resolve, reject) => {
+      // http://hexi.shyunhua.com/small/baiduspeech     post   参数TEXT
+      wx.request({
+        url: app.globalData.api + 'small/baiduspeech',
+        data: data,
+        method: 'post',
+        success: (res) => {
+          resolve(res);
+        },
+        fail: (res) => {
+          console.log('fail', res);
+          reject(res);
+        }
+      });
+    });
   },
 
 
@@ -293,7 +337,7 @@ Page({
   // 讯飞aiui
   // AIUI是科大讯飞提供的一套人机智能交互解决方案， 旨在实现人机交互无障碍，使人与机器之间可以通过语音、图像、手势等自然交互方式，进行持续，双向，自然地沟通
   xunfei_aiui(info) {
-    info = info || '讲个笑话';
+    info = info || '上海天气怎么样';
     let apiKey = 'a8c55002e4de4d88ace409b3314702eb',
       // auth_id = '52026deefa6c44a45d6ced68693b0970';
       auth_id = '0981ce1ccc0a10ebc04bb4178d7a635e';
@@ -326,7 +370,6 @@ Page({
     // let data = base64.CusBASE64.encoder(info);
     // let data = '5YyX5Lqs5aSp5rCU5oCO5LmI5qC3';
     console.log('输入的信息：：：', info, ' 编译后的信息：：', data);
-    debugger;
     wx.request({
       url: 'https://openapi.xfyun.cn/v2/aiui',
       header: {
@@ -353,6 +396,8 @@ Page({
         this.setData({
           'scene.list': res.data.data || []
         });
+        this.readResult(res.data.data);
+        // this.textToAudio(res.data.data[0].intent.answer.text || '');
         // if (res.data.results[0].values.url) {
         //   wx.navigateTo({
         //     url: './consultation_html_result?url=' + res.data.results[0].values.url
@@ -365,7 +410,7 @@ Page({
     });
   },
 
-  // 图灵机器人
+  // 图灵机器人 - 只支持文字问答，不支持语音问答
   tuling(info) {
     info = info || '附近的地铁站';
     let data = {
@@ -452,7 +497,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 智能咨询中 语音播放相关的
+    let backMediaManager = wx.getBackgroundAudioManager();
+    backMediaManager.title = '问题答案';
+    backMediaManager.epname = '问题答案';
+    backMediaManager.singer = '小云小云';
+    backMediaManager.coverImgUrl = '';
+    this.setData({
+      backMediaManager: backMediaManager
+    });
   },
 
   /**

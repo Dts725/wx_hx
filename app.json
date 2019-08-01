@@ -1,9 +1,11 @@
 {
   "pages": [
-        "pages/index/index",
+      "pages/Correction/Correction",
+    "pages/index/index",
+    
     "pages/Correction/detail/detail",
-    "pages/Correction/Correction",
-
+      "pages/service/index",
+    "pages/service/arrow",
     "pages/myVideo/index",
     "pages/video/video",
     "pages/consultation_category/category",
@@ -41,8 +43,12 @@
     "pages/index/guide",
     "pages/video/videoInfo",
     "pages/consultation/consultation_html_result",
-    "pages/concat/concat"
-
+    "pages/concat/concat",
+    "pages/service/main-a",
+    "pages/service/image"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
   ],
   "window": {
     "backgroundTextStyle": "light",

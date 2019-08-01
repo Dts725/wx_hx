@@ -12,6 +12,34 @@ Page({
     flag: true,
     tokens: '',
     qrCodeUrl: '', // 二维码地址
+    // 顶部swiper使用的数据
+    swiper: {
+      imgUrls: [
+        // 'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+        // 'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+        // 'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+        // '../../static/images/index-banner.png',
+        // '../../static/images/regulation-header.png',
+        // '../../static/images/v_02.png',
+      ],
+      indicatorDots: true,
+      indicatorColor: '#4984F8',
+      indicatorActiveColor: '#4CAF50',
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      circular: true, // 无缝衔接
+      imgUrls:[]
+    },
+    // 中间动态信息
+    dynamicInfos: {
+      // 预约
+      appointment: '2019-07-10 09:15-11:00 我发觉我我就I我接见我I金额发',
+      // 排队
+      lineUp: '票号：05， 前方6人',
+      // 进度
+      progress: '卫生许可证审批',
+    }
   },
 
 
@@ -20,33 +48,87 @@ Page({
    */
   onLoad: function (options) {
     // wx.setStorageSync('1', 0)
+    // console.log('1', this.data.dynamicInfos, '2')
     this.setData({
       tokens: wx.getStorageInfoSync('token')
     })
+    var that = this;
+    wx.request({
+      url: 'https://hexi.shyunhua.com/Index_Set',
+      method: 'get',
+      success: res => {
+        if (res.data.code == 0) {
+          var all = []
+
+          for (var i = 0; i < res.data.data.data.length; i++) {
+            if (res.data.data.data[i].is_show == '1') {
+              that.data.swiper.imgUrls.push('https://file.shyunhua.com/' + res.data.data.data[i].image)
+            }
+          }
+        }
+      }
+    })
 
   },
-
+onShow:function(){
+  var that = this;
+  wx.request({
+    url: 'https://hexi.shyunhua.com/Index_Set',
+    method: 'get',
+    success: res => {
+      if (res.data.code == 0) {
+        var all = []
+        for (var i = 0; i < res.data.data.data.length; i++) {
+          if (res.data.data.data[i].is_show == '1') {
+            that.data.swiper.imgUrls.push('https://file.shyunhua.com/' + res.data.data.data[i].image)
+          }
+        }
+      }
+    }
+  })
+ 
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     // this.isLogin()
     this.getUserImg();
+    var all = []
+    var that = this;
+    wx.request({
+      url: 'https://hexi.shyunhua.com/Index_Set',
+      method: 'get',
+      success: res => {
+        if (res.data.code == 0) {
+         
 
-
+          for (var i = 0; i < res.data.data.data.length; i++) {
+            if (res.data.data.data[i].is_show == '1') {
+             all.push('https://file.shyunhua.com/' + res.data.data.data[i].image)
+            }
+          }
+        }
+      }
+    })
+  setInterval(function(){
+    that.setData({
+      imgUrls:all
+    })
+  },100)
   },
 
   //是否登录
   lianxi() {
-    // wx.navigateTo({
-    //   url: '../concat/concat',
-    // })
-    wx.openLocation({//​使用微信内置地图查看位置。
-      latitude: 39.070220,//要去的纬度-地址
-      longitude: 117.249500,//要去的经度-地址
-      name: "天津市河西区行政许可服务中心",
-      address: '天津市河西区洞庭路20号'
+    wx.navigateTo({
+      url: '../concat/concat',
     })
+    // wx.openLocation({//​使用微信内置地图查看位置。
+    //   latitude: 39.070220,//要去的纬度-地址
+    //   longitude: 117.249500,//要去的经度-地址
+    //   name: "天津市河西区行政许可服务中心",
+    //   address: '天津市河西区洞庭路20号'
+    // })
   },
   isLogin() {
     if (!wx.getStorageSync('isLogin')) {
@@ -68,7 +150,7 @@ Page({
 
   },
   // 大厅服务
-  service(){
+  service() {
     wx.navigateTo({
       url: '../service/main-a',
     })
@@ -207,7 +289,7 @@ Page({
       switch (type) {
         case 'zhinan':
           wx.navigateTo({
-            url: './guide'
+            url: '../Correction/Correction?id=2',
           })
           break;
         case 'zhibo':

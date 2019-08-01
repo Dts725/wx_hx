@@ -18,12 +18,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData,99)
+    // console.log(app.globalData,99)
     // 页面初始化 options为页面跳转所带来的参数
-    var size = this.setCanvasSize();//动态设置画布大小
-    // var initUrl = app.globalData.loginInfo.code;
-    var initUrl ='o58UM5EIJT081Gs59dwrZeRrm9_U';
-    this.createQrCode(initUrl, "mycanvas", size.w, size.h);/////绘制二维码图片
+    // var size = this.setCanvasSize();//动态设置画布大小
+    // // var initUrl = app.globalData.loginInfo.code;
+    // var initUrl ='o58UM5EIJT081Gs59dwrZeRrm9_U';
+    // this.createQrCode(initUrl, "mycanvas", size.w, size.h);/////绘制二维码图片
   },
   //适配不同屏幕大小的canvas
   setCanvasSize: function () {
@@ -55,7 +55,7 @@ Page({
       canvasId: 'mycanvas',
       success: function (res) {
         var tempFilePath = res.tempFilePath;
-        console.log(tempFilePath);
+        console.log(tempFilePath,'54444444444444');
         that.setData({
           imagePath: tempFilePath,
           // canvasHidden:true
@@ -102,14 +102,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var size = this.setCanvasSize();//动态设置画布大小
+    // var initUrl = app.globalData.loginInfo.code;
+    var initUrl = 'o58UM5EIJT081Gs59dwrZeRrm9_U';
+    this.createQrCode(initUrl, "mycanvas", size.w, size.h);/////绘制二维码图片
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('343434')
+    // var size = this.setCanvasSize();//动态设置画布大小
+    // // var initUrl = app.globalData.loginInfo.code;
+    // var initUrl = 'o58UM5EIJT081Gs59dwrZeRrm9_U';
+    // this.createQrCode(initUrl, "mycanvas", size.w, size.h);/////绘制二维码图片
   },
 
   /**

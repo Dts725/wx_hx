@@ -1,0 +1,12 @@
+<!--pages/service/image.wxml-->
+<view class='image-example'>
+  <view class="image {{isClick?'image-active':''}}" bindtap='start'>
+    <view class='ul'>
+      <view class='li lione'></view>
+      <view class='li litwo'></view>
+      <view class='li lithree'></view>
+      <view class='li lifour'></view>
+      <view class='span'></view>
+    </view>
+  </view>
+</view>

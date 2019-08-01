@@ -11,14 +11,28 @@
     <view class="{{tableFlag ? 'selected' : '' }}" bindtap='tableSelectFn'>主题</view>
     <view class="ml-2rem;{{tableFlag ? '' : 'selected' }}" bindtap='tableSelectFn'>部门</view>
   </view>
-<!-- 部门 -->
+  <!-- 部门 -->
   <view class='flex-center-start-wrap table-item' wx:if="{{tableFlag}}">
     <view wx:for="i in 10" wx:key="index" class='w20' bindtap='bindFn'>主题</view>
   </view>
 
-<!-- 主题 -->
+  <!-- 主题 -->
   <view class='flex-center-start-wrap table-item' wx:else>
     <view wx:for="i in 10" wx:key="index" class='w20' bindtap='bindFn'>部门</view>
   </view>
+
+<!--  ./../static/images/guide.png-->
+  <view class='w100  pr' style='over-flow:hidden;'>
+    <image class='w100'  mode="center" src="../../static/images/banjian.png"></image>
+    <!-- <view class='w100'> -->
+     <image class='item-img1 w100 {{addClass[0]}}' mode="center" src="../../static/images/guide.png"></image>
+     <image class='item-img2 w100 {{addClass[1]}}' mode="center" src="../../static/images/guide.png"></image>
+     <image class='item-img3 w100 {{addClass[2]}}' mode="center" src="../../static/images/guide.png"></image>
+     <image class='item-img4 w100 {{addClass[3]}}' mode="center" src="../../static/images/guide.png"></image>
+     <image class='item-img5 w100 {{addClass[4]}}' mode="center" src="../../static/images/guide.png"></image>
+    <!-- </view> -->
+  </view>
+
+  <button bindtap='turn'>切换样式</button>
 
 </view>

@@ -20,6 +20,11 @@ page {
   margin: 4vw auto 0 auto; */
 }
 
+.online-banner .slide-image {
+  width: 100%;
+  height: 100% !important;
+}
+
 .d_row {
   display: flex;
   justify-content: space-between;
@@ -30,22 +35,47 @@ page {
   justify-content: flex-start;
 }
 
+.dynamic_infos {
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.d_col_con {
+  width: 70vw;
+}
+
+.d_col_rt {
+  width: 30vw;
+}
+
 .d_col_con .d_row {
   margin-bottom: 1vw;
+  width: 100%;
 }
 
 .d_col_con .d_row:last-child {
   margin: 0;
 }
 
-.d_col_con {
-  font-size: 14px;
-}
-
-.d_col_con button {
+.d_col_con .d_col_con_lf {
   padding: 0 3.5vw;
   font-size: 12px;
   margin: 0 2vw 0 0;
+  width: 35%;
+}
+
+.d_col_con .d_text {
+  width: 65%;
+  overflow: auto;
+}
+
+.d_col_con .d_text .d_text_con {
+  /* width: 500%; */
+  display: flex;
+  justify-content: flex-start;
+  /* word-wrap:normal;
+  word-break:normal; */
+  white-space: nowrap;
 }
 
 .qrcode_img image {
@@ -164,6 +194,7 @@ page {
   /* bottom: 50rpx; */
   background-color: #fff;
   padding: 6vw 6vw 6vw 16vw;
+  box-sizing: border-box;
 }
 
 .footer_bg {
@@ -189,11 +220,12 @@ page {
 
 .blue_btn_status {
   color: #fff;
-  background-color: #4984F8;
-  padding: 0.5vw 2vw;
-  border-radius: 1vw;
+  background-color: #4CAF50;
+  padding: 0.3vw 3vw;
+  border-radius: 5vw;
   font-size: 2.5vw;
   margin-left: 2vw;
+  line-height: 2;
 }
 
 /* btn公用按钮 */

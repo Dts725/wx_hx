@@ -85,5 +85,9 @@
               </view>
          </view>
       </view>
+     
    </view>
+    <view class='dibu'>
+          <button bindtap='shenban' class='shenban'>我要申办</button>
+    </view>
 </view>

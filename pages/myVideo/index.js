@@ -12,12 +12,14 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     url: app.globalData.api,
+    page: 1,
+    current_page: 1,
     cardDataVideo: [],
     sstatus: 1,// 1是滑动到顶部 2是滑动中中 3是滑动到底部
     isRefresh: false,//是否显示刷新头
     isLoadMore: false,//加载更多
     clientY: 0,//Y方向手指按下的方向
-    height:'',
+    height: '',
   },
   //获取点播列表
   getList(url) {
@@ -112,7 +114,7 @@ Page({
       activeIndex: e.currentTarget.id,
       tabId: e.currentTarget.id,
     });
-    this.getList('admin/live/video_on_demand?type=0&is_show=1')
+    this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
   },
   //视频列表详情
   videoInfo(e) {
@@ -122,7 +124,19 @@ Page({
   },
   //收藏视频
   collect(e) {
-    console.log(e.currentTarget.dataset.id)
+    let text = '确定收藏该视频吗？';
+    wx.showModal({
+      title: '提示',
+      content: text,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          console.log(e.currentTarget.dataset.id)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
     // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
   },
   /**
@@ -141,7 +155,7 @@ Page({
     });
   },
   onShow: function (e) {
-    this.getList('admin/live/video_on_demand?type=0&is_show=1')
+    this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
     setTimeout(() => {
       wx.getSystemInfo({
         success: res => {
@@ -197,16 +211,18 @@ Page({
     //上拉刷新
     if (status == 1 && pointTopointY > 50) {
       this.setData({
+        page: 1,
         isRefresh: true
       })
-      this.getList('admin/live/video_on_demand?type=0&is_show=1')
+      this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
     }
     //上拉加载
     if (status == 3 && pointTopointY < -50) {
       this.setData({
+        page: this.data.page + 1,
         isLoadMore: true
       })
-      this.getList('admin/live/video_on_demand?type=0&is_show=1')
+      this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
     }
   },
 })

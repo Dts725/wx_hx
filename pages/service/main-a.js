@@ -1,12 +1,18 @@
 // pages/service/main-a.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     currentTabs:[],
-     currentNav:0,
+    showModal:false,
+    canvasHidden:true,
+    previewPng:'',
+    bannerPng:'',
+    allBannerPng: ['../../static/banner.jpg', '../../static/4.jpg', '../../static/test/1.jpg','../../static/test/2.jpg'],
+    currentTabs:[],
+    currentNav:0,
      allTabs:[
          {
           name:'办事厅A',
@@ -88,28 +94,105 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-        this.setData({
-          currentTabs:this.data.allTabs[0]
+    let that = this;
+    wx.request({
+      url: app.globalData.api + 'Dating_Area_Set',
+      success:function(res){
+          console.log(res.data.data.data);
+          let result = res.data.data.data;
+          let bannerTab = [];
+          result.map((item) => {
+            bannerTab.push(app.globalData.fileUrl + item.icon)
+          })
+        that.setData({
+          fileUrl:app.globalData.fileUrl,
+          allBannerPng: bannerTab,
+          allTabs:result,
+          currentTabs: result[0],
+          bannerPng: bannerTab[0]
         })
+       // that.createImg(that.data.bannerPng)
+      }
+    })
+        
   },
   switch: function (e){
+   //  this.createImg(this.data.allBannerPng[e.target.dataset.index])
      this.setData({
         currentTabs: this.data.allTabs[e.target.dataset.index],
-        currentNav: e.target.dataset.index
+        currentNav: e.target.dataset.index,
+        bannerPng: this.data.allBannerPng[e.target.dataset.index]
       })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
-
+  previewImg(e){
+    // var that = this;
+    // var img = e.target.dataset.src;
+   
+    // wx.previewImage({
+    //   urls: [this.data.previewPng],
+    //   current: this.data.previewPng,
+    // })
+    this.setData({
+      showModal: true
+    })
+  },
+  close(){
+    this.setData({
+      showModal: false
+    })
+  },
+  createImg(img){
+    var that = this;
+    const ctx = wx.createCanvasContext('attendCanvasId');
+    wx.getImageInfo({
+      src: img,
+      success: function (res) {
+        console.log(res)
+        var scale = res.width / res.height
+        that.setData({ //构造画板宽高
+          canWidth: 200,
+          canHeight: 200 / scale
+        })
+        
+        ctx.drawImage(img, 0, 0, that.data.canWidth, that.data.canHeight);
+        setTimeout(function () {
+          ctx.draw(false, function () {
+            wx.canvasToTempFilePath({
+              canvasId: 'attendCanvasId',
+              success: function success(res) {
+                that.setData({
+                  previewPng: res.tempFilePath
+                })
+                // wx.previewImage({
+                //   urls: [res.tempFilePath],
+                //   current: res.tempFilePath,
+                // })
+              }
+            })
+          })
+        }, 500)
+      }
+    })
+  },
+ 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
+    var widthRpx = Math.floor((750 / wx.getSystemInfoSync().windowWidth) *100 ) / 100
+    var width = ((widthRpx * wx.getSystemInfoSync().windowWidth) * 100) / 750
+   
+    var heightRpx = Math.floor((750 / wx.getSystemInfoSync().windowWidth) * 100) / 100
+    var height = ((heightRpx * wx.getSystemInfoSync().windowHeight) * 100) / 750
+    this.setData({
+      imageWidth: width,
+      imageHeight: height,
+      left: 0 - (height - width) / 2  ,
+      top: (height - width) / 2 
+    })
+ 
   },
 
   /**

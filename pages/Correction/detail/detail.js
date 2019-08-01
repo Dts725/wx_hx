@@ -7,6 +7,7 @@ Page({
   data: {
     data: [{
       name: "司法公正",
+      id:'',
       view: true,
       child: [{
         item: '娱乐场所设施许可',
@@ -37,16 +38,25 @@ Page({
   // 页面跳转
 
   routerFn() {
-    wx.navigateTo({
-      url: '../../bid/bid',
-    })
+    if(this.data.id=='2'){
+      wx.navigateTo({
+        url: '../../index/guide',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../../bid/bid',
+      })
+    }
+   
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id
+    })
   },
 
   /**

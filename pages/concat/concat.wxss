@@ -1,1 +1,15 @@
 /* pages/concat/concat.wxss */
+.dizhi view{
+  color: #24a599;
+  padding-left: 20rpx;
+ margin-bottom:10rpx;
+
+}
+.dizhi{
+  margin-top: 30rpx;
+}
+.concat{
+  font-weight: bold;
+  font-size:38rpx;
+
+}

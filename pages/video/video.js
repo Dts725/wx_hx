@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs:["简介","互动","点播"],
+    tabs: ["简介", "互动", "点播"],
     tabId: 0,
     activeIndex: 0,
     sliderOffset: 0,
@@ -41,10 +41,10 @@ Page({
       title: '',
       shows: true,
     }],
-    art:'',
-    text:'',
+    art: '',
+    text: '',
     dialogShow: false,
-    height:0,
+    height: 0,
     sstatus: 1,// 1是滑动到顶部 3是滑动到底部
     isRefresh: false,//是否显示刷新头
     isLoadMore: false,//加载更多
@@ -60,7 +60,7 @@ Page({
       url: this.data.url + url,
       success: (res) => {
         if (res.data.code == 0) {
-          if (res.data.data.data.length <= 0 && this.data.page != 1) {
+          if (res.data.data.data.length <= 0 && this.data.page !== 1) {
             wx.showToast({
               title: '已经到底了',
               icon: 'none',
@@ -121,7 +121,7 @@ Page({
           newData.forEach(item => {
             item.create_time = dateformat.dateformat.format(new Date(item.create_time), 'yyyy-MM-dd')
           })
-          if (this.data.isRefresh || this.data.isLoadMore){
+          if (this.data.isRefresh || this.data.isLoadMore) {
             wx.showToast({
               title: '刷新成功',
               icon: 'none',
@@ -155,7 +155,7 @@ Page({
 
           newData[0].title = res.data.data.live_announce[0] ? res.data.data.live_announce[0].title : '暂无直播';
           let time1 = time ? dateformat.dateformat.format(new Date(Number(time) * 1000), 'yyyy-MM-dd hh:mm:ss') : dateformat.dateformat.format(new Date(), 'yyyy-MM-dd')
-          newData[0].start_time = time ? '直播时间：' + time1 : '日期：' + time1 ;
+          newData[0].start_time = time ? '直播时间：' + time1 : '日期：' + time1;
           this.setData({
             foldContent: newData,
             image: image,
@@ -196,7 +196,7 @@ Page({
       this.setData({
         countNum: 0
       });
-    if (e.detail.code == 3005){
+    if (e.detail.code == 3005) {
       this.countDown()
     }
   },
@@ -266,10 +266,10 @@ Page({
   },
   // 倒计时
   countDown() {
-    if (this.countInterval){
+    if (this.countInterval) {
       clearInterval(this.countInterval);
     }
-    if (this.interval){
+    if (this.interval) {
       clearInterval(this.interval);
     }
     this.countInterval = setInterval(() => {
@@ -312,46 +312,55 @@ Page({
       activeIndex: e.currentTarget.id,
       tabId: e.currentTarget.id,
     });
-    if (e.currentTarget.id == 2){
+    if (e.currentTarget.id == 2) {
       this.getList('admin/live/video_on_demand?type=0&is_show=1')
     }
   },
 
-  info(){
+  info() {
     // 显示遮罩层
     this.setData({
-      dialogShow:true,
+      dialogShow: true,
     })
     // WxParse.wxParse('article', 'html', this.data.art, this, 5);
   },
-  close(){
+  close() {
     // 隐藏遮罩层
     this.setData({
       dialogShow: false,
     })
   },
   //视频列表详情
-  videoInfo(e){
+  videoInfo(e) {
     wx.navigateTo({
       url: './videoInfo?id=' + e.currentTarget.dataset.id
     })
   },
   //收藏视频
-  collect(e){
-    console.log(e.currentTarget.dataset.id)
+  collect(e) {
+    let text = '确定收藏该视频吗？';
+    wx.showModal({
+      title: '提示',
+      content: text,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          console.log(e.currentTarget.dataset.id)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
     // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
   },
-  scrollTop(){
+  scrollTop() {
     this.setData({
-      page: 1,
       sstatus: 1
     });
     // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
   },
-  scrollBottom(){
-    console.log('下')
+  scrollBottom() {
     this.setData({
-      page: this.data.page + 1,
       sstatus: 3
     });
     // this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
@@ -379,6 +388,7 @@ Page({
     //上拉刷新
     if (status == 1 && pointTopointY > 50) {
       this.setData({
+        page: 1,
         isRefresh: true
       })
       this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
@@ -386,6 +396,7 @@ Page({
     //上拉加载
     if (status == 3 && pointTopointY < -50) {
       this.setData({
+        page: this.data.page + 1,
         isLoadMore: true
       })
       this.getList('admin/live/video_on_demand?type=0&is_show=1&page=' + this.data.page)
@@ -400,7 +411,7 @@ Page({
     //选项卡
     var that = this;
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         that.setData({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
@@ -422,7 +433,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    setTimeout(()=>{
+    setTimeout(() => {
       wx.getSystemInfo({
         success: res => {
           let clientHeight = res.windowHeight;
@@ -436,7 +447,7 @@ Page({
           }).exec()
         }
       });
-    },500)
+    }, 500)
 
     wx.setKeepScreenOn({
       keepScreenOn: true
@@ -482,7 +493,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**

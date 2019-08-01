@@ -2,7 +2,7 @@
 <view class='main-common main-a'>
   <view class='main-header'>
     <view class='main-photo'>
-      <image src='../../static/banner.jpg' mode="cover"></image>
+      <image src='{{bannerPng}}'  mode="scaleToFill" bindtap='previewImg'></image>
     </view>
     <view class='main-nav'>
       <view class='main-nav-container'>
@@ -14,23 +14,28 @@
   </view>
   <view class='main-content'>
     <view class='main-content-tabs'>
-      <view class='main-content-tabs-item' wx:for="{{currentTabs.tabs}}" wx:key="index">
-        <image src='{{item.icon}}' mode='cover'></image>
+      <view class='main-content-tabs-item' wx:for="{{currentTabs.tab_group}}" wx:key="index">
+        <image src='{{fileUrl}}{{item.image}}' mode='cover'></image>
         <text>{{item.name}}</text>
       </view>
     </view>
     <view class='main-content-intro'>
       <view class='main-content-intro-des'>
-         <text>{{currentTabs.intro}}</text>
+         <text>{{currentTabs.introduction}}</text>
       </view>
       <view class='main-content-intro-detail'>
          <view class='main-content-intro-detail-title'>服务内容</view>
          <view class='main-content-intro-detail-content'>
-              <view  wx:for="{{currentTabs.detail}}" wx:key="index">
-                <text>{{item.des}}</text>
-              </view>
+              <!-- <view  wx:for="{{currentTabs.detail}}" wx:key="index"> -->
+                <!-- <text>{{item.des}}</text> -->
+                <rich-text nodes="{{currentTabs.content}}"></rich-text>
+              <!-- </view> -->
          </view>
       </view>
     </view>
   </view>
+   <!-- <view class='myCanvas'>
+      <canvas canvas-id='attendCanvasId' style="width: {{canWidth}}px;height: {{canHeight}}px;overflow:hidden" hidden="{{canvasHidden}}"></canvas>
+    </view> -->
+    <image wx:if="{{showModal}}" bindtap='close' class='image' src='{{bannerPng}}' style='width:{{imageHeight}}vmin;height:{{imageWidth}}vmin;transform:rotate(90deg);left:{{left}}vmin;top:{{top}}vmin'></image>
 </view>

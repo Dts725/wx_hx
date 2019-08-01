@@ -31,6 +31,8 @@
 .index-guide__content{
    margin: 4vw auto;
    font-size: 3vw;
+   margin-bottom:120rpx;
+
 }
 .index-guide__content-item:not(:nth-last-child(1)){
   margin-bottom: 4vw;
@@ -80,4 +82,29 @@
   right: 4vw;
   font-size: 12vw;
   font-family: serif
+}
+
+
+
+
+
+
+
+.shenban{
+  color: white;
+  background: #1d8aff;
+  width:60%;
+  height:80rpx;
+  border-radius:40rpx;
+}
+.dibu{
+  background:white;
+  position:absolute;
+  width:100%;
+  height:100rpx;
+  position:fixed;
+  bottom:0;
+  display:flex;
+  align-items:center;
+
 }

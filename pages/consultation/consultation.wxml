@@ -15,7 +15,7 @@
 </view> -->
 
 <view class="record-inpuit">
-  <input type="text" confirm-type="search" value="{{record.resultText}}" bindinput="onInput" />
+  <input type="text" confirm-type="search" value="{{record.inputText}}" bindinput="onInput" />
   <!-- <icon type="search"></icon> -->
   <image class="icon" src='../../static/zizhu/search.png' mode='widthFix' bindtap="onSearch"></image>
 </view>
@@ -26,7 +26,17 @@
     <text>{{item.name}}</text> -->
     <text wx:if="{{item.values.text}}">{{item.values.text}}</text>
     <text wx:if="{{item.intent.answer.text}}">{{item.intent.answer.text}}</text>
+    <!-- <button class="relisten" bindtap="reListen" wx:if="{{item.values.text||item.intent.answer.text}}">重新朗读</button> -->
   </view>
+  <view class="yh-row reading yh-row-start" wx:if="{{scene.list.length>0}}">
+    <button class="relisten" bindtap="readManager" data-type="1" type="primary">朗读</button>
+    <button class="relisten" bindtap="readManager" data-type="0" type="warn">停止</button>
+  </view>
+</view>
+<!-- 常用的搜索项 -->
+<view class="record_body">
+  <button class="record_body_btns btn_light_blue" wx:for="{{commonlyBox.list}}" wx:key="{{item.id}}"
+    data-name="{{item.name}}" bindtap="commonlySearch">{{item.name}}</button>
 </view>
 <view bindtap="gonext">下一页</view>
 <view class="record-foot">
@@ -37,4 +47,9 @@
     </view>
     <text>按住说话</text>
   </view>
+</view>
+<!-- 客服按钮 -->
+<view class="customer_service">
+  <button open-type="contact" bindcontact="handleContact"></button>
+  <image src='../../static/images/kefu.png' mode='widthFix'></image>
 </view>
